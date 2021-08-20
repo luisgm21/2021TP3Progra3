@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Formulario</title>
+    <style>
+        textarea{
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="./homepage.html">Home</a></li>
+            <li><a href="./inscripcion.html">Incripcion</a></li>
+            <li><a href="./formcrearcurso.html">Registrar Curso</a></li>
+        </ul>
+    </div>
+    <h1>Formulario de Registro de Curso</h1>
+    <div>
+        <form action="#" method="post">
+            <div>
+                <label for="nombreCurso">Nombre del Curso:</label><br>
+                <input id="nombreCurso" name="nombreCurso" type="text"><br><br>
+            </div>
+            <div>
+                <label for="objetivo">Objetivo del Curso:</label> <br>
+                <textarea name="objectivo" id="objetivo" cols="100" rows="5"></textarea>
+            </div>
+            <div>
+                <label for="modalidad">Modalidad del Curso:</label><br>
+                <input name="modalidad" id="modalidad" type="text"><br><br>
+            </div>
+            <div>
+                <label for="costo">Costo:</label><br>
+                <input type="number" name="costo" id="costo"><br><br>
+            </div>
+            <div>
+                <label for="fechaInicio">Fecha Inicio:</label><br>
+                <input type="date" name="fechaInicio" id="fechaInicio"><br><br>
+            </div>
+            <div>
+                <label for="fechaFin">Fecha Fin:</label><br>
+                <input type="date" name="fechaFin" id="fechaFin"><br><br>
+            </div>
+            <div>
+                <label for="horasCatedra">Horas Catedra:</label><br>
+                <input type="number" name="horasCatedra" id="horasCatedra"><br><br>
+            </div>
+            <div>
+                <label for="cantMinimaAlum">Cantidad Minima Alumnos</label><br>
+                <input type="number" name="cantMinimaAlum" id="cantMinimaAlum"><br><br>
+            </div>
+            <div>
+                <label for="cantMaximaAlum">Cantidad Maxima Alumnos</label><br>
+                <input type="number" name="cantMaximaAlum" id="cantMaximaAlum"><br><br>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
