@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAGO</title>
+    <style>
+        nav li{
+            display: inline;
+        }
+    </style>
 </head>
 <body>
     <nav>
@@ -16,16 +21,35 @@
             </ul>
         </div>
     </nav>
-    <h1>PAGO</h1>
-    <h4>numero de recibo</h4>
-    <br><br><br>
-    <h4>fecha</h4>
-    <br><br><br>
-    <h4>descripcion</h4>
-    <br><br><br>
-    <h4>forma de pago</h4>
+    <form action="#" method="post">
+        <div>
+            <label for="pago">pago:</label><br>
+            <input name="pago" id="pago" type="number">
+        </div>
+        <br>
+        <div>
+            <label for="numRecibo">Numero de Recibo:</label><br>
+            <input name="numRecibo" id="numRecibo" type="number">
+        </div>
+        <br>
+        <div>
+            <label for="fecha">Fecha:</label><br>
+            <input name="fecha" id="fecha" type="date">
+        </div>
+        <br>
+        <div>
+            <label for="descripcion">Descripcion:</label><br>
+            <input name="descripcion" id="descripcion" type="text">
+        </div>
+        <br>
+        <div>
+            <label for="formaPago"> Forma de Pago:</label><br>
+            <input name="formaPago" id="formaPago" type="text">
+        </div>
 
-    <!-- pago, numero de recibo, fecha, descripcion, forma de pago -->
+    </form>
+
+   
     <br><br><br>
     <div>
         <footer>     FACULTAD DE TECNOLOGIA Y CIENCIAS APLICADAS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  AÑO:2021       </footer>
