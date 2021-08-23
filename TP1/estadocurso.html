@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>estadoCurso</title>
+    <style>
+        nav li{
+            display: inline;
+        }
+        table, th, td {
+          border: 1px solid black;
+        }
+        th{
+            background-color: lightblue; 
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <ul>
+                <li><a href="./homepage.html">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li><a href="./formcrearcurso.html">Registrar Curso</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li><a href="./tablaCursos.html">Registro de Cursos</a></li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <li><a href="./login.html">Login</a></li>           
+            </ul>
+        </div>
+    </nav>
+    <h1>Estado de Cursos</h1>
+    <table style="width: 50%">
+        <tr >
+          <th>Nombre Curso</th>
+          <th>Archivo de Resolucion</th> 
+          <th>Estado</th>
+          <th>Numero de Resolucion</th>
+          <th>fecha</th>
+        </tr>
+        <tr >
+            <td>curso1</td>
+            <td>Archivo de Resolucion</td> 
+            <td><select name="estado" id="estado">
+                <option value="1" > Aprobado</option> 
+                <option value="2"> Desaprobado</option>
+            </select></td>
+            <td>56456</td>
+            <td>22/08/2021</td>
+        </tr>
+    </table><br><br>
+
+    <div>
+        <footer>     FACULTAD DE TECNOLOGIA Y CIENCIAS APLICADAS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  AÑO:2021       </footer>
+    </div>
+
+    <!-- 
+        select name="" id multiple
+        option value=1
+     -->
+</body>
+</html>
