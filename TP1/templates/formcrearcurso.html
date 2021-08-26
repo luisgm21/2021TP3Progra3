@@ -37,11 +37,15 @@
             </div>
             <div>
                 <label for="objetivo">Objetivo del Curso:</label> <br>
-                <textarea name="objectivo" id="objetivo" cols="100" rows="5"></textarea>
+                <textarea name="objectivo" id="objetivo" cols="100" rows="5"></textarea><br>
             </div>
             <div>
-                <label for="modalidad">Modalidad del Curso:</label><br>
-                <input name="modalidad" id="modalidad" type="text"><br><br>
+                <br><label for="modalidad">Modalidad del Curso:</label>
+                <select name="modalidad" id="modalidad">
+                    <option value="presencial">Presencial</option>
+                    <option value="virtual" >Virtual</option>
+                    <option value="mixta">Mixta</option>
+                </select><br><br>
             </div>
             <div>
                 <label for="costo">Costo:</label><br>
