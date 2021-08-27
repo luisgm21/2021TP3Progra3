@@ -1,0 +1,17 @@
+nav li{
+    display: inline;
+}
+table, th, td {
+  border: 1px solid black;
+}
+th, .primera{
+    background-color: lightblue; 
+}
+
+textarea{
+    resize: none;
+}
+
+fieldset{
+    width: max-content;
+}
