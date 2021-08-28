@@ -10,34 +10,67 @@
 <body>
     
     <form action="#" method="post">
-        <div>
-            <label for="pago">pago:</label><br>
-            <input name="pago" id="pago" type="number">
-        </div>
-        <br>
-        <div>
-            <label for="numRecibo">Numero de Recibo:</label><br>
-            <input name="numRecibo" id="numRecibo" type="number">
-        </div>
-        <br>
-        <div>
-            <label for="fecha">Fecha:</label><br>
-            <input name="fecha" id="fecha" type="date">
-        </div>
-        <br>
-        <div>
-            <label for="descripcion">Descripcion:</label><br>
-            <input name="descripcion" id="descripcion" type="text">
-        </div>
-        <br>
-        <div>
-            <label for="formaPago"> Forma de Pago:</label><br>
-            <input name="formaPago" id="formaPago" type="text">
-        </div>
-
+        <fieldset>
+            <legend>Datos Generales</legend>    
+                <div>
+                    <label for="tipoPago">Forma de Pago</label>
+                    <select name="tipoPago" id="tipoPago">
+                    <option value="1">Contado</option>
+                    <option value="2">Debito</option>
+                    <option value="3">Tarjeta</option>
+                    </select> &nbsp;
+                    <label for="importe">Importe:</label>
+                    <input name="importe" id="importe" type="number">
+                </div>
+                <br>
+                <div>
+                    <label for="numRecibo">Numero de Recibo:</label><br>
+                    <input name="numRecibo" id="numRecibo" type="number">
+                </div>
+                <br>
+                <div>
+                    <label for="fecha">Fecha:</label><br>
+                    <input name="fecha" id="fecha" type="date">
+                </div>
+                <br>
+                <div>
+                    <label for="descripcion">Descripcion:</label><br>
+                    <input name="descripcion" id="descripcion" type="text">
+                </div>
+                <br>
+        </fieldset><br>
+        <fieldset>
+                <legend>Contado</legend>
+                <p>N° de Pago: 00000001010111</p>
+                <p>Nota: Con este numero tiene que ir hasta secretaria de alumno y abonar el curso</p>
+        </fieldset><br>
+        <fieldset>
+            <legend>Tarjetas</legend>
+            <div>
+                <label for="titular">Titular de la Tarjeta</label><br>
+                <input type="text" name="titular" id="titular"><br><br>
+            </div>
+            <div>
+                <label for="numtar">Titular de la Tarjeta</label><br>
+                <input type="text" name="numtar" id="numtar"><br><br>
+            </div>
+            <div>
+                <label for="fechacaducidad">Fecha de caducidad</label><br>
+                <input type="text" name="titular" id="titular"><br><br>
+            </div>
+            <div>
+                <label for="tipocard">Tipo de Tarjeta</label><br>
+                <select name="tipocard" id="tipocard">
+                    <option value="1">Debito</option>
+                    <option value="2">Credito</option>
+                </select><br><br>
+            </div>
+            <div>
+                <label for="cvv">Codigo de Seguridad</label><br>
+                <input type="text" name="cvv" id="cvv"><br><br>
+            </div>
+        </fieldset>
     </form>
-
-   
     <br><br><br>
     <div>
         <footer>     FACULTAD DE TECNOLOGIA Y CIENCIAS APLICADAS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  AÑO:2021       </footer>
