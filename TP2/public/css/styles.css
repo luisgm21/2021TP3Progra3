@@ -24,31 +24,22 @@ fieldset legend{
     font-size: 7mm;
 }
 
-footer{
-    /* font-weight: 700;
-    text-align: center; 
-    vertical-align: baseline;
-    position: absolute;
-    bottom: 5px;  */
-    /* width: 100%;  */
-        /* border: 3px solid #8AC007; */
-   
-    background-color: rgb(138, 177, 184);
-    /* width: max-content; */
-     font-weight: 700; 
-    color: black;
-    font-size: 4mm; 
-     /* max-width: 100%; 
-     min-width: 99%; */
-    /* margin: auto; */
-    border: 2px solid #000000;
-    padding-bottom: 5mm;
+#footer{
+    height: 5px;
+
 }
+ footer{
+    
+    /* padding: 2mm; */
+    background-color: rgba(0, 0, 0, 0.829);
+    color: white;
+    font-weight: 400; 
+ }  
+
+
 fieldset{
     background-color: lightgrey;
-    /* width:max-content;
-    max-width: 10000px; */
-    /* margin: auto; */
+    
     border: 7px solid #000000;
 } 
 body{
