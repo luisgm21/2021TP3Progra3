@@ -11,18 +11,25 @@ th, .primera{
 textarea{
     resize: none;
 }
-legend{
-    background-color: white; 
-    font-weight: 700;
+/* legend{
+    background-color: rgba(20, 42, 114, 0.5); 
+    font-weight: 800;
+    color: black;
+    font-size: 7mm;
+} */
+fieldset legend{
+    background-color: rgba(20, 42, 114, 0.5); 
+    font-weight: 800;
     color: black;
     font-size: 7mm;
 }
+
 footer{
-    font-weight: 700;
+    /* font-weight: 700;
     text-align: center; 
     vertical-align: baseline;
     position: absolute;
-    bottom: 5px; 
+    bottom: 5px;  */
     /* width: 100%;  */
         /* border: 3px solid #8AC007; */
    
@@ -31,19 +38,19 @@ footer{
      font-weight: 700; 
     color: black;
     font-size: 4mm; 
-     max-width: 100%; 
-     min-width: 99%;
+     /* max-width: 100%; 
+     min-width: 99%; */
     /* margin: auto; */
     border: 2px solid #000000;
     padding-bottom: 5mm;
 }
 fieldset{
     background-color: lightgrey;
-    width:max-content;
-    max-width: 10000px;
-    margin: auto;
+    /* width:max-content;
+    max-width: 10000px; */
+    /* margin: auto; */
     border: 7px solid #000000;
-}
+} 
 body{
     background-color: rgba(20, 42, 114, 0.5);
 }
@@ -56,4 +63,7 @@ h1{
 } 
 label{
     font-weight: 800;
+}
+h3{
+    text-decoration-line: underline;
 }
