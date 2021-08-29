@@ -73,3 +73,7 @@ label{
 h3{
     text-decoration-line: underline;
 }
+
+a.active{
+    text-decoration: underline;
+}
