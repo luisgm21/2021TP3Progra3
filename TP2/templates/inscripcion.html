@@ -14,47 +14,85 @@
     <div><h1>INSCRIPCION </h1></div>
     
     <!-- cuit, nombre y apellido,domicilio , sexo, fecha de nacimiento, estado civil  -->
-    <div>
-        <form action="#">
-            <br>
-            <div><label for="nombre">Apellido y nombre</label><br>
-                <input name="nombre" id="nombre" type="text"></div><br>
-            <div><label for="cuil">Cuil</label> <br>
-                <input name="cuil" id="cuil" type="number"></div><br>
-            <div><label for="documento">Documento</label> <br>
-                <input name="documento" id="documento" type="number"></div>         
-            <br>
-            <div><label for="fechaNacimiento"> Fecha de Nacimiento</label><br>
-                <input  name="fechaNacimiento" id="fechaNacimiento" type="date"></div><br>     
-            <div><label for="telefono">Telefono </label><br>  
-                <input name="telefono" id="telefono" type="tel"></div><br>
-            <div><label for="correo">Correo </label><br>
-                <input name="correo" id="correo" type="email"></div><br>
-            <div><label> Sexo</label> <br>
-                <input type="radio" id="masculino" name="sexo" value="masculino">
-                <label for="masculino">Masculino</label><br>
-                <input type="radio" id="femenino" name="sexo" value="femenino">
-                <label for="femenino">Femenino</label><br>
-                <input type="radio" id="otrxs" name="sexo" value="otrxs">
-                <label for="otrxs">Otrxs</label></div> 
-                <br><br>   
-
-            <div><label for="domicilio">Domicilio </label><br>
-                <input name="domicilio" id="domicilio" type="text"></div>
-            <br>
-            <div><label for="localidad">Localidad </label><br>
-                <input name="localidad" id="localidad" type="text"></div>
-            <br>
-            <div><label for="provincia" >Provincia </label><br>
-                <input name="provincia" id="provincia" type="text"></div>
-            <br>
-
-            
-            <input type="submit" value="INSCRIBIRSE">
-        </form>
-
+    <div class=" container-md  " >
+        
+            <fieldset  >
+                <legend >Datos Personales</legend>
+                    <form class="row g-3 ">
+                    
+                        <div class="col-md-4">
+                            <label for="nombre" class="form-label">Apellido y Nombre</label>
+                            <input name="nombre" id="nombre" type="text" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="cuil" class="form-label">Cuil</label> 
+                            <input name="cuil" id="cuil" type="number" class="form-control">
+                        </div>   
+                        <div  class="col-md-3">
+                            <label for="documento" class="form-label">Documento</label> 
+                            <input name="documento" id="documento" type="number" class="form-control">
+                        </div>
+                        <div class=" col-md-3">
+                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control">             
+                        </div>                        
+                        <div class="col-md-6">
+                            <label for="correo" class="form-label">Correo </label>
+                            <input name="correo" id="correo" type="email" class="form-control">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="telefono" class="form-label">Telefono</label>
+                            <input type="telefono" name="telefono" id="telefono" class="form-control">
+                        </div>
+                            <label class="col-form-label col-sm-1 pt-0">Sexo</label>
+                            <div class="col-sm-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Femenino" >
+                                <label class="form-check-label" for="gridRadios1">Masculino</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Masculino">
+                                <label class="form-check-label" for="gridRadios2">Femenino</label>
+                            </div>    
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="otros">
+                                <label class="form-check-label" for="gridRadios2">otros</label>
+                            </div> 
+                        </div> 
+                </form>
+            </fieldset>
+            <br><br>
+            <fieldset >
+                <legend>Domicilio</legend>
+                
+                <form class="row g-4 ">
+                    <div class="col-md-4 ">
+                        <label for="provincia" class="form-label">Provincia</label>
+                        <input type="text" name="provincia" id="provincia" class="form-control">
+                    </div>                    
+                    <div class="col-md-4">
+                        <label for="localidad" class="form-label">Localidad</label>
+                        <input type="text" name="localidad" id="localidad" class="form-control">
+                    </div>    
+                    <div class="  col-md-5 ">
+                        <label for="domicilio" class="form-label">Calle</label>
+                        <input type="text" name="domicilio" id="domicilio" class="form-control">
+                    </div>   
+                    <div class="  col-md-1 ">
+                        <label for="Numero" class="form-label">Numero</label>
+                        <input type="number" name="Numero" id="numero" class="form-control">
+                    </div>       
+                </form> 
+            </fieldset> 
+            <br><br>
+            <div >
+                <input type="submit" class="btn btn-primary" value="Inscribirme">
+                <input type="button" class="btn btn-secondary" value="Cancelar">
+            </div> 
     </div>
-    <br><br><br>
+
+    
+    <br>
     
     <div class="container-fluid" id="footer">
         <footer class="row row-cols-3 py-3 my-4">
@@ -71,7 +109,7 @@
               <h6 > © 2021 Company</h6>             
           </div>
       
-          <div class="col" style="text-align:right">
+          <div id="footerd" class="col" style="text-align:right ">
             <h5 style="font-size: 6mm;">Section</h5>
               <ul class="nav flex-column" style="text-decoration-line: underline; display: inline-block;">
                 <li class="nav-item mb-2"><a href="./homepage.html" class="nav-link p-0 text-white"  >Home</a></li>

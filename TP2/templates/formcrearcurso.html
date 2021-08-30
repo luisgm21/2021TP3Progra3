@@ -44,58 +44,71 @@
                 </div>
             </nav>
     </header>
-    <h1>Formulario de Registro de Curso</h1>
-    <div>
-        <form action="#" method="post">
-            <div>
-                <label for="nombreCurso">Nombre del Curso:</label><br>
-                <input id="nombreCurso" name="nombreCurso" type="text"><br><br>
-            </div>
-            <div>
-                <label for="objetivo">Objetivo del Curso:</label> <br>
-                <textarea name="objectivo" id="objetivo" cols="100" rows="5"></textarea><br>
-            </div>
-            <div>
-                <br><label for="modalidad">Modalidad del Curso:</label>
-                <select name="modalidad" id="modalidad">
-                    <option value="#">-</option>
-                    <option value="presencial">Presencial</option>
-                    <option value="virtual" >Virtual</option>
-                    <option value="mixta">Mixta</option>
-                </select><br><br>
-            </div>
-            <div><label for="docentes">Docentes a Cargo:</label><br>
-            <input type="text" id="docentes" name="docentes"></div>
-            <div><br>
-                <label for="costo">Costo:</label><br>
-                <input type="number" name="costo" id="costo"><br><br>
-            </div>
-            <div>
-                <label for="fechaInicio">Fecha Inicio:</label><br>
-                <input type="date" name="fechaInicio" id="fechaInicio"><br><br>
-            </div>
-            <div>
-                <label for="fechaFin">Fecha Fin:</label><br>
-                <input type="date" name="fechaFin" id="fechaFin"><br><br>
-            </div>
-            <div>
-                <label for="horasCatedra">Horas Catedra:</label><br>
-                <input type="number" name="horasCatedra" id="horasCatedra"><br><br>
-            </div>
-            <div>
-                <label for="cantMinimaAlum">Cantidad Minima Alumnos</label><br>
-                <input type="number" name="cantMinimaAlum" id="cantMinimaAlum"><br><br>
-            </div>
-            <div>
-                <label for="cantMaximaAlum">Cantidad Maxima Alumnos</label><br>
-                <input type="number" name="cantMaximaAlum" id="cantMaximaAlum"><br><br>
-            </div>
-            <div>
-                <input type="submit" value="Agregar">
-            </div>
-        </form>
-    </div>
-    <br><br><br>
+
+
+ 
+
+     <h1>Formulario de Registro de Curso</h1>
+    <div class=" container-lg " >
+        <fieldset>
+            <form class="row g-5 ">
+                <div class="col-md-4">
+                    <label for="nombreCurso" class="form-label"> Nombre del Curso </label>
+                    <input type="text" class="form-control" id="nombreCurso">
+                </div>
+                <div class="col-md-5">
+                    <label for="objetivo" class="form-label">Objetivo General </label>
+                    <textarea name="objectivo" id="objetivo" class="form-control" cols="70" rows="4"></textarea>
+                </div>   
+                <div  class="col-md-2">
+                    <label for="modalidad" class="form-label "  >Modalidad del Curso:</label>
+                    <select name="modalidad" id="modalidad" class="form-control" >
+                        <option value="#">-</option>
+                        <option value="presencial">Presencial</option>
+                        <option value="virtual" >Virtual</option>
+                        <option value="mixta">Mixta</option>
+                    </select>
+                </div>
+                <div class=" col-md-4">
+                    <label for="docentes" class="form-label">Docentes a Cargo:</label>
+                    <input type="text" id="docentes" name="docentes" class="form-control">             
+                </div>
+                <div class="col-5">
+                    <label for="costo" class="form-label">Costo:</label>
+                    <input type="number" name="costo" id="costo" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    
+                </div>
+                <div class="  col-md-3 ">
+                    <label for="fechaInicio" class="form-label">Fecha Inicio:</label>
+                    <input type="date" name="fechaInicio" id="fechaInicio" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <label for="fechaFin" class="form-label">Fecha Fin:</label>
+                    <input type="date" name="fechaFin" id="fechaFin" class="form-control">
+                </div>
+                <div class="col-md-4 ">
+                    <label for="horasCatedra" class="form-label">Horas Catedra:</label>
+                    <input type="number" name="horasCatedra" id="horasCatedra" class="form-control">
+                </div>   
+                <div class="col-md-5">
+                    <label for="cantMinimaAlum" class="form-label">Cantidad Minima Alumnos</label>
+                    <input type="number" name="cantMinimaAlum" id="cantMinimaAlum" class="form-control">
+                </div>    
+                <div class="col-md-5">
+                    <label for="cantMaximaAlum" class="form-label">Cantidad Maxima Alumnos</label><br>
+                    <input type="number" name="cantMaximaAlum" id="cantMaximaAlum"  class="form-control">
+                </div>   
+                <div class="col-12" >
+                    <input type="submit" class="btn btn-primary" value="Registrar">
+                    <input type="button" class="btn btn-secondary" value="Cancelar">
+                </div> 
+            </form>
+        </fieldset>
+    </div>  
+
+    <br>
 
     
     <div class="container-fluid" id="footer">
