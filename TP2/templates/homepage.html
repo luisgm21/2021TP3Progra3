@@ -47,31 +47,59 @@
     <div>
         <h1>Aplicación Web para la Gestión de Cursos de Posgrado-Facultad de Tecnología y Cs Aplicadas</h1>
     </div>
-    <div>
-        <input type="text" placeholder="Curso para buscar" id="buscador" name="buscador">
-        <button>Buscar</button><br><br>
-    </div>
+    
     
         <fieldset>
-            <legend>Cursos</legend>
-            <div>
-                <ol>
-                    <li><div>
-                        <h3>Curso 1</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, eligendi distinctio magni officia eaque facere? Mollitia ipsam necessitatibus reiciendis animi excepturi quibusdam. Non deleniti magnam, architecto vel dolor dolores porro?</p>
-                        <a href="./curso.html">Ver Mas</a>
-                    </div></li>
-                    <li><div>
-                        <h3>Curso 2</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, eligendi distinctio magni officia eaque facere? Mollitia ipsam necessitatibus reiciendis animi excepturi quibusdam. Non deleniti magnam, architecto vel dolor dolores porro?</p>
-                        <a href="#">Ver Mas</a>
-                    </div></li>
-                    <li><div>
-                        <h3>Curso 3</h3>
-                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, eligendi distinctio magni officia eaque facere? Mollitia ipsam necessitatibus reiciendis animi excepturi quibusdam. Non deleniti magnam, architecto vel dolor dolores porro?</p>
-                        <a href="#">Ver Mas</a>
-                    </div></li>
-                </ol>
+            <div class="container">
+                <div class="row">
+                    <div class="col-8">
+                        <legend>Cursos</legend>
+                    </div>
+                    <div class="col-3">   
+                        <input class="form-control" type="text" placeholder="Curso para buscar" id="buscador" name="buscador">
+                    </div>
+                    <div class="col-1">
+                        <button class="btn btn-secondary">Buscar</button>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="container">
+                <div class="card-group">
+                    <div class="card">
+                      <img src="../public/image/herramientas-y-recursos-para-crear-curso-online.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h3 class="card-title">Curso 1</h3>
+                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, eligendi distinctio magni officia eaque facere? Mollitia ipsam necessitatibus reiciendis animi excepturi quibusdam. Non deleniti magnam, architecto vel dolor dolores porro?<a href="./curso.html">Ver mas...</a></p>
+                        
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img src="../public/image/herramientas-y-recursos-para-crear-curso-online.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h3 class="card-title">Curso 2</h3>
+                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, eligendi distinctio magni officia eaque facere? Mollitia ipsam necessitatibus reiciendis animi excepturi quibusdam. Non deleniti magnam, architecto vel dolor dolores porro?</p>
+                        <a href="./curso.html">Ver mas...</a>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                      </div>
+                    </div>
+                    <div class="card">
+                      <img src="../public/image/herramientas-y-recursos-para-crear-curso-online.png" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <h3 class="card-title">Curso 3</h3>
+                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, eligendi distinctio magni officia eaque facere? Mollitia ipsam necessitatibus reiciendis animi excepturi quibusdam. Non deleniti magnam, architecto vel dolor dolores porro? <a href="./curso.html">Ver mas...</a></p>
+                      </div>
+                      <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                      </div>
+                    </div>
+                  </div>
             </div>
         </fieldset>
         <br><br><br>
@@ -80,7 +108,7 @@
 
         <div class="container-fluid" id="footer">
             <footer class="row row-cols-3 py-3 my-4">
-              <div class="col">
+              <div class="col-12 col-md-4">
                 <ul>
                   <li><p>http://tecno.unca.edu.ar</p></li>
                   <li><p> Mobile : +54 (383) 4435112</p></li>
@@ -88,12 +116,12 @@
                 </ul>
               </div>
           
-              <div class="col " style="text-align: center; letter-spacing: 3px; ">
+              <div class="col-12 col-md-4" style="text-align: center; letter-spacing: 3px; ">
                   <h5 >FACULTAD DE TECNOLOGIA Y CIENCIAS APLICADAS </h5><br>
                   <h6 > © 2021 Company</h6>             
               </div>
           
-              <div class="col" style="text-align:right">
+              <div class="col-12 col-md-4" style="text-align:right">
                 <h5 style="font-size: 6mm;">Section</h5>
                   <ul class="nav flex-column" style="text-decoration-line: underline; display: inline-block;">
                     <li class="nav-item mb-2"><a href="./homepage.html" class="nav-link p-0 text-white"  >Home</a></li>
