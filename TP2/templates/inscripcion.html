@@ -14,13 +14,10 @@
   
     <div><h1>INSCRIPCION </h1></div>
     
-    <!-- cuit, nombre y apellido,domicilio , sexo, fecha de nacimiento, estado civil  -->
-    <div class=" container-md  " >
-        
-            <fieldset  >
+    <div class="container-sm" >        
+             <fieldset>
                 <legend >Datos Personales</legend>
-                    <form class="row g-3 ">
-                    
+                    <form class="row g-4 ">
                         <div class="col-md-4">
                             <label for="nombre" class="form-label">Apellido y Nombre</label>
                             <input name="nombre" id="nombre" type="text" class="form-control">
@@ -37,36 +34,37 @@
                             <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
                             <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control">             
                         </div>                        
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <label for="correo" class="form-label">Correo </label>
                             <input name="correo" id="correo" type="email" class="form-control">
                         </div>
+                        <label class=" col-form-label col-sm-1 ">Sexo</label>
+                            <div class="col-md-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Femenino" >
+                                    <label class="form-check-label" for="gridRadios1">Masculino</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Masculino">
+                                    <label class="form-check-label" for="gridRadios2">Femenino</label>
+                                </div>    
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="otros">
+                                    <label class="form-check-label" for="gridRadios2">otros</label>
+                                </div> 
+                            </div> 
                         <div class="col-md-3">
                             <label for="telefono" class="form-label">Telefono</label>
                             <input type="telefono" name="telefono" id="telefono" class="form-control">
                         </div>
-                            <label class="col-form-label col-sm-1 pt-0">Sexo</label>
-                            <div class="col-sm-2">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Femenino" >
-                                <label class="form-check-label" for="gridRadios1">Masculino</label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Masculino">
-                                <label class="form-check-label" for="gridRadios2">Femenino</label>
-                            </div>    
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="otros">
-                                <label class="form-check-label" for="gridRadios2">otros</label>
-                            </div> 
-                        </div> 
-                </form>
-            </fieldset>
+                            
+                    </form>
+            </fieldset> 
             <br><br>
             <fieldset >
                 <legend>Domicilio</legend>
                 
-                <form class="row g-4 ">
+                <form class="row ">
                     <div class="col-md-4 ">
                         <label for="provincia" class="form-label">Provincia</label>
                         <input type="text" name="provincia" id="provincia" class="form-control">
@@ -79,24 +77,24 @@
                         <label for="domicilio" class="form-label">Calle</label>
                         <input type="text" name="domicilio" id="domicilio" class="form-control">
                     </div>   
-                    <div class="  col-md-1 ">
+                    <div class="  col-md-2 ">
                         <label for="Numero" class="form-label">Numero</label>
                         <input type="number" name="Numero" id="numero" class="form-control">
                     </div>       
                 </form> 
-            </fieldset> 
-            <br><br>
-            <div >
+             </fieldset>  
+             <br><br>
+             <div >
                 <input type="submit" class="btn btn-primary" value="Inscribirme">
                 <input type="button" class="btn btn-secondary" value="Cancelar">
-            </div> 
+            </div>   
     </div>
 
     
     <br>
     
     <div class="container-fluid" id="footer">
-        <footer class="row row-cols-3 py-3 my-4">
+        <footer class="row row-cols-3 py-3">
             <div class="col-12 col-md-4">
               <ul>
                 <li><p>http://tecno.unca.edu.ar</p></li>

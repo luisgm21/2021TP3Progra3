@@ -13,9 +13,9 @@ th, .primera{
     background-color: lightblue; 
 }
 
-textarea{
+/* textarea{
     resize: none;
-}
+} */
 /* legend{
     background-color: rgba(20, 42, 114, 0.5); 
     font-weight: 800;
@@ -38,24 +38,28 @@ textarea{
 }   */
 
 
-fieldset{
+ fieldset{
     padding: 3mm;
     padding-bottom: 5mm;
-    border-width: 5px;
+    border-width: 5px; 
     border-style: inset;
     border-color: #1c98c2; 
-} 
+}  
 
 
-/* body {
-    margin: 0;
+ /* body {
+    /* min-height:100vh; */
+    /* display: flex;
+    border: 2px dashed red;
+    background-color: lightyellow;
+    min-height: 100vh; */
+     /* margin: 0;
     padding: 0;
-    display: auto;
+    display: flex; 
     min-height: 100vh; 
-    background: white;
-    flex-wrap: wrap;
-    width: 100%;
-}  */
+    min-width: 100vw;
+    background: white;    
+} */
 
 
 

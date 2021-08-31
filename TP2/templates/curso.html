@@ -24,75 +24,98 @@
             </div>
         </nav>
     </header>
-    <section>
-        <div>
-            <h3>Nombre del curso</h3>
-            <p>Curso1</p>
-        </div>
-    </section>
-    <section>
-        <div>
-            <h3>Objetivo</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In nihil illo velit ullam laboriosam ex dignissimos, quidem quae est libero asperiores nesciunt quisquam perspiciatis pariatur omnis minima ea? Velit, illo.
-            Facere, corporis officia facilis recusandae praesentium beatae? Beatae ratione repudiandae illum perspiciatis debitis non aspernatur facilis accusantium omnis laborum laboriosam facere consectetur voluptatibus tempora aperiam illo recusandae sunt, adipisci sapiente.</p>
-            <h3>Modalidad</h3>
-            <p>Virtual</p>
-        </div>
-    </section>
-    <section>
-        <div>
-            <h4>Costo</h4>
-            <p>Gratis</p>
-            <h4>Honorarios</h4>
-            <p>AdHonorem</p>
-        </div>
-    </section>
-    <section>
-        <div>
-            <h4>Fecha Inicio</h4>
-            <p>XX/XX/XXXX</p>
-            <h4>Fecha Fin</h4>
-            <p>XX/XX/XXXX</p>
-            <h4>Horas Catedra</h4>
-            <p>10hs Semanales</p>
-        </div>
-    </section>
-    <section>
-        <h4>Cantidad Minima de alumnos</h4>
-        <p>5</p>
-        <h4>Cantidad Maxima de alumnos</h4>
-        <p>10</p>
-    </section>
-<a href="./inscripcion.html">inscribirse</a>
-<br><br><br>
 
-<div class="container-fluid" id="footer">
-    <footer class="row row-cols-3 py-3 my-4">
-      <div class="col-12 col-md-4">
-        <ul>
-          <li><p>http://tecno.unca.edu.ar</p></li>
-          <li><p> Mobile : +54 (383) 4435112</p></li>
-          <li><p>idi@tecno.unca.edu.ar </p></li>
-        </ul>
-      </div>
-  
-      <div class="col-12 col-md-4" style="text-align: center; letter-spacing: 3px; ">
-          <h5 >FACULTAD DE TECNOLOGIA Y CIENCIAS APLICADAS </h5><br>
-          <h6 > © 2021 Company</h6>             
-      </div>
-  
-      <div class="col-12 col-md-4" style="text-align:right">
-        <h5 style="font-size: 6mm;">Section</h5>
-          <ul class="nav flex-column" style="text-decoration-line: underline; display: inline-block;">
-            <li class="nav-item mb-2"><a href="./homepage.html" class="nav-link p-0 text-white"  >Home</a></li>
-            <li class="nav-item mb-2"><a href=".#" class="nav-link p-0 text-white">Features</a></li>  
-            <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>                 
-          </ul>
-      </div>
-    </footer>
+    <main>
+        <div class=" container-md " >
+            <fieldset>
+                <form class="row g-5 ">
+                    <div class="col-md-4">
+                        <label for="nombreCurso" class="form-label"> Nombre del Curso </label>
+                        <p class="border te"> Curso1</p>
+                    </div>
+                    <div class="col-md-5">
+                        <label for="objetivo" class="form-label">Objetivo General </label>
+                        <p class="border">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt alias adipisci dolores ipsum eveniet quidem porro voluptatem, obcaecati, eum accusantium illo libero quas mollitia perferendis quo unde, delectus laborum. Facilis? </p>
+                    </div>   
+                    <div class="col-md-2">
+                        <label for="costo" class="form-label">Costo:</label>
+                        <p class="border">gratis</p>
+                    </div>
+                    <div  class="col-md-2">
+                        <label for="modalidad" class="form-label "  >Modalidad del Curso:</label>
+                        <p class="border">Mixta</p>
+                    </div>
+                    <div class=" col-md-4">
+                        <label for="docentes" class="form-label">Docentes a Cargo:</label>
+                        <p class="border">luisito</p>         
+                    </div>
+                    <div class="col-md-3">
+                        <label for="honorarios" class="form-label">honorarios</label>
+                        <p class="border"> 534</p>
+                    </div>
+                    <div class="  col-md-3 ">
+                        <label for="fechaInicio" class="form-label">Fecha Inicio:</label>
+                        <p class="border">1/09/2021</p>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="fechaFin" class="form-label">Fecha Fin:</label>
+                        <p class="border">10/09/2021</p>
+                    </div>
+                    <div class="col-md-5 ">
+                        <label for="horasCatedra" class="form-label">Horas Catedra:</label>
+                        <p class="border">15 Horas</p>
+                    <div class="col-md-3">
+                        <label for="cantMinimaAlum" class="form-label">Cantidad Minima Alumnos</label>
+                        <p class="border">5</p>
+                    </div>    
+                    <div class="col-sm-4">
+                        <label for="cantMaximaAlum" class="form-label">Cantidad Maxima Alumnos</label><br>
+                        <p class="border"> 40</p>
+                    </div>   
+                </form>  
+                <div class="col-12" >
+                    <input type="submit" class="btn btn-primary" value="inscribirse">
+                    <input type="button" class="btn btn-secondary" value="Cancelar">
+                </div>      
+            </fieldset>
+           
+        </div>  
+        
 
 
-</div>
+
+
+
+
+    </main>
+
+
+
+        <div class="container-fluid" id="footer">
+            <footer class="row row-cols-3 py-3">
+                <div class="col-12 col-md-4">
+                    <ul>
+                    <li><p>http://tecno.unca.edu.ar</p></li>
+                    <li><p> Mobile : +54 (383) 4435112</p></li>
+                    <li><p>idi@tecno.unca.edu.ar </p></li>
+                    </ul>
+                </div>
+            
+                <div class="col-12 col-md-4" style="text-align: center; letter-spacing: 3px; ">
+                    <h5 >FACULTAD DE TECNOLOGIA Y CIENCIAS APLICADAS </h5><br>
+                    <h6 > © 2021 Company</h6>             
+                </div>
+            
+                <div class="col-12 col-md-4" style="text-align:right">
+                    <h5 style="font-size: 6mm;">Section</h5>
+                    <ul class="nav flex-column" style="text-decoration-line: underline; display: inline-block;">
+                        <li class="nav-item mb-2"><a href="./homepage.html" class="nav-link p-0 text-white"  >Home</a></li>
+                        <li class="nav-item mb-2"><a href=".#" class="nav-link p-0 text-white">Features</a></li>  
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-white">Pricing</a></li>                 
+                    </ul>
+                </div>
+            </footer>
+        </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> ty="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script> 
 </body>
 </html>
