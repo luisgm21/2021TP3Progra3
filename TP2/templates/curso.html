@@ -11,82 +11,122 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div>
-                <ul>
-                    <li><a href="./homepage.html">Home</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <li><a href="./formcrearcurso.html">Registrar Curso</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <li><a href="./tablaCursos.html">Registro de Cursos</a></li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <li><a href="./login.html">Login</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <li><a href="./estadocurso.html">Estado</a></li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <li><a href="./estadisticas.html">Estadisticas</a></li>           
-                </ul>
+      
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">FTyCA</span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>     
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <div class="navbar">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./homepage.html">Home</a>
+                            </li>
+                            <li>
+                                <a  class="nav-link" href="./formcrearcurso.html">Registrar Curso</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./tablaCursos.html">Registro de Cursos</a>
+                            </li> 
+                            <li class="nav-item">
+                                <a class="nav-link" href="./login.html">Login</a>
+                            </li>
+                            <li  class="nav-item">
+                                <a  class="nav-link" href="./estadocurso.html">Estado</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="./estadisticas.html">Estadisticas</a>
+                            </li>           
+                        </ul>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>
 
     <main>
-        <div class=" container-md " >
+        
+        
+        
+        <div class=" container" >
             <fieldset>
-                <form class="row g-5 ">
-                    <div class="col-md-4">
-                        <label for="nombreCurso" class="form-label"> Nombre del Curso </label>
-                        <p class="border te"> Curso1</p>
+                <div class="row g-3 col-11 ">
+                    <div class="col-sm-3">
+                        <label for="nombreCurso" class="col-form-label"> Nombre del Curso </label>
                     </div>
-                    <div class="col-md-5">
-                        <label for="objetivo" class="form-label">Objetivo General </label>
-                        <p class="border">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt alias adipisci dolores ipsum eveniet quidem porro voluptatem, obcaecati, eum accusantium illo libero quas mollitia perferendis quo unde, delectus laborum. Facilis? </p>
-                    </div>   
-                    <div class="col-md-2">
-                        <label for="costo" class="form-label">Costo:</label>
+                    <div class="col-sm-8">                        
+                        <p class="col-form-label "> Curso1</p>
+                    </div>                   
+                    <div class="col-sm-3">
+                        <label for="objetivo" class="col-form-label">Objetivo General </label>
+                    </div>  
+                    <div class="col-sm-8 col-12">   
+                        <p class="col-form-label">Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus inventore velit, id non aut mollitia deserunt culpa blanditiis, dolorum esse repellendus, totam maxime. Voluptatum at praesentium illo incidunt quo veritatis nulla eaque quis placeat ducimus labore doloribus, perferendis eligendi nesciunt quod harum mollitia dolore, optio necessitatibus ab tempore. Quis, libero. </p>
+                    </div>  
+                    <div class="col-sm-3">
+                        <label for="costo" class="form-label">Costo:</label>                       
+                    </div>
+                    <div class="col-sm-8 col-12">
                         <p class="border">gratis</p>
                     </div>
-                    <div  class="col-md-2">
-                        <label for="modalidad" class="form-label "  >Modalidad del Curso:</label>
+                    <div  class="col-sm-3">
+                        <label for="modalidad" class="form-label "  >Modalidad del Curso:</label>                      
+                    </div>
+                    <div class="col-sm-8 col-12">
                         <p class="border">Mixta</p>
                     </div>
-                    <div class=" col-md-4">
-                        <label for="docentes" class="form-label">Docentes a Cargo:</label>
-                        <p class="border">luisito</p>         
+                    <div class=" col-sm-3">
+                        <label for="docentes" class="form-label">Docentes a Cargo:</label>                               
                     </div>
-                    <div class="col-md-3">
-                        <label for="honorarios" class="form-label">honorarios</label>
-                        <p class="border"> 534</p>
+                    <div class="col-sm-8 col-12">
+                        <p class="border">Luisito</p>
                     </div>
-                    <div class="  col-md-3 ">
-                        <label for="fechaInicio" class="form-label">Fecha Inicio:</label>
+                    <div class="col-sm-3">
+                        <label for="honorarios" class="form-label">honorarios</label>                      
+                    </div>
+                    <div class="col-sm-8 col-12">
+                        <p class="border">562</p>
+                    </div>
+                    <div class="  col-sm-3 ">
+                        <label for="fechaInicio" class="form-label">Fecha Inicio:</label>                      
+                    </div>
+                    <div class="col-sm-8 col-12">
                         <p class="border">1/09/2021</p>
                     </div>
-                    <div class="col-md-3">
-                        <label for="fechaFin" class="form-label">Fecha Fin:</label>
+                    <div class="col-sm-3">
+                        <label for="fechaFin" class="form-label">Fecha Fin:</label>                       
+                    </div>
+                    <div class="col-sm-8 col-12">
                         <p class="border">10/09/2021</p>
                     </div>
-                    <div class="col-md-5 ">
-                        <label for="horasCatedra" class="form-label">Horas Catedra:</label>
+                    <div class="col-sm-3 ">
+                        <label for="horasCatedra" class="form-label">Horas Catedra:</label>                       
+                    </div>
+                    <div class="col-sm-8 col-12">
                         <p class="border">15 Horas</p>
-                    <div class="col-md-3">
-                        <label for="cantMinimaAlum" class="form-label">Cantidad Minima Alumnos</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <label for="cantMinimaAlum" class="form-label">Cantidad Minima Alumnos</label>                      
+                    </div>
+                    <div class="col-sm-8 col-12">
                         <p class="border">5</p>
                     </div>    
-                    <div class="col-sm-4">
-                        <label for="cantMaximaAlum" class="form-label">Cantidad Maxima Alumnos</label><br>
-                        <p class="border"> 40</p>
+                    <div class="col-sm-3">
+                        <label for="cantMaximaAlum" class="form-label">Cantidad Maxima Alumnos</label><br>                       
+                    </div>
+                    <div class="col-sm-8 col-12">
+                        <p class="border">40</p>
                     </div>   
                 </form>  
-                <div class="col-12" >
-                    <input type="submit" class="btn btn-primary" value="inscribirse">
+                <div class="col-10 " > 
+                    <input type="submit" class="btn btn-primary" value="inscribirse" >
                     <input type="button" class="btn btn-secondary" value="Cancelar">
-                </div>      
-            </fieldset>
-           
+                </div>
+             </fieldset>            
         </div>  
-        
-
-
-
-
-
-
+ 
     </main>
 
 
@@ -116,6 +156,6 @@
                 </div>
             </footer>
         </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> ty="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> 
 </body>
 </html>

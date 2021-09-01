@@ -87,3 +87,6 @@ fieldset + fieldset{
     border-style: outset;
     border-color: #1c98c2;
 }
+form{
+    padding-right: 0mm;
+}
