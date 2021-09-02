@@ -47,27 +47,28 @@
     </header>
     <h1>Estado de Cursos</h1>
     
-
-    <table  class="table-dark table-hover; table table-bordered  " style="width: 65%">
-        <tr >
-          <th>Nombre Curso</th>
-          <th>Archivo de Resolucion</th> 
-          <th>Estado</th>
-          <th>Numero de Resolucion</th>
-          <th>fecha</th>
-        </tr>
-        <tr >
-            <td>curso1</td>
-            <td>Archivo de Resolucion</td> 
-            <td><select name="estado" id="estado " class="form-select bg-dark " style="color:white">
-                <option value="1">En revision</option>
-                <option value="2" >Aprobado</option> 
-                <option value="3" >Desaprobado</option>
-            </select></td>
-            <td>56456</td>
-            <td>22/08/2021</td>
-        </tr>
-    </table><br><br>
+    <div class="table-responsive-lg">
+        <table  class="table-dark table-hover; table table-bordered  " >
+            <tr >
+            <th>Nombre Curso</th>
+            <th>Archivo de Resolucion</th> 
+            <th>Estado</th>
+            <th>Numero de Resolucion</th>
+            <th>fecha</th>
+            </tr>
+            <tr >
+                <td>curso1</td>
+                <td>Archivo de Resolucion</td> 
+                <td><select name="estado" id="estado " class="form-select bg-dark " style="color:white">
+                    <option value="1">En revision</option>
+                    <option value="2" >Aprobado</option> 
+                    <option value="3" >Desaprobado</option>
+                </select></td>
+                <td>56456</td>
+                <td>22/08/2021</td>
+            </tr>
+        </table>
+    </div>
 
     <div class="container-fluid" id="footer">
         <footer class="row row-cols-3 py-3">

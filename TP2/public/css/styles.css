@@ -88,5 +88,15 @@ fieldset + fieldset{
     border-color: #1c98c2;
 }
 form{
-    padding-right: 0mm;
+    padding: 0mm;
+    
+}
+div{
+    padding: 0mm;
+    border: 0mm;
+    margin: 0mm;
+}
+.row{
+    
+    margin: 0mm;
 }

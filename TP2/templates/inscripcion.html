@@ -12,34 +12,52 @@
 <body>
     
   
-    <div><h1>INSCRIPCION </h1></div>
+    <div><h1>Sing up </h1></div>
     
-    <div class="container-sm" >        
+    <div class="container">
+        
+        <fieldset>
+           
+            
+            <legend>Datos de inicio de Sesion</legend>
+            <form class=" row ">
+                <div class="mb-3 row"> 
+                    <label for="correo" class="col-md-2 col-form-label">Correo </label>
+                    <div class="col-md-8"><input name="correo" id="correo" type="email" class="form-control"></div>
+                </div>
+                <div class="mb-3 row">
+                    <label for="Contrasenia" class="col-md-2 col-form-label">Contraseña</label>
+                    <div class="col-md-8"><input type="password" class="form-control" id="Contrasenia"></div>
+                </div>
+            </form>
+        </fieldset>
+        <br><br>
              <fieldset>
                 <legend >Datos Personales</legend>
-                    <form class="row g-4 ">
-                        <div class="col-md-4">
+                    <form class="row g-5 ">
+                        <div class="col-lg-5">
                             <label for="nombre" class="form-label">Apellido y Nombre</label>
                             <input name="nombre" id="nombre" type="text" class="form-control">
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-lg-3">
                             <label for="cuil" class="form-label">Cuil</label> 
                             <input name="cuil" id="cuil" type="number" class="form-control">
                         </div>   
-                        <div  class="col-md-3">
+                        <div  class="col-lg-3">
                             <label for="documento" class="form-label">Documento</label> 
                             <input name="documento" id="documento" type="number" class="form-control">
                         </div>
-                        <div class=" col-md-3">
+                        
+                        <div class=" col-lg-4">
                             <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
                             <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control">             
-                        </div>                        
-                        <div class="col-md-4">
-                            <label for="correo" class="form-label">Correo </label>
-                            <input name="correo" id="correo" type="email" class="form-control">
+                        </div>                                              
+                        <div class="col-lg-3">
+                            <label for="telefono" class="form-label">Telefono</label>
+                            <input type="telefono" name="telefono" id="telefono" class="form-control">
                         </div>
-                        <label class=" col-form-label col-sm-1 ">Sexo</label>
-                            <div class="col-md-2">
+                        <label class=" col-form-label col-lg-1 ">Sexo</label>
+                            <div class="col-lg-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Femenino" >
                                     <label class="form-check-label" for="gridRadios1">Masculino</label>
@@ -52,32 +70,27 @@
                                     <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="otros">
                                     <label class="form-check-label" for="gridRadios2">otros</label>
                                 </div> 
-                            </div> 
-                        <div class="col-md-3">
-                            <label for="telefono" class="form-label">Telefono</label>
-                            <input type="telefono" name="telefono" id="telefono" class="form-control">
-                        </div>
-                            
+                            </div>     
                     </form>
             </fieldset> 
             <br><br>
             <fieldset >
                 <legend>Domicilio</legend>
                 
-                <form class="row ">
-                    <div class="col-md-4 ">
+                <form class="row g-5 ">
+                    <div class="col-lg-5 ">
                         <label for="provincia" class="form-label">Provincia</label>
                         <input type="text" name="provincia" id="provincia" class="form-control">
                     </div>                    
-                    <div class="col-md-4">
+                    <div class="col-lg-5">
                         <label for="localidad" class="form-label">Localidad</label>
                         <input type="text" name="localidad" id="localidad" class="form-control">
                     </div>    
-                    <div class="  col-md-5 ">
+                    <div class="  col-lg-5 ">
                         <label for="domicilio" class="form-label">Calle</label>
                         <input type="text" name="domicilio" id="domicilio" class="form-control">
                     </div>   
-                    <div class="  col-md-2 ">
+                    <div class="  col-lg-3 ">
                         <label for="Numero" class="form-label">Numero</label>
                         <input type="number" name="Numero" id="numero" class="form-control">
                     </div>       
@@ -85,7 +98,7 @@
              </fieldset>  
              <br><br>
              <div >
-                <input type="submit" class="btn btn-primary" value="Registrarme">
+                <input type="submit" class="btn btn-primary" value="Registrarte">
                 <input type="button" class="btn btn-secondary" value="Cancelar">
             </div>   
     </div>
