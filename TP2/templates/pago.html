@@ -11,33 +11,36 @@
 </head>
 <body>
     <h1>Pago del Curso</h1>
-    <form action="#" method="post">
+    <form class="container" action="#" method="post">
         <fieldset>
             <legend>Datos Generales</legend>    
-                <div>
-                    <label for="tipoPago">Forma de Pago</label>
-                    <select name="tipoPago" id="tipoPago">
+                <div class="row mb-1">
+                    <label class="form-label" for="tipoPago">Forma de Pago</label>
+                    <select class="form-select" name="tipoPago" id="tipoPago">
                     <option value="1">Contado</option>
                     <option value="2">Debito</option>
                     <option value="3">Tarjeta</option>
-                    </select> &nbsp;
-                    <label for="importe">Importe:</label>
-                    <input name="importe" id="importe" type="number">
+                    </select> 
                 </div>
-                <br>
-                <div>
-                    <label for="numRecibo">Numero de Recibo:</label><br>
-                    <input name="numRecibo" id="numRecibo" type="number">
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <label class="form-label" for="importe">Importe:</label>
+                        <input class="form-control" name="importe" id="importe" type="number">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label class="form-label" for="numRecibo">Numero de Recibo:</label><br>
+                        <input class="form-control" name="numRecibo" id="numRecibo" type="number">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label class="form-label" for="fecha">Fecha:</label><br>
+                        <input class="form-control" name="fecha" id="fecha" type="date">
+                    </div>
                 </div>
-                <br>
-                <div>
-                    <label for="fecha">Fecha:</label><br>
-                    <input name="fecha" id="fecha" type="date">
-                </div>
-                <br>
-                <div>
-                    <label for="descripcion">Descripcion:</label><br>
-                    <input name="descripcion" id="descripcion" type="text">
+                <div class="row">
+                    <div class="col-12">
+                        <label class="form-label" for="descripcion">Descripcion:</label><br>
+                        <input class="form-control" name="descripcion" id="descripcion" type="text">
+                    </div>
                 </div>
                 <br>
         </fieldset><br>
@@ -48,44 +51,51 @@
         </fieldset><br>
         <fieldset>
             <legend>Tarjetas</legend>
-            <div>
-                <label for="titular">Titular de la Tarjeta</label><br>
-                <input type="text" name="titular" id="titular"><br><br>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label class="form-label" for="titular">Titular de la Tarjeta</label>
+                    <input class="form-control" type="text" name="titular" id="titular">
+                </div>
+                <div class="col-12 col-md-4">
+                    <label class="form-label" for="numtar">Numero de Tarjeta</label>
+                    <input class="form-control" type="text" name="numtar" id="numtar">
+                </div>
+                <div class="col-12 col-md-4">
+                    <label class="form-label" for="fechacaducidad">Fecha de caducidad</label>
+                    <input class="form-control" type="text" name="titular" id="titular">
+                </div>   
             </div>
-            <div>
-                <label for="numtar">Numero de Tarjeta</label><br>
-                <input type="text" name="numtar" id="numtar"><br><br>
+            <div class="row mt-2">
+                <div class="col-12 col-md-3 mx-auto">
+                    <label class="form-label" for="tipocard">Tipo de Tarjeta</label>
+                    <select class="form-select" name="tipocard" id="tipocard">
+                        <option value="1">Debito</option>
+                        <option value="2">Credito</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-3 mx-auto">
+                    <label class="form-label " for="cvv">Codigo de Seguridad</label>
+                    <input class="form-control" type="text" name="cvv" id="cvv">
+                </div>   
             </div>
-            <div>
-                <label for="fechacaducidad">Fecha de caducidad</label><br>
-                <input type="text" name="titular" id="titular"><br><br>
-            </div>
-            <div>
-                <label for="tipocard">Tipo de Tarjeta</label><br>
-                <select name="tipocard" id="tipocard">
-                    <option value="1">Debito</option>
-                    <option value="2">Credito</option>
-                </select><br><br>
-            </div>
-            <div>
-                <label for="cvv">Codigo de Seguridad</label><br>
-                <input type="text" name="cvv" id="cvv"><br><br>
-            </div>
+           
         </fieldset>
-        <fieldset>
+        <fieldset class="mt-4">
             <legend>Transferencia Bancaria</legend>
-            <div>
-                <label for="nombreBanco">Nombre Banco</label><br>
-                <input type="text" name="nombreBanco" id="nombreBanco"><br><br>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label class="form-label" for="nombreBanco">Nombre Banco</label>
+                    <input class="form-control" type="text" name="nombreBanco" id="nombreBanco">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label" for="cbu">CBU</label>&nbsp;
+                    <input class="form-control" type="text" name="cbu" id="cbu">
+                </div>
             </div>
-            <div>
-                <label for="cbu">CBU</label>&nbsp;
-                <input type="text" name="cbu" id="cbu"><br><br>
-            </div>
-        </fieldset> <br><br>
-        <input type="submit" value="Abonar Pago">
+            
+        </fieldset> 
+        <input class="btn-success mt-2 mb-2" type="submit" value="Abonar Pago">
     </form>
-    <br><br><br>
     
     <div class="container-fluid" id="footer">
         <footer class="row row-cols-3 py-3">
