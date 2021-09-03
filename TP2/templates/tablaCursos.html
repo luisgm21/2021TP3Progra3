@@ -46,36 +46,44 @@
       </nav>
 </header>
   <h1>Registro de Cursos</h1>
-  <div class="table-responsive">
-    <table class="table-dark table-hover; table table-bordered"  >
-      <tr >
-        <th>Nombre Curso</th>
-        <th>Docente</th> 
-        <th>Estado</th>
-        <th>opc</th>
-      </tr>
-      <tr>
-        <td class="primera">Curso 1</td>
-        <td>Pereyra M</td>
-        <td >activo</td>
-        <!-- <td>🛠 &nbsp;❌</td> -->
-        <td ><button type="button" class="btn btn-dark border" > Modificar</button>  <button type="button"  class="btn btn-dark border"> eliminar</button></td>
-      </tr>
-      <tr>
-          <td class="primera">Curso 2</td>
-          <td>Asevey M</td>
-          <td>activo</td>
-          <td>🛠 &nbsp;❌</td>
-        </tr>
-        <tr>
-          <td class="primera">Curso 3</td>
-          <td>Olivera E</td>
-          <td>activo</td>
-          <td>🛠 &nbsp;❌</td>
-        </tr>
-    </table><br><br>
-  </div>
-   
+  <div class="container">
+    <div class="table-responsive-lg">
+      <table class="table-dark table-hover; table table-bordered"  >
+        <thead>
+          <tr >
+            <th scope="col">Nombre Curso</th>
+            <th scope="col">Docente</th> 
+            <th scope="col">Estado</th>
+            <th scope="col">opc</th>
+          </tr>
+        </thead>  
+        <tbody>
+          <tr>
+            <td scope="row">Curso 1</td>
+            <td>Pereyra M</td>
+            <td >activo</td>
+            <!-- <td>🛠 &nbsp;❌</td> -->
+            <td ><button type="button" class="btn btn-dark border" > Modificar</button>  <button type="button"  class="btn btn-dark border"> eliminar</button></td>
+          </tr>
+
+          <tr>
+              <td scope="row">Curso 2</td>
+              <td>Asevey M</td>
+              <td>activo</td>
+              <td>🛠 &nbsp;❌</td>
+          </tr>
+          <tr>
+              <td scope="row">Curso 3</td>
+              <td>Olivera E</td>
+              <td>activo</td>
+              <td>🛠 &nbsp;❌</td>
+          </tr>
+        </tbody> 
+      </table>
+    </div>
+  </div>   
+
+
   <div class="container-fluid" id="footer">
     <footer class="row row-cols-3 py-3">
         <div class="col-12 col-md-4">

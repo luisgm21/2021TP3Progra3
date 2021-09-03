@@ -1,17 +1,13 @@
 nav li{
     display: inline;
 }
-table {
-  margin: auto;
-  width: 65%;
+table thead{
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 5mm;
+  
 }
-th, td {
-    padding: 15px;
-    text-align: left;
-}
-th, .primera{
-    background-color: lightblue; 
-}
+
 
 /* textarea{
     resize: none;

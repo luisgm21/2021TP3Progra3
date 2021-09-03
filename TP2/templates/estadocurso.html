@@ -10,7 +10,7 @@
     <link rel="shortcut icon" type="image/jpg" href="../public/image/favicon.ico"/>
 </head>
 <body>
-    <header>
+    
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -46,28 +46,35 @@
         </nav>
     </header>
     <h1>Estado de Cursos</h1>
-    
-    <div class="table-responsive-lg">
-        <table  class="table-dark table-hover; table table-bordered  " >
-            <tr >
-            <th>Nombre Curso</th>
-            <th>Archivo de Resolucion</th> 
-            <th>Estado</th>
-            <th>Numero de Resolucion</th>
-            <th>fecha</th>
-            </tr>
-            <tr >
-                <td>curso1</td>
-                <td>Archivo de Resolucion</td> 
-                <td><select name="estado" id="estado " class="form-select bg-dark " style="color:white">
-                    <option value="1">En revision</option>
-                    <option value="2" >Aprobado</option> 
-                    <option value="3" >Desaprobado</option>
-                </select></td>
-                <td>56456</td>
-                <td>22/08/2021</td>
-            </tr>
-        </table>
+    <div class="container">
+        <div class="table-responsive-lg">
+            <table  class="table-dark table-hover; table table-bordered  table-sm  align-middle" >
+                <thead >
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col-3">Nombre Cursos</th>
+                        <th scope="col-3">Archivo de Resolucion</th> 
+                        <th scope="col-4">Estado de Solicitud</th>
+                        <th scope="col">Numero de Resolucion</th>
+                        <th scope="col">fecha</th>
+                    </tr>    
+                </thead>
+                <tbody>
+                    <tr >
+                        <th scope="row">1</th>
+                        <td>curso1</td>
+                        <td>Archivo de Resolucion</td> 
+                        <td><select name="estado" id="estado " class="form-select bg-dark " style="color:white">
+                            <option value="#">-</option>
+                            <option value="aprobado" >Aprobado</option> 
+                            <option value="desaprobadp" >Desaprobado</option>
+                        </select></td>
+                        <td>56456</td>
+                        <td>22/08/2021</td>
+                    </tr>
+                </tbody>    
+            </table>
+        </div>
     </div>
 
     <div class="container-fluid" id="footer">

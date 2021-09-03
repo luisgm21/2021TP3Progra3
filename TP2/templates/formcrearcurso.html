@@ -52,52 +52,58 @@
      <h1>Formulario de Registro de Curso</h1>
     <div class=" container-md " >
         <fieldset>
-            <form class="row g-5 ">
-                <div class="col-md-4">
-                    <label for="nombreCurso" class="form-label"> Nombre del Curso </label>
-                    <input type="text" class="form-control" id="nombreCurso">
+            <form class="row  ">
+                <div class="row g-5">
+                    <div class="col-md-4">
+                        <label for="nombreCurso" class="form-label"> Nombre del Curso </label>
+                        <input type="text" class="form-control" id="nombreCurso">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="objetivo" class="form-label">Objetivo General </label>
+                        <textarea name="objectivo" id="objetivo" class="form-control" cols="70" rows="4"></textarea>
+                    </div>   
+                    <div  class="col-md-3">
+                        <label for="modalidad" class="form-label "  >Modalidad del Curso:</label>
+                        <select name="modalidad" id="modalidad" class="form-control" >
+                            <option value="#">-</option>
+                            <option value="presencial">Presencial</option>
+                            <option value="virtual" >Virtual</option>
+                            <option value="mixta">Mixta</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-md-5">
-                    <label for="objetivo" class="form-label">Objetivo General </label>
-                    <textarea name="objectivo" id="objetivo" class="form-control" cols="70" rows="4"></textarea>
-                </div>   
-                <div  class="col-md-2">
-                    <label for="modalidad" class="form-label "  >Modalidad del Curso:</label>
-                    <select name="modalidad" id="modalidad" class="form-control" >
-                        <option value="#">-</option>
-                        <option value="presencial">Presencial</option>
-                        <option value="virtual" >Virtual</option>
-                        <option value="mixta">Mixta</option>
-                    </select>
-                </div>
-                <div class="col-5">
-                    <label for="costo" class="form-label">Costo:</label>
-                    <input type="number" name="costo" id="costo" class="form-control">
-                </div>
-                <div class="col-md-3">
+                <div class="row g-5">
+                    <div class="col-md-3">
+                        <label for="costo" class="form-label">Costo:</label>
+                        <input type="number" name="costo" id="costo" class="form-control">
+                    </div>
                     
+                    
+                    <div class="col-md-3 ">
+                        <label for="horasCatedra" class="form-label">Horas Catedra:</label>
+                        <input type="number" name="horasCatedra" id="horasCatedra" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="cantMinimaAlum" class="form-label">Cantidad Minima Alumnos</label>
+                        <input type="number" name="cantMinimaAlum" id="cantMinimaAlum" class="form-control">
+                    </div>    
+                    <div class="col-md-3">
+                        <label for="cantMaximaAlum" class="form-label">Cantidad Maxima Alumnos</label><br>
+                        <input type="number" name="cantMaximaAlum" id="cantMaximaAlum"  class="form-control">
+                    </div>
+                </div>  
+                
+                <div class="row g-5 justify-content-center ">
+                    <div class="col-md-3 ">
+                        <label for="fechaInicio" class="form-label">Fecha Inicio:</label>
+                        <input type="date" name="fechaInicio" id="fechaInicio" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="fechaFin" class="form-label">Fecha Fin:</label>
+                        <input type="date" name="fechaFin" id="fechaFin" class="form-control">
+                    </div>
                 </div>
-                <div class="col-md-3 ">
-                    <label for="fechaInicio" class="form-label">Fecha Inicio:</label>
-                    <input type="date" name="fechaInicio" id="fechaInicio" class="form-control">
-                </div>
-                <div class="col-md-3">
-                    <label for="fechaFin" class="form-label">Fecha Fin:</label>
-                    <input type="date" name="fechaFin" id="fechaFin" class="form-control">
-                </div>
-                <div class="col-md-4 ">
-                    <label for="horasCatedra" class="form-label">Horas Catedra:</label>
-                    <input type="number" name="horasCatedra" id="horasCatedra" class="form-control">
-                </div>   
-                <div class="col-md-5">
-                    <label for="cantMinimaAlum" class="form-label">Cantidad Minima Alumnos</label>
-                    <input type="number" name="cantMinimaAlum" id="cantMinimaAlum" class="form-control">
-                </div>    
-                <div class="col-md-5">
-                    <label for="cantMaximaAlum" class="form-label">Cantidad Maxima Alumnos</label><br>
-                    <input type="number" name="cantMaximaAlum" id="cantMaximaAlum"  class="form-control">
-                </div>
-                <div class="row">
+                <div class="row g-5">
                     <div class="col-md-4">
                         <label for="docentesFrom" class="form-label">Docentes:</label>
                         <select name="docentesFrom" id="docentesFrom" class="form-select" multiple>
@@ -109,7 +115,7 @@
                     <!-- Probablemente sea reemplazado por un input que se engargue de buscar docentes en la base de datos -->
                     </div>
                     <div class="d-flex justify-content-center align-items-center col-12 col-md-4">
-                        <button class="btn-danger mt-2 mx-1"><=</button>
+                        <button class="btn-danger mt-2 mx-1"> <= </button>
                         <button class="btn-success mt-2 mx-1">=></button>
                     </div>
                     <div class="col-md-4">
@@ -118,10 +124,12 @@
                         </select>             
                     </div> 
                 </div>
-                <div class="col-12" >
-                    <input type="submit" class="btn btn-primary" value="Registrar">
-                    <input type="button" class="btn btn-secondary" value="Cancelar">
-                </div> 
+                <div class=" row g-4 justify-content-end">
+                    <div class="col-sm-3 " >
+                        <input type="button" class="btn btn-secondary" value="Cancelar">
+                        <input type="submit" class="btn btn-primary" value="Registrar">                       
+                    </div> 
+                </div>
             </form>
         </fieldset>
     </div>  
