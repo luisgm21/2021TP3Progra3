@@ -40,15 +40,25 @@
                 <div class="mb-3 row">
                     <label for="tipoCuenta" class="col-md-2 col-form-label">Tipo de Cuenta</label>
                     <div class="col-md-8 " ><select name="tipoCuenta" id="tipoCuenta" class="form-control collapsible">
-                        <option value="#">-</option>
                         <option value="estudiante">Estudiante</option>
                         <option value="docente">Docente</option>
-                    </select></div>
+                    </select>
+                    </div>
+                    <div class="mt-1 mb-3 row content">
+                    <label for="formFileMultiple" class="col-md-2 col-form-label">Subir Curriculum Vitae </label>
+                    <div class="col-md-8"><input class="form-control " type="file" id="formFileMultiple" multiple></div>
+                    <div class="mb-3 row">
+                        <div class="col-md-2">
+                            <label for="fechaIngreso" class="form-label ">Fecha de Ingreso</label>
+                        </div>
+                        <div class='col-md-8'>
+                            <input type="date" id="fechaIngreso" name="fechaIngreso" class="form-control ">
+                        </div>
+                    </div>
+                    </div>
+               
                 </div>  
-                <div class="mb-3 row content">
-                    <label for="formFileMultiple" class="form-label">Subir Curriculum Vitae </label>
-                    <div class="col-md-10"><input class="form-control " type="file" id="formFileMultiple" multiple></div>
-                </div>
+                
                        
             </form>
         </fieldset>
@@ -168,26 +178,7 @@
           </footer>
       </div>
 
-    
-      <script>
-        let object_select = document.getElementsByClassName("collapsible");
-        let object_select1 = document.getElementById("tipoCuenta")
-        
-
-        // for (i = 0; i < coll.length; i++) {
-        //   coll[i].addEventListener("change", function() {
-        //     this.classList.toggle("active");
-        //     var content = this.nextElementSibling;
-        //     if (content.style.maxHeight){
-        //       content.style.maxHeight = null;
-        //     } else {
-        //       content.style.maxHeight = content.scrollHeight + "px";
-        //     } 
-        //   });
-        // }
-        // </script>  
-
-
+      <script src="../public/js/index.js"/>      
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> 
 </body>
 </html>
