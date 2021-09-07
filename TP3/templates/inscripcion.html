@@ -39,93 +39,104 @@
                 </div>
                 <div class="mb-3 row">
                     <label for="tipoCuenta" class="col-md-2 col-form-label">Tipo de Cuenta</label>
-                    <div class="col-md-8 " ><select name="tipoCuenta" id="tipoCuenta" class="form-control">
+                    <div class="col-md-8 " ><select name="tipoCuenta" id="tipoCuenta" class="form-control collapsible">
                         <option value="#">-</option>
                         <option value="estudiante">Estudiante</option>
                         <option value="docente">Docente</option>
                     </select></div>
+                </div>  
+                <div class="mb-3 row content">
+                    <label for="formFileMultiple" class="form-label">Subir Curriculum Vitae </label>
+                    <div class="col-md-10"><input class="form-control " type="file" id="formFileMultiple" multiple></div>
                 </div>
-                
+                       
             </form>
         </fieldset>
         <br><br>
-             <fieldset>
-                <legend >Datos Personales</legend>
-                    <form class="row  ">
-                        <div class="row g-5">
-                            <div class=" col-lg-5">
-                                <label for="nombre" class="form-label">Apellido y Nombre</label>
-                                <input name="nombre" id="nombre" type="text" class="form-control">
-                            </div>
-                            <div class="col-lg-3">
-                                <label for="cuil" class="form-label">Cuil</label> 
-                                <input name="cuil" id="cuil" type="number" class="form-control">
-                            </div>   
-                            <div  class="col-lg-3">
-                                <label for="documento" class="form-label">Documento</label> 
-                                <input name="documento" id="documento" type="number" class="form-control">
-                            </div>
-                        </div>
-                        <div class="row g-5">
-                            <div class="  col-lg-4">
-                                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-                                <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control">             
-                            </div>                                              
-                            <div class="col-lg-3">
-                                <label for="telefono" class="form-label">Telefono</label>
-                                <input type="telefono" name="telefono" id="telefono" class="form-control">
-                            </div>
-                            <label class=" col-form-label col-lg-1 ">Sexo</label>
-                                <div class="col-lg-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Femenino" >
-                                        <label class="form-check-label" for="gridRadios1">Masculino</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Masculino">
-                                        <label class="form-check-label" for="gridRadios2">Femenino</label>
-                                    </div>    
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="otros">
-                                        <label class="form-check-label" for="gridRadios2">otros</label>
-                                    </div> 
-                                </div>    
-                        </div>
-                    </form>
-            </fieldset> 
-            <br><br>
-            <fieldset >
-                <legend>Domicilio</legend>
-                
+
+        
+
+                 
+            
+        
+
+            <fieldset>
+            <legend >Datos Personales</legend>
                 <form class="row  ">
                     <div class="row g-5">
-                        <div class="col-lg-5 ">
-                            <label for="provincia" class="form-label">Provincia</label>
-                            <input type="text" name="provincia" id="provincia" class="form-control">
-                        </div>                    
-                        <div class="col-lg-5">
-                            <label for="localidad" class="form-label">Localidad</label>
-                            <input type="text" name="localidad" id="localidad" class="form-control">
+                        <div class=" col-lg-5">
+                            <label for="nombre" class="form-label">Apellido y Nombre</label>
+                            <input name="nombre" id="nombre" type="text" class="form-control">
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="cuil" class="form-label">Cuil</label> 
+                            <input name="cuil" id="cuil" type="number" class="form-control">
                         </div>   
+                        <div  class="col-lg-3">
+                            <label for="documento" class="form-label">Documento</label> 
+                            <input name="documento" id="documento" type="number" class="form-control">
+                        </div>
                     </div>
                     <div class="row g-5">
-                        <div class="  col-lg-5 ">
-                            <label for="domicilio" class="form-label">Calle</label>
-                            <input type="text" name="domicilio" id="domicilio" class="form-control">
-                        </div>   
-                        <div class="  col-lg-3 ">
-                            <label for="Numero" class="form-label">Numero</label>
-                            <input type="number" name="Numero" id="numero" class="form-control">
-                        </div>    
-                    </div>       
-                </form> 
-             </fieldset>  
-            <br><br>
+                        <div class="  col-lg-4">
+                            <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                            <input type="date" id="fechaNacimiento" name="fechaNacimiento" class="form-control">             
+                        </div>                                              
+                        <div class="col-lg-3">
+                            <label for="telefono" class="form-label">Telefono</label>
+                            <input type="telefono" name="telefono" id="telefono" class="form-control">
+                        </div>
+                        <label class=" col-form-label col-lg-1 ">Sexo</label>
+                            <div class="col-lg-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="Femenino" >
+                                    <label class="form-check-label" for="gridRadios1">Masculino</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="Masculino">
+                                    <label class="form-check-label" for="gridRadios2">Femenino</label>
+                                </div>    
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="otros">
+                                    <label class="form-check-label" for="gridRadios2">otros</label>
+                                </div> 
+                            </div>    
+                    </div>
+                </form>
+        </fieldset> 
+        <br><br>
 
-             <div>   
-                <input type="submit" class="btn btn-primary" value="Registrarte" >
-                <input type="button" class="btn btn-secondary" value="Cancelar">
-              </div> 
+        <fieldset>
+            <legend>Domicilio</legend>        
+            <form class="row  ">
+                <div class="row g-5">
+                    <div class="col-lg-5 ">
+                        <label for="provincia" class="form-label">Provincia</label>
+                        <input type="text" name="provincia" id="provincia" class="form-control">
+                    </div>                    
+                    <div class="col-lg-5">
+                        <label for="localidad" class="form-label">Localidad</label>
+                        <input type="text" name="localidad" id="localidad" class="form-control">
+                    </div>   
+                </div>
+                <div class="row g-5">
+                    <div class="  col-lg-5 ">
+                        <label for="domicilio" class="form-label">Calle</label>
+                        <input type="text" name="domicilio" id="domicilio" class="form-control">
+                    </div>   
+                    <div class="  col-lg-3 ">
+                        <label for="Numero" class="form-label">Numero</label>
+                        <input type="number" name="Numero" id="numero" class="form-control">
+                    </div>    
+                </div>       
+            </form> 
+            </fieldset>  
+        <br><br>
+
+        <div>   
+            <input type="submit" class="btn btn-primary" value="Registrarte" >
+            <input type="button" class="btn btn-secondary" value="Cancelar">
+        </div> 
     </div>
 
     
@@ -156,6 +167,26 @@
             </div>
           </footer>
       </div>
+
+    
+      <script>
+        let object_select = document.getElementsByClassName("collapsible");
+        let object_select1 = document.getElementById("tipoCuenta")
+        
+
+        // for (i = 0; i < coll.length; i++) {
+        //   coll[i].addEventListener("change", function() {
+        //     this.classList.toggle("active");
+        //     var content = this.nextElementSibling;
+        //     if (content.style.maxHeight){
+        //       content.style.maxHeight = null;
+        //     } else {
+        //       content.style.maxHeight = content.scrollHeight + "px";
+        //     } 
+        //   });
+        // }
+        // </script>  
+
 
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> 
 </body>
