@@ -52,19 +52,19 @@
      <h1>Formulario de Registro de Curso</h1>
     <div class=" container-md " >
         <fieldset>
-            <form class="row  ">
+            <form class="row " action="#" method="GET" id="formulario">
                 <div class="row g-5">
                     <div class="col-md-4">
                         <label for="nombreCurso" class="form-label"> Nombre del Curso </label>
-                        <input type="text" class="form-control" id="nombreCurso">
+                        <input type="text" class="form-control" id="nombreCurso" required>
                     </div>
                     <div class="col-md-5">
                         <label for="objetivo" class="form-label">Objetivo General </label>
-                        <textarea name="objectivo" id="objetivo" class="form-control" cols="70" rows="4"></textarea>
+                        <textarea name="objectivo" id="objetivo" class="form-control" cols="70" rows="4" required></textarea>
                     </div>   
                     <div  class="col-md-3">
                         <label for="modalidad" class="form-label "  >Modalidad del Curso:</label>
-                        <select name="modalidad" id="modalidad" class="form-control" >
+                        <select name="modalidad" id="modalidad" class="form-control" required>
                             <option value="#">-</option>
                             <option value="presencial">Presencial</option>
                             <option value="virtual" >Virtual</option>
@@ -75,38 +75,38 @@
                 <div class="row g-5">
                     <div class="col-md-3">
                         <label for="costo" class="form-label">Costo:</label>
-                        <input type="number" name="costo" id="costo" class="form-control">
+                        <input type="number" name="costo" id="costo" class="form-control" required>
                     </div>
                     
                     
                     <div class="col-md-3 ">
                         <label for="horasCatedra" class="form-label">Horas Catedra:</label>
-                        <input type="number" name="horasCatedra" id="horasCatedra" class="form-control">
-                    </div>
+                        <input type="number" name="horasCatedra" id="horasCatedra" class="form-control" required>
+                    </div> 
                     <div class="col-md-3">
                         <label for="cantMinimaAlum" class="form-label">Cantidad Minima Alumnos</label>
-                        <input type="number" name="cantMinimaAlum" id="cantMinimaAlum" class="form-control">
+                        <input type="number" name="cantMinimaAlum" id="cantMinimaAlum" class="form-control" required>
                     </div>    
                     <div class="col-md-3">
                         <label for="cantMaximaAlum" class="form-label">Cantidad Maxima Alumnos</label><br>
-                        <input type="number" name="cantMaximaAlum" id="cantMaximaAlum"  class="form-control">
+                        <input type="number" name="cantMaximaAlum" id="cantMaximaAlum"  class="form-control" required>
                     </div>
                 </div>  
                 
-                <div class="row g-5 justify-content-center ">
+                 <div class="row g-5 justify-content-center ">
                     <div class="col-md-3 ">
                         <label for="fechaInicio" class="form-label">Fecha Inicio:</label>
-                        <input type="date" name="fechaInicio" id="fechaInicio" class="form-control">
+                        <input type="date" name="fechaInicio" id="fechaInicio" class="form-control" required>
                     </div>
                     <div class="col-md-3">
                         <label for="fechaFin" class="form-label">Fecha Fin:</label>
-                        <input type="date" name="fechaFin" id="fechaFin" class="form-control">
+                        <input type="date" name="fechaFin" id="fechaFin" class="form-control" required>
                     </div>
                 </div>
                 <div class="row g-5">
                     <div class="col-md-4">
                         <label for="docentesFrom" class="form-label">Docentes:</label>
-                        <select name="docentesFrom" id="docentesFrom" class="form-select" multiple>
+                        <select name="docentesFrom" id="docentesFrom" class="form-select" multiple required>
                             <option value="1">Docente 1</option>
                             <option value="2">Docente 2</option>
                             <option value="3">Docente 3</option>
@@ -161,8 +161,8 @@
                 </ul>
             </div>
           </footer>
-      </div>
-
+     </div>
+    <script src="../public/js/validar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> 
 </body>
 </html>
