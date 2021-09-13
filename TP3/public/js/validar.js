@@ -1,6 +1,6 @@
 // let min = document.getElementById('min')
 // let max = document.getElementById('max')
-//let boton= document.getElementById("guardar")
+// let boton= document.getElementById("guardar")
 let formulario = document.getElementById('formulario')
 const valcampmin = (e)=>{
     let min = formulario.cantMinimaAlum.value
