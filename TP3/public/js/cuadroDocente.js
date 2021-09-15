@@ -2,12 +2,29 @@ let botonEnviar = document.getElementById("botonEnviar");
 let botonEliminar = document.getElementById("botonEliminar");
 let docentesFrom =document.getElementById("docentesFrom");
 let docentesEnd = document.getElementById("docentesEnd")
-function agregar(){
-    let opciones= Array.from(docentesFrom.selectedOptions)
-    for(opcion of opciones){
-        docentesFrom.remove(opcion.index);
-        docentesEnd.add(opcion);
+let object_select = document.getElementById("controldocente")
+let b = 0;
+object_select.addEventListener('click',()=>{
+    if(b===0){
+        var content = object_select.parentNode.nextElementSibling;
+        content.style.maxHeight = content.scrollHeight + "px";
+        b=1;
+    }else{
+        var content = object_select.parentNode.nextElementSibling;
+        content.style.maxHeight = null;
+        b=0;
     }
+   
+})
+
+
+
+function agregar(){
+    let docente = document.createElement("option")
+    docente.setAttribute("value",docentesFrom.value)
+    let docenteTexto = document.createTextNode(docentesFrom.value);
+    docente.appendChild(docenteTexto);
+    docentesEnd.add(docente);
 }    
 function eliminar(){
     let opciones = Array.from(docentesEnd.selectedOptions)

@@ -5,17 +5,22 @@ let formulario = document.getElementById('formulario')
 const valcampmin = (e)=>{
     let min = formulario.cantMinimaAlum.value
     let max = formulario.cantMaximaAlum.value
-    console.log('hola si entree bro')
     if(min > max){
-        alert('min mayor que max ta mal bro')
+        alert('El número minimo de alumnos no puede ser superior al maximo de alumnos')
         e.preventDefault()
     }
 }
-const valnull = () => {
-
+const validarFecha = (e) => {
+        fechainicio= new Date(formulario.fechaInicio.value)
+        fechafinal= new Date(formulario.fechaFin.value)
+        if(fechainicio>fechafinal){
+            alert('La fecha de inicio de curso no debe ser posterior a la fecha de finalizacion del mismo')
+            e.preventDefault()
+        }
 } 
 const validar = (e)=>{
     valcampmin(e);
+    validarFecha(e);
 }
     
 
