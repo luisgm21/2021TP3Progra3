@@ -16,9 +16,6 @@ object_select.addEventListener('click',()=>{
     }
    
 })
-
-
-
 function agregar(){
     let docente = document.createElement("option")
     let docentes = Array.from(docentesEnd.options)
@@ -39,7 +36,9 @@ function agregar(){
         }
         if(bandera===0){
             docentesEnd.add(docente);
-            bandera=0
+        }else{
+            alert('docente repetido') 
+            bandera=0;
         }
     }
 }

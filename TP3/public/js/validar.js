@@ -3,8 +3,8 @@
 // let boton= document.getElementById("guardar")
 let formulario = document.getElementById('formulario')
 const valcampmin = (e)=>{
-    let min = formulario.cantMinimaAlum.value
-    let max = formulario.cantMaximaAlum.value
+    let min = Number(formulario.cantMinimaAlum.value)
+    let max = Number(formulario.cantMaximaAlum.value)
     if(min > max){
         alert('El número minimo de alumnos no puede ser superior al maximo de alumnos')
         e.preventDefault()
