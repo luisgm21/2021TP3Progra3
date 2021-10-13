@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% block title %}>Regitro de Curso{% endblock title %}
+{% block titulo %}Registro de Cursos{% endblock titulo %}
+{% block contenido %}
+    <div class="container">
+    <div class="table-responsive-lg">
+      <table class="table-dark table-hover; table table-bordered"  >
+        <thead>
+          <tr >
+            <th scope="col">Nombre Curso</th>
+            <th scope="col">Docente</th> 
+            <th scope="col">Estado</th>
+            <th scope="col">opc</th>
+          </tr>
+        </thead>  
+        <tbody>
+          <tr>
+            <td scope="row">Curso 1</td>
+            <td>Pereyra M</td>
+            <td >activo</td>
+            <!-- <td>🛠 &nbsp;❌</td> -->
+            <td ><button type="button" class="btn btn-dark border" > Modificar</button>  <button type="button"  class="btn btn-dark border"> eliminar</button></td>
+          </tr>
+
+          <tr>
+              <td scope="row">Curso 2</td>
+              <td>Asevey M</td>
+              <td>activo</td>
+              <td>🛠 &nbsp;❌</td>
+          </tr>
+          <tr>
+              <td scope="row">Curso 3</td>
+              <td>Olivera E</td>
+              <td>activo</td>
+              <td>🛠 &nbsp;❌</td>
+          </tr>
+        </tbody> 
+      </table>
+    </div>
+  </div>   
+{% endblock contenido %}

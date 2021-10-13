@@ -1,16 +1,17 @@
+{% load static %}
 <!DOCTYPE html>
+{% comment %} Como agregar imagenes a la pagina y no nos cargan las plantillas de css {% endcomment %}
 <html lang="es">
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomePage</title>
+    <title>{% block title %}DjangoName{% endblock title %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../src/static/css/styles.css">
-    <link rel="shortcut icon" type="image/jpg" href="../public/image/favicon.ico"/>
+    <link  href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <link rel="shortcut icon" type="image/jpg" href="{% static 'image/favicon.ico' %}"/>
 </head>
-<body>
+<body> 
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
@@ -22,7 +23,7 @@
                     <div class="navbar">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link active" href="./homepage.html">Home</a>
+                                <a class="nav-link active" href=".homepage.html">Home</a>
                             </li>
                             <li>
                                 <a  class="nav-link" href="./formcrearcurso.html">Registrar Curso</a>
@@ -47,66 +48,14 @@
     </header>
 
     <div>
-        <h1>Gestión de Cursos de Posgrado-Facultad de Tecnología y Cs Aplicadas</h1>
+        <h1>{% block titulo %}{% endblock titulo %}</h1>
     </div>
+
+    <div class="container-fluid">
+        {% block contenido %}
+        {% endblock contenido %}
+    </div> 
     
-    
-        <fieldset>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12 col-md-8">
-                        <legend>Cursos</legend>
-                    </div>
-                    <div class="col-12 col-md-3">   
-                        <input class="form-control" type="text" placeholder="Nombre de Curso" id="buscador" name="buscador">
-                    </div>
-                    <div class="col-12 col-md-1">
-                        <button class="btn btn-secondary mb-2">Buscar🔎</button>
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="container">
-                <div class="card-group">
-                    <div class="card">
-                      <img src="../public/image/herramientas-y-recursos-para-crear-curso-online.png" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h3 class="card-title">Curso 1</h3>
-                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, eligendi distinctio magni officia eaque facere? Mollitia ipsam necessitatibus reiciendis animi excepturi quibusdam. Non deleniti magnam, architecto vel dolor dolores porro?<a href="./curso.html">Ver mas...</a></p>
-                        
-                      </div>
-                      <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <img src="../public/image/herramientas-y-recursos-para-crear-curso-online.png" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h3 class="card-title">Curso 2</h3>
-                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, eligendi distinctio magni officia eaque facere? Mollitia ipsam necessitatibus reiciendis animi excepturi quibusdam. Non deleniti magnam, architecto vel dolor dolores porro?<a href="./curso.html">Ver mas...</a></p>
-                      </div>
-                      <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                      </div>
-                    </div>
-                    <div class="card">
-                      <img src="../public/image/herramientas-y-recursos-para-crear-curso-online.png" class="card-img-top" alt="...">
-                      <div class="card-body">
-                        <h3 class="card-title">Curso 3</h3>
-                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, eligendi distinctio magni officia eaque facere? Mollitia ipsam necessitatibus reiciendis animi excepturi quibusdam. Non deleniti magnam, architecto vel dolor dolores porro? <a href="./curso.html">Ver mas...</a></p>
-                      </div>
-                      <div class="card-footer">
-                        <small class="text-muted">Last updated 3 mins ago</small>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-        </fieldset>
-        <br><br><br>
-
-
-
         <div class="container-fluid" id="footer">
           <footer class="row row-cols-3 py-3">
               <div class="col-12 col-md-4">
@@ -135,4 +84,4 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
         <script src="../public/metos.js"></script> 
     </body>
-</html> 
+    </html> 
