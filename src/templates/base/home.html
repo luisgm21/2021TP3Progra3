@@ -1,4 +1,5 @@
 {% extends 'base/base.html' %}
+{% load static %}
 {% block title %}Home{% endblock title %}Home
 {% block titulo %}Homepage{% endblock titulo %}
 {% block contenido %}
@@ -21,7 +22,7 @@
               <div class="container">
                   <div class="card-group">
                       <div class="card">
-                        <img src="../../static/image/herramientas-y-recursos-para-crear-curso-online.png" class="card-img-top" alt="...">
+                        <img src="{% static 'image/herramientas-y-recursos-para-crear-curso-online.png' %}" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h3 class="card-title">Curso 1</h3>
                           <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, eligendi distinctio magni officia eaque facere? Mollitia ipsam necessitatibus reiciendis animi excepturi quibusdam. Non deleniti magnam, architecto vel dolor dolores porro?<a href="./curso.html">Ver mas...</a></p>
@@ -32,7 +33,7 @@
                         </div>
                       </div>
                       <div class="card">
-                        <img src="../public/image/herramientas-y-recursos-para-crear-curso-online.png" class="card-img-top" alt="...">
+                        <img src="{% static 'image/herramientas-y-recursos-para-crear-curso-online.png' %}" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h3 class="card-title">Curso 2</h3>
                           <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, eligendi distinctio magni officia eaque facere? Mollitia ipsam necessitatibus reiciendis animi excepturi quibusdam. Non deleniti magnam, architecto vel dolor dolores porro?<a href="./curso.html">Ver mas...</a></p>
@@ -42,7 +43,7 @@
                         </div>
                       </div>
                       <div class="card">
-                        <img src="../public/image/herramientas-y-recursos-para-crear-curso-online.png" class="card-img-top" alt="...">
+                        <img src="{% static 'image/herramientas-y-recursos-para-crear-curso-online.png' %}" class="card-img-top" alt="...">
                         <div class="card-body">
                           <h3 class="card-title">Curso 3</h3>
                           <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla, eligendi distinctio magni officia eaque facere? Mollitia ipsam necessitatibus reiciendis animi excepturi quibusdam. Non deleniti magnam, architecto vel dolor dolores porro? <a href="./curso.html">Ver mas...</a></p>
