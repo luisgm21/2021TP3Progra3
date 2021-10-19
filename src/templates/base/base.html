@@ -36,10 +36,10 @@ como ver el request en consola {% endcomment %}
                                 <a class="nav-link" href="./login.html">Login</a>
                             </li>
                             <li  class="nav-item">
-                                <a  class="nav-link" href="./estadocurso.html">Estado</a>
+                                <a  class="nav-link {% if request.resolver_match.url_name == 'estadoCursos' %}active{% endif %}" href="{% url 'cursos:estadoCursos' %}">Estado</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="./estadisticas.html">Estadisticas</a>
+                                <a class="nav-link {% if request.resolver_match.url_name == 'estadisticas' %}active{% endif %}" href="{% url 'cursos:estadisticas' %}">Estadisticas</a>
                             </li>           
                         </ul>
                     </div>
