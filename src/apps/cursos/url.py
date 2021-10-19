@@ -6,5 +6,5 @@ app_name='cursos'
 
 urlpatterns=[
     #cursos views
-    path('', tablaCursos, )
+    path('', tablaCursos,name='registroCursos')
 ] 
