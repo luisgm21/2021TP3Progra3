@@ -3,7 +3,7 @@ from django.db.models.base import Model
 
 # Create your models here.
 class Persona(models.Model):
-    dni = models.IntegerField(unique=True)
+    dni = models.CharField(max_length=8,unique=True)
     nombreyapellido = models.CharField(max_length=100)
     fecha_nacimiento= models.DateTimeField()
     telefono= models.IntegerField()

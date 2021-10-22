@@ -1,3 +1,4 @@
+from datetime import date
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.fields.mixins import FieldCacheMixin
@@ -12,9 +13,10 @@ class curso(models.Model):
     horascatedra = models.IntegerField()
     cantidadminalumnos= models.IntegerField()
     cantidadmaxalumnos=models.IntegerField()
-    fechaini=models.DateTimeField()
+    fechaini=models.DateTimeField(default= date.today)
     fechafin=models.DateTimeField()
     docentecargo= models.ManyToManyField(Profesor)
+    estadocurso= models.CharField(max_length=20,default='En Curso')
 
 class propuesta(models.Model):
     codcurso= models.OneToOneField(curso,on_delete=models.CASCADE)

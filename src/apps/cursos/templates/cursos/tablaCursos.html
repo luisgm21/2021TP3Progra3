@@ -8,32 +8,28 @@
         <thead>
           <tr >
             <th scope="col">Nombre Curso</th>
-            <th scope="col">Docente</th> 
+            <th scope="col">Docente</th>
+            <th scope="col">Fecha Inicio</th>
             <th scope="col">Estado</th>
             <th scope="col">opc</th>
           </tr>
         </thead>  
         <tbody>
+           {% for curso in cursos%}
           <tr>
-            <td scope="row">Curso 1</td>
-            <td>Pereyra M</td>
-            <td >activo</td>
-            <!-- <td>🛠 &nbsp;❌</td> -->
-            <td ><button type="button" class="btn btn-dark border" > Modificar</button>  <button type="button"  class="btn btn-dark border"> eliminar</button></td>
+            <td scope="row">{{curso.nombrecurso}}</td>
+            <td scope="row">
+              <ul>
+                  {% for docente in docentecargo.all %}
+                    <li>{{docente.nombreyapellido}}</li>
+                  {% endfor %}
+              </ul>
+            </td>
+            <td scope="row">{{curso.fechaini}}</td>
+            <td scope="row">{{curso.estadocurso}}</td>
+            <td scope="row"><button type="button" class="btn btn-dark border" > Modificar</button>  <button type="button"  class="btn btn-dark border"> eliminar</button></td>
           </tr>
-
-          <tr>
-              <td scope="row">Curso 2</td>
-              <td>Asevey M</td>
-              <td>activo</td>
-              <td>🛠 &nbsp;❌</td>
-          </tr>
-          <tr>
-              <td scope="row">Curso 3</td>
-              <td>Olivera E</td>
-              <td>activo</td>
-              <td>🛠 &nbsp;❌</td>
-          </tr>
+          {% endfor%}
         </tbody> 
       </table>
     </div>
