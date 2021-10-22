@@ -1,0 +1,93 @@
+{% extends 'base/base.html' %}
+{% block title %}>Pago del curso{% endblock title %}
+{% block titulo %}Pago del curso{% endblock titulo %}
+{% block contenido %}
+
+
+    <form class="container" action="#" method="post">
+        <fieldset>
+            <legend>Datos Generales</legend>    
+                <div class="row mb-1">
+                    <label class="form-label" for="tipoPago">Forma de Pago</label>
+                    <select class="form-select" name="tipoPago" id="tipoPago">
+                    <option value="1">Contado</option>
+                    <option value="2">Tarjeta</option>
+                    <option value="3">Transferencia</option>
+                    </select> 
+                </div>
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <label class="form-label" for="importe">Importe:</label>
+                        <input class="form-control" name="importe" id="importe" type="number">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label class="form-label" for="numRecibo">Número de Recibo:</label><br>
+                        <input class="form-control" name="numRecibo" id="numRecibo" type="number">
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <label class="form-label" for="fecha">Fecha:</label><br>
+                        <input class="form-control" name="fecha" id="fecha" type="date">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label class="form-label" for="descripcion">Descripcion:</label><br>
+                        <input class="form-control" name="descripcion" id="descripcion" type="text">
+                    </div>
+                </div>
+                <br>
+        </fieldset><br>
+        <fieldset>
+                <legend>Contado</legend>
+                <p>N° de Pago: 00000001010111</p>
+                <p>Nota: Con este numero tiene que ir hasta secretaria de alumno y abonar el curso</p>
+        </fieldset><br>
+        <fieldset>
+            <legend>Tarjetas</legend>
+            <div class="row">
+                <div class="col-12 col-md-4">
+                    <label class="form-label" for="titular">Titular de la Tarjeta</label>
+                    <input class="form-control" type="text" name="titular" id="titular">
+                </div>
+                <div class="col-12 col-md-4">
+                    <label class="form-label" for="numtar">Numero de Tarjeta</label>
+                    <input class="form-control" type="text" name="numtar" id="numtar">
+                </div>
+                <div class="col-12 col-md-4">
+                    <label class="form-label" for="fechacaducidad">Fecha de caducidad</label>
+                    <input class="form-control" type="text" name="titular" id="titular">
+                </div>   
+            </div>
+            <div class="row mt-2">
+                <div class="col-12 col-md-3 mx-auto">
+                    <label class="form-label" for="tipocard">Tipo de Tarjeta</label>
+                    <select class="form-select" name="tipocard" id="tipocard">
+                        <option value="1">Debito</option>
+                        <option value="2">Credito</option>
+                    </select>
+                </div>
+                <div class="col-12 col-md-3 mx-auto">
+                    <label class="form-label " for="cvv">Codigo de Seguridad</label>
+                    <input class="form-control" type="text" name="cvv" id="cvv">
+                </div>   
+            </div>
+           
+        </fieldset>
+        <fieldset class="mt-4">
+            <legend>Transferencia Bancaria</legend>
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <label class="form-label" for="nombreBanco">Nombre Banco</label>
+                    <input class="form-control" type="text" name="nombreBanco" id="nombreBanco">
+                </div>
+                <div class="col-12 col-md-6">
+                    <label class="form-label" for="cbu">CBU</label>&nbsp;
+                    <input class="form-control" type="text" name="cbu" id="cbu">
+                </div>
+            </div>
+            
+        </fieldset> 
+        <input class="btn-success mt-2 mb-2" type="submit" value="Abonar Pago">
+    </form>
+
+{% endblock contenido %}

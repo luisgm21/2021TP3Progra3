@@ -1,0 +1,39 @@
+{% extends 'base/base.html' %}
+{% block title %}>estado de Cursos{% endblock title %}
+{% block titulo %}estado de cursos{% endblock titulo %}
+{% block contenido %}
+
+
+
+    <div class="container">
+        <div class="table-responsive-lg">
+            <table  class="table-dark table-hover; table table-bordered  table-sm  align-middle" >
+                <thead >
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col-3">Nombre Cursos</th>
+                        <th scope="col-3">Archivo de Resolucion</th> 
+                        <th scope="col-4">Estado de Solicitud</th>
+                        <th scope="col">Numero de Resolucion</th>
+                        <th scope="col">fecha</th>
+                    </tr>    
+                </thead>
+                <tbody>
+                    <tr >
+                        <th scope="row">1</th>
+                        <td>curso1</td>
+                        <td>Archivo de Resolucion</td> 
+                        <td><select name="estado" id="estado " class="form-select bg-dark " style="color:white">
+                            <option value="#">-</option>
+                            <option value="aprobado" >Aprobado</option> 
+                            <option value="desaprobadp" >Desaprobado</option>
+                        </select></td>
+                        <td>56456</td>
+                        <td>22/08/2021</td>
+                    </tr>
+                </tbody>    
+            </table>
+        </div>
+    </div>
+
+{% endblock contenido %}
