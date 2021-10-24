@@ -1,0 +1,95 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Crear Curso{% endblock %}
+{% block titulo %}Formulario de Registro de Curso{% endblock %}
+
+{% block contenido%} 
+    <div class="container-md " >
+        <fieldset>
+            <form class="row " action="#" method="POST" id="formulario">
+               
+                <div class="row g-5">
+                     {{ form.non_field_errors }}
+                    <div class="col-md-4">
+                        {{ form.nombrecurso.errors }}
+                        <label for="{{ form.nombrecurso.id_for_label }}" class="form-label"> Nombre del Curso </label>
+                       {{ form.nombrecurso }}
+                    </div>
+                    {{ form.non_field_errors }}
+                    <div class="col-md-5">
+                    {{ form.objetivogeneral.errors }}
+                        <label for="{{ form.objetivogeneral.id_for_label }}" class="form-label">Objetivo General </label>
+                        {{ form.objetivogeneral }}
+                    </div>   
+                    {{ form.non_field_errors }}
+                    <div  class="col-md-3">
+                         {{ form.modalidad.errors }}
+                        <label for="{{ form.modalidad.id_for_label }}" class="form-label">Modalidad del Curso:</label>
+                        {{ form.modalidad }}
+                    </div>
+                </div>
+                <div class="row g-5">
+                     {{ form.non_field_errors }}
+                    <div class="col-md-3">
+                        {{ form.costo.errors }}
+                        <label for="{{ form.costo.id_for_label }}" class="form-label">Costo:</label>
+                        {{ form.costo }}
+                    </div>
+                    
+                    {{ form.non_field_errors }}
+                    <div class="col-md-3 ">
+                        {{ form.horascatedra.errors }}
+                        <label for="{{ form.horascatedra.id_for_label }}" class="form-label">Horas Catedra:</label>
+                        {{ form.horascatedra }}
+                    </div> 
+                    {{ form.non_field_errors }}
+                    <div class="col-md-3">
+                        {{ form.cantidadminalumnos.errors }}
+                        <label for="{{ form.cantidadminalumnos.id_for_label }}" class="form-label">Cantidad Minima Alumnos</label>
+                        {{ form.cantidadminalumnos }}
+                    </div>    
+                    {{ form.non_field_errors }}
+                    <div class="col-md-3">
+                        {{ form.cantidadmaxalumnos.errors }}
+                        <label for="{{ form.cantidadmaxalumnos.id_for_label }}" class="form-label">Cantidad Maxima Alumnos</label><br>
+                        {{ form.cantidadmaxalumnos }}
+                    </div>
+                </div>  
+                {{ form.non_field_errors }}
+                 <div class="row g-5 justify-content-center ">
+                    {{ form.fechaini.errors }}
+                    <div class="col-md-4 ">
+                        <label for={{ form.fechaini.id_for_label }} class="form-label">Fecha Inicio:</label>
+                        {{ form.fechaini }}
+                    </div>
+                    {{ form.non_field_errors }}
+                    <div class="col-md-4">
+                        {{ form.fechafin.errors }}
+                        <label for={{ form.fechafin.id_for_label }} class="form-label">Fecha Fin:</label>
+                        {{ form.fechafin }}
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <button type="button" class="col-12 btn btn-secondary m-1" id="controldocente">Docente Expositor🔽</button>
+                </div>
+                <div class="row g-5 content">
+                     {{ form.non_field_errors }}
+                    <div class="col-md-4">
+                         {{ form.docentecargo.errors }}
+                        <label for={{ form.docentecargo.id_for_label }} class="form-label ">Docentes:</label>
+                        {{ form.docentecargo }}
+                    </div>         
+                    </div>
+                </div>
+                <div class=" row g-4 justify-content-end">
+                    <div class="col-md-4 " >
+                        <input type="reset" class="btn btn-secondary" value="Cancelar">
+                        <input type="submit" class="btn btn-primary" value="Registrar">                       
+                    </div> 
+                </div>
+            </form>
+        </fieldset>
+    </div>
+    <script src="{% static 'js/cuadroDocente.js' %}"></script>
+    <script src="{% static 'js/validar.js' %}"></script>
+{% endblock %}

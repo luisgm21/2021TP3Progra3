@@ -6,9 +6,14 @@ from apps.usuarios.models import Profesor
 
 # Create your models here.
 class curso(models.Model):
+    MODALIDAD_OPCIONES = (
+        ('virtual', 'Virtual'),
+        ('presencial', 'Presencial'),
+        ('mixto','Mixto')
+    )
     nombrecurso = models.CharField(max_length=100)
     objetivogeneral = models.TextField(max_length=5000)
-    modalidad = models.CharField(max_length=10)
+    modalidad = models.CharField(max_length=10,choices=MODALIDAD_OPCIONES)
     costo = models.IntegerField()
     horascatedra = models.IntegerField()
     cantidadminalumnos= models.IntegerField()

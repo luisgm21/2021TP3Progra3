@@ -22,4 +22,6 @@ class Estudiante(Persona):
 
 class Profesor(Persona):
     fechaIngresoTrabajar= models.DateField(null=True)
+    def __str__(self):
+        return super().nombreyapellido
 

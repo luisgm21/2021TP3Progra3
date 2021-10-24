@@ -20,8 +20,8 @@
             <td scope="row">{{curso.nombrecurso}}</td>
             <td scope="row">
               <ul>
-                  {% for docente in docentecargo.all %}
-                    <li>{{docente.nombreyapellido}}</li>
+                  {% for docente in curso.docentecargo.all %}
+                      <li>{{ docente.nombreyapellido }}</li>
                   {% endfor %}
               </ul>
             </td>

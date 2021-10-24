@@ -27,7 +27,7 @@ como ver el request en consola {% endcomment %}
                                 <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
                             </li>
                             <li>
-                                <a  class="nav-link" href="./formcrearcurso.html">Registrar Curso</a>
+                                <a class="nav-link {% if request.resolver_match.url_name == 'creacion_curso' %}active{% endif %}" href="{% url 'cursos:creacion_curso' %}">Registrar Curso</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {% if request.resolver_match.url_name == 'registroCursos' %}active{% endif %}" href="{% url 'cursos:registroCursos' %}">Registro de Cursos</a>
