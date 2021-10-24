@@ -8,7 +8,12 @@ table thead{
   
 }
 
-
+input, textarea, select{
+    border-radius: 2mm;
+    outline: 2px solid #1C6EA4;
+    outline-offset: 0px;
+    
+}
 /* textarea{
     resize: none;
 } */

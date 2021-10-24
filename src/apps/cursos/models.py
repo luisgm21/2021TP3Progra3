@@ -29,5 +29,39 @@ class propuesta(models.Model):
     fecha= models.DateTimeField()
     estado = models.CharField(max_length=30)
     docente= models.OneToOneField(Profesor,on_delete=models.CASCADE)
+
+#----------------------------------------------------------------------------------------    
+class Pago(models.Model):
+    PAGO_OPCIONES = (
+        ('Efectivo', 'Efectivo'),
+        ('Tarjeta', 'Tarjeta'),
+        ('Transferencia','Transferencia')
+    )
+    FormaPago= models.CharField(choices=PAGO_OPCIONES, max_length=15)
+    importe=models.IntegerField()
+    descripcion=models.TextField(max_length=250)
+    fecha=models.DateTimeField(default= date.today)
+    class Meta:
+        abstract = True
     
-    
+class PagoEfectivo(Pago):
+    numeroRecibo=models.IntegerField()
+
+class PagoTarjeta(Pago):
+    PAGO_TARJETA_OPCIONES= (
+        ('Debito', 'Debito'),
+        ('Credito', 'Credito')    
+    )
+    titularTarjeta=models.CharField(max_length=50)
+    numeroTarjeta=models.CharField(max_length=16)
+    TipoTarjeta=models.CharField(choices=PAGO_TARJETA_OPCIONES,max_length=10)
+    codSeguridad=models.CharField(max_length=3)
+
+class PagoTransferencia(Pago):
+    CBU=models.CharField(max_length=22)
+    alias=models.CharField(max_length=25)
+    banco=models.CharField(max_length=50)
+
+#-----------------------------------------------------------------------------
+
+
