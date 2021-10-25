@@ -22,6 +22,8 @@ class curso(models.Model):
     fechafin=models.DateTimeField()
     docentecargo= models.ManyToManyField(Profesor)
     estadocurso= models.CharField(max_length=20,default='En Curso')
+    def __str__(self):
+        return f"NombreCurso:{self.nombrecurso}"
 
 class propuesta(models.Model):
     codcurso= models.OneToOneField(curso,on_delete=models.CASCADE)

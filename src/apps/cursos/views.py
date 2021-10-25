@@ -45,12 +45,41 @@ def creacion_curso(request):
         curso_form = cursoForm()    
     return render(request,'cursos/formcrearcurso.html',{'form': curso_form})
 
+@csrf_exempt
+def edicion_curso(request, pk):
+    Curso = get_object_or_404(curso, pk = pk)
+
+    if (request.method == 'POST'):
+        curso_form = cursoForm(request.POST, request.FILES, instance=Curso)
+        if curso_form.is_valid():
+            curso_form.save(commit=True)
+            messages.success(request,
+                             'Se ha editado correctamente el curso con el {}'.format(Curso))
+            return redirect(reverse('cursos:registroCursos'))
+    else:
+        curso_form = cursoForm(instance=Curso)    
+    return render(request,'cursos/modificarCurso.html',{'form': curso_form})
+
+def curso_delete(request):
+    if request.method == 'POST':
+        if 'id_curso' in request.POST:
+            Curso = get_object_or_404(curso, pk=request.POST['id_curso'])
+            nombre_curso = curso.nombrecurso
+            Curso.delete()
+            messages.success(request, 'Se ha eliminado exitosamente el Programa {}'.format(nombre_curso))
+        else:
+            messages.error(request, 'Debe indicar qué Programa se desea eliminar')
+    return redirect(reverse('cursos:registroCursos'))
+
 
 def tablaCursos(request):
     return render(request, 'cursos/tablaCursos.html')
 
-def datosCurso(request):
-    return render(request, 'cursos/datosCurso.html')   
+def datosCurso(request,pk):
+    Curso = get_object_or_404(curso, pk=pk)
+    return render(request,
+                  'cursos/datosCurso.html',
+                  {'curso': Curso})
 
 def estadisticas(request):
     return render(request, 'cursos/estadisticas.html') 

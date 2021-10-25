@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% load static %}
-{% block title %}Crear Curso{% endblock %}
-{% block titulo %}Formulario de Registro de Curso{% endblock %}
+{% block title %}Editar Curso{% endblock %}
+{% block titulo %}Formulario de Edicion de Curso{% endblock %}
 
 {% block contenido%} 
     <div class="container-md " >
@@ -80,12 +80,12 @@
                         {{ form.docentecargo }}
                     </div>         
                     </div>
-                    {% csrf_token %}
                 </div>
+                {% csrf_token %}
                 <div class=" row g-4 justify-content-end">
                     <div class="col-md-4 " >
                         <input type="reset" class="btn btn-secondary" value="Cancelar">
-                        <input type="submit" class="btn btn-primary" value="Registrar">                       
+                        <input type="submit" class="btn btn-primary" value="Actualizar">                       
                     </div> 
                 </div>
             </form>
