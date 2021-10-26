@@ -1,9 +1,9 @@
-from datetime import date
+from datetime import date, time
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.fields.mixins import FieldCacheMixin
 from apps.usuarios.models import Profesor
-
+from django.utils import timezone
 # Create your models here.
 class curso(models.Model):
     MODALIDAD_OPCIONES = (
@@ -39,7 +39,7 @@ class Pago(models.Model):
         ('Tarjeta', 'Tarjeta'),
         ('Transferencia','Transferencia')
     )
-    FormaPago= models.CharField(choices=PAGO_OPCIONES, max_length=15)
+    formaPago= models.CharField(choices=PAGO_OPCIONES, max_length=15)
     importe=models.IntegerField()
     descripcion=models.TextField(max_length=250)
     fecha=models.DateTimeField(default= date.today)
@@ -56,8 +56,9 @@ class PagoTarjeta(Pago):
     )
     titularTarjeta=models.CharField(max_length=50)
     numeroTarjeta=models.CharField(max_length=16)
-    TipoTarjeta=models.CharField(choices=PAGO_TARJETA_OPCIONES,max_length=10)
+    tipoTarjeta=models.CharField(choices=PAGO_TARJETA_OPCIONES,max_length=10)
     codSeguridad=models.CharField(max_length=3)
+    fechaCaducidad=models.DateField(default=date.today)
 
 class PagoTransferencia(Pago):
     CBU=models.CharField(max_length=22)

@@ -6,69 +6,80 @@
 
     <form class="container" action="#" method="post">
         <fieldset>
-            <legend>Datos Generales</legend>    
+            <legend>Datos Generales</legend> 
+            {{ form.non_field_errors }}   
                 <div class="row mb-1">
-                    <label class="form-label" for="tipoPago">Forma de Pago</label>
-                    <select class="form-select" name="tipoPago" id="tipoPago">
-                    <option value="1">Contado</option>
-                    <option value="2">Tarjeta</option>
-                    <option value="3">Transferencia</option>
-                    </select> 
+                    {{ form.formaPago.errors }}
+                    <label class="form-label" for="{{ form.formaPago.id_for_label }}">Forma de Pago</label>
+                    {{ form.formaPago }}                      
+                </div>
+                
+                <div class="row">
+                    {{ form.non_field_errors }}
+                    <div class="col-12 col-md-4">
+                        {{ form.importe.errors }}
+                        <label class="form-label" for="{{ form.importe.id_for_label }}">Importe:</label>
+                        {{ form.importe }}    
+                    </div>
+                    {{ form.non_field_errors }}
+                    <div class="col-12 col-md-4">
+                        {{ form.numRecibo.errors }}
+                        <label class="form-label" for="{{ form.numRecibo.id_for_label }}">Número de Recibo:</label><br>
+                        {{ form.numRecibo }}                    
+                    </div>
+                    {{ form.non_field_errors }}
+                    <div class="col-12 col-md-4">
+                        {{ form.fecha.errors }}
+                        <label class="form-label" for="{{ form.fecha.id_for_label }}">Fecha:</label><br>
+                        {{ form.fecha }}                    
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 col-md-4">
-                        <label class="form-label" for="importe">Importe:</label>
-                        <input class="form-control" name="importe" id="importe" type="number">
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <label class="form-label" for="numRecibo">Número de Recibo:</label><br>
-                        <input class="form-control" name="numRecibo" id="numRecibo" type="number">
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <label class="form-label" for="fecha">Fecha:</label><br>
-                        <input class="form-control" name="fecha" id="fecha" type="date">
-                    </div>
-                </div>
-                <div class="row">
+                    {{ form.non_field_errors }}
                     <div class="col-12">
-                        <label class="form-label" for="descripcion">Descripcion:</label><br>
-                        <input class="form-control" name="descripcion" id="descripcion" type="text">
+                        {{ form.descripcion.errors }}
+                        <label class="form-label" for="{{ form.descripcion.id_for_label }}">Descripcion:</label><br>
+                        {{ form.descripcion }}                    
                     </div>
                 </div>
                 <br>
         </fieldset><br>
-        <fieldset>
-                <legend>Contado</legend>
-                <p>N° de Pago: 00000001010111</p>
-                <p>Nota: Con este numero tiene que ir hasta secretaria de alumno y abonar el curso</p>
-        </fieldset><br>
+        
         <fieldset>
             <legend>Tarjetas</legend>
             <div class="row">
+                {{ form.non_field_errors }}
                 <div class="col-12 col-md-4">
-                    <label class="form-label" for="titular">Titular de la Tarjeta</label>
-                    <input class="form-control" type="text" name="titular" id="titular">
+                    {{ form.titularTarjeta.errors }}
+                    <label class="form-label" for="{{ form.titularTarjeta.id_for_label }}">Titular de la Tarjeta</label>
+                    {{ form.titularTarjeta }}                
                 </div>
+                {{ form.non_field_errors }}
                 <div class="col-12 col-md-4">
-                    <label class="form-label" for="numtar">Numero de Tarjeta</label>
-                    <input class="form-control" type="text" name="numtar" id="numtar">
+                    {{ form.numeroTarjeta.errors }}
+                    <label class="form-label" for="{{ form.numeroTarjeta.id_for_label }}">Numero de Tarjeta</label>
+                    {{ form.numeroTarjeta }}                
                 </div>
+                {{ form.non_field_errors }}
                 <div class="col-12 col-md-4">
-                    <label class="form-label" for="fechacaducidad">Fecha de caducidad</label>
-                    <input class="form-control" type="text" name="titular" id="titular">
+                    {{ form.fechaCaducidad.errors }} 
+                    <label class="form-label" for="{{ form.fechaCaducidad.id_for_label }}">Fecha de caducidad</label>
+                    {{ form.fechaCaducidad }}                 
                 </div>   
             </div>
+            
             <div class="row mt-2">
+                {{ form.non_field_errors }}
                 <div class="col-12 col-md-3 mx-auto">
-                    <label class="form-label" for="tipocard">Tipo de Tarjeta</label>
-                    <select class="form-select" name="tipocard" id="tipocard">
-                        <option value="1">Debito</option>
-                        <option value="2">Credito</option>
-                    </select>
+                    {{ form.tipoTarjeta.errors }} 
+                    <label class="form-label" for="{{ form.tipoTarjeta.id_for_label }}">Tipo de Tarjeta</label>
+                    {{ form.tipoTarjeta }}
                 </div>
+                {{ form.non_field_errors }}
                 <div class="col-12 col-md-3 mx-auto">
-                    <label class="form-label " for="cvv">Codigo de Seguridad</label>
-                    <input class="form-control" type="text" name="cvv" id="cvv">
+                    {{ form.codSeguridad.errors }} 
+                    <label class="form-label " for="{{ form.codSeguridad.id_for_label }}">Codigo de Seguridad</label>
+                    {{ form.codSeguridad }}                
                 </div>   
             </div>
            
@@ -76,14 +87,25 @@
         <fieldset class="mt-4">
             <legend>Transferencia Bancaria</legend>
             <div class="row">
+                {{ form.non_field_errors }}
                 <div class="col-12 col-md-6">
-                    <label class="form-label" for="nombreBanco">Nombre Banco</label>
-                    <input class="form-control" type="text" name="nombreBanco" id="nombreBanco">
+                    {{ form.banco.errors }}
+                    <label class="form-label" for="{{ form.banco.id_for_label }}">Nombre Banco</label>
+                    {{ form.banco }}                
                 </div>
+                {{ form.non_field_errors }}
                 <div class="col-12 col-md-6">
-                    <label class="form-label" for="cbu">CBU</label>&nbsp;
-                    <input class="form-control" type="text" name="cbu" id="cbu">
+                    {{ form.CBU.errors }}
+                    <label class="form-label" for="{{ form.CBU.id_for_label }}">CBU</label>
+                    {{ form.CBU.errors }}                
                 </div>
+                {{ form.non_field_errors }}
+                <div class="col-12 col-md-6">
+                    {{ form.alias.errors }}
+                    <label class="form-label" for="{{ form.alias.id_for_label }}">Alias</label>
+                    {{ form.alias }}
+                </div>
+                {{ form.non_field_errors }}
             </div>
             
         </fieldset> 
