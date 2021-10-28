@@ -18,10 +18,11 @@ class Usuario(models.Model):
     password= models.TextField(null=False, blank=False)
 
 class Estudiante(Persona):
-    matricula= models.CharField(max_length=4)
+    matricula= models.CharField(max_length=4,unique=True)
 
 class Profesor(Persona):
     fechaIngresoTrabajar= models.DateField(null=True)
+    
     def __str__(self):
         return super().nombreyapellido
 

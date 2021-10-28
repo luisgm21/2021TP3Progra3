@@ -3,13 +3,16 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from apps.cursos.forms import cursoForm
-from .models import curso
+from .models import curso,Inscriptos
 # Create your views here.
 
 def listaCursos(request):
     return render(request, 'cursos/tablaCursos.html',
     {'cursos': curso.objects.all()})
 
+def listaEstudiantes(request):
+    return render(request,'cursos/tablaAlumnos.html',
+    {'estudiantes': Inscriptos.objects.all() })
 # def creacion_curso(request):
 #     nuevo_curso=curso()
 
@@ -64,9 +67,9 @@ def curso_delete(request):
     if request.method == 'POST':
         if 'id_curso' in request.POST:
             Curso = get_object_or_404(curso, pk=request.POST['id_curso'])
-            nombre_curso = curso.nombrecurso
+            nombre_curso = Curso.nombrecurso
             Curso.delete()
-            messages.success(request, 'Se ha eliminado exitosamente el Programa {}'.format(nombre_curso))
+            messages.success(request, 'Se ha eliminado exitosamente el curso {}'.format(nombre_curso))
         else:
             messages.error(request, 'Debe indicar qué Programa se desea eliminar')
     return redirect(reverse('cursos:registroCursos'))

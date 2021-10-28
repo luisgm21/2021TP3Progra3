@@ -2,7 +2,7 @@ from datetime import date, time
 from django.db import models
 from django.db.models.base import Model
 from django.db.models.fields.mixins import FieldCacheMixin
-from apps.usuarios.models import Profesor
+from apps.usuarios.models import Estudiante, Profesor
 from django.utils import timezone
 # Create your models here.
 class curso(models.Model):
@@ -67,4 +67,11 @@ class PagoTransferencia(Pago):
 
 #-----------------------------------------------------------------------------
 
+class Inscriptos(models.Model):
+    curso=models.ForeignKey(curso, on_delete=models.CASCADE)
+    incriptos= models.ForeignKey(Estudiante, on_delete=models.CASCADE)
+    nota1=models.IntegerField(null=True)
+    nota2=models.IntegerField(null=True)
+    nota3=models.IntegerField(null=True)
+    asistencia= models.CharField(max_length=4)
 

@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% block title %}Login{% endblock title %}Home
+{% block titulo %}Login{% endblock titulo %}
+{% block contenido %}
+    
+      <div class="card border-primary mb-3" style="max-width: 20rem; margin: auto;">
+          <div class="card-header row " >
+            <div class="col-12 col-sm-6">Acceder</div>
+            <div class="col-12 col-sm-6" style="text-align:right"><a  href="./inscripcion.html"> Sing up</a></div>          
+          </div>
+              <div class="card-body text-primary">
+                  <form>
+                      <div class="mb-3">
+                        <label for="correoElectronico" class="form-label">Correo electronico</label>
+                        <input type="email" class="form-control" id="correoElectronico" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                      </div>
+                        <div class="mb-3">
+                          <label for="Contrasenia" class="form-label">Contraseña</label>
+                          <input type="password" class="form-control" id="Contrasenia">
+                        </div>
+                        <div class="mb-3 form-check">
+                          <input type="checkbox" class="form-check-input" id="recuerdame">
+                          <label class="form-check-label" for="recuerdame">Recuerdame</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Acceder</button>
+                  </form> 
+              </div>
+      </div>     
+    </main>
+{% endblock contenido %}  
