@@ -1,0 +1,12 @@
+{% extends 'base/base.html' %}
+{% block title %}>Pago del curso{% endblock title %}
+{% block titulo %}Pago del curso{% endblock titulo %}
+{% block contenido %}
+
+<ul>
+    <li><a href="{% url 'cursos:pagoefectivo' %}">Contado</a></li>
+    <li><a href="{% url 'cursos:pagotarjeta' %}">Tarjeta</a></li>
+    <li><a href="{% url 'cursos:pagotransferencia' %}">Transferencia</a></li>
+</ul>
+
+{% endblock %}

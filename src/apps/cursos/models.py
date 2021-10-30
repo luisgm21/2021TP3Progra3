@@ -34,20 +34,22 @@ class propuesta(models.Model):
 
 #----------------------------------------------------------------------------------------    
 class Pago(models.Model):
-    PAGO_OPCIONES = (
-        ('Efectivo', 'Efectivo'),
-        ('Tarjeta', 'Tarjeta'),
-        ('Transferencia','Transferencia')
-    )
-    formaPago= models.CharField(choices=PAGO_OPCIONES, max_length=15)
-    importe=models.IntegerField()
+    # PAGO_OPCIONES = (
+    #     ('Efectivo', 'Efectivo'),
+    #     ('Tarjeta', 'Tarjeta'),
+    #     ('Transferencia','Transferencia')
+    # )
+    formaPago= models.CharField( max_length=15)
+    importe=models.DecimalField(max_digits=7,decimal_places=2)
     descripcion=models.TextField(max_length=250)
     fecha=models.DateTimeField(default= date.today)
+    numRecibo=models.IntegerField(null=True,blank=True)
     class Meta:
         abstract = True
     
 class PagoEfectivo(Pago):
-    numeroRecibo=models.IntegerField()
+    formaPago= models.CharField(default='Efectivo',max_length=100)
+    numeroTicket=models.IntegerField(null=True,blank=True)
 
 class PagoTarjeta(Pago):
     PAGO_TARJETA_OPCIONES= (
@@ -59,11 +61,13 @@ class PagoTarjeta(Pago):
     tipoTarjeta=models.CharField(choices=PAGO_TARJETA_OPCIONES,max_length=10)
     codSeguridad=models.CharField(max_length=3)
     fechaCaducidad=models.DateField(default=date.today)
+    formaPago= models.CharField(default='PagoTarjeta',max_length=100)
 
 class PagoTransferencia(Pago):
     CBU=models.CharField(max_length=22)
     alias=models.CharField(max_length=25)
     banco=models.CharField(max_length=50)
+    formaPago= models.CharField(default='PagoTransferencia',max_length=100)
 
 #-----------------------------------------------------------------------------
 

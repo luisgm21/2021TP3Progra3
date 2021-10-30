@@ -1,0 +1,84 @@
+{% extends 'base/base.html' %}
+{% block title %}>Pago del curso{% endblock title %}
+{% block titulo %}Pago del curso{% endblock titulo %}
+{% block contenido %}
+
+<fieldset>
+    <legend>Datos Generales</legend> 
+    {{ form.non_field_errors }}   
+        <div class="row mb-1">
+            {{ form.formaPago.errors }}
+            <label class="form-label" for="{{ form.formaPago.id_for_label }}">Forma de Pago</label>
+            {{ form.formaPago }}                      
+        </div>
+        
+        <div class="row">
+            {{ form.non_field_errors }}
+            <div class="col-12 col-md-4">
+                {{ form.importe.errors }}
+                <label class="form-label" for="{{ form.importe.id_for_label }}">Importe:</label>
+                {{ form.importe }}    
+            </div>
+            {{ form.non_field_errors }}
+            <div class="col-12 col-md-4">
+                {{ form.numRecibo.errors }}
+                <label class="form-label" for="{{ form.numRecibo.id_for_label }}">Número de Recibo:</label><br>
+                {{ form.numRecibo }}                    
+            </div>
+            {{ form.non_field_errors }}
+            <div class="col-12 col-md-4">
+                {{ form.fecha.errors }}
+                <label class="form-label" for="{{ form.fecha.id_for_label }}">Fecha:</label><br>
+                {{ form.fecha }}                    
+            </div>
+        </div>
+        <div class="row">
+            {{ form.non_field_errors }}
+            <div class="col-12">
+                {{ form.descripcion.errors }}
+                <label class="form-label" for="{{ form.descripcion.id_for_label }}">Descripcion:</label><br>
+                {{ form.descripcion }}                    
+            </div>
+        </div>
+        <fieldset>
+            <legend>Tarjetas</legend>
+            <div class="row">
+                {{ form.non_field_errors }}
+                <div class="col-12 col-md-4">
+                    {{ form.titularTarjeta.errors }}
+                    <label class="form-label" for="{{ form.titularTarjeta.id_for_label }}">Titular de la Tarjeta</label>
+                    {{ form.titularTarjeta }}                
+                </div>
+                {{ form.non_field_errors }}
+                <div class="col-12 col-md-4">
+                    {{ form.numeroTarjeta.errors }}
+                    <label class="form-label" for="{{ form.numeroTarjeta.id_for_label }}">Numero de Tarjeta</label>
+                    {{ form.numeroTarjeta }}                
+                </div>
+                {{ form.non_field_errors }}
+                <div class="col-12 col-md-4">
+                    {{ form.fechaCaducidad.errors }} 
+                    <label class="form-label" for="{{ form.fechaCaducidad.id_for_label }}">Fecha de caducidad</label>
+                    {{ form.fechaCaducidad }}                 
+                </div>   
+            </div>
+            
+            <div class="row mt-2">
+                {{ form.non_field_errors }}
+                <div class="col-12 col-md-3 mx-auto">
+                    {{ form.tipoTarjeta.errors }} 
+                    <label class="form-label" for="{{ form.tipoTarjeta.id_for_label }}">Tipo de Tarjeta</label>
+                    {{ form.tipoTarjeta }}
+                </div>
+                {{ form.non_field_errors }}
+                <div class="col-12 col-md-3 mx-auto">
+                    {{ form.codSeguridad.errors }} 
+                    <label class="form-label " for="{{ form.codSeguridad.id_for_label }}">Codigo de Seguridad</label>
+                    {{ form.codSeguridad }}                
+                </div>   
+            </div>
+           
+        </fieldset>br>
+
+
+{% endblock %}

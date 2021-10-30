@@ -2,7 +2,7 @@ from django import forms
 
 from django.core.exceptions import ValidationError
 
-from apps.cursos.models import curso 
+from apps.cursos.models import PagoEfectivo, PagoTarjeta, PagoTransferencia, curso 
 
 class cursoForm(forms.ModelForm):
     
@@ -20,3 +20,25 @@ class cursoForm(forms.ModelForm):
             )
 
         return datos_validados
+
+class efectivoForm(forms.ModelForm):
+    
+    class Meta:
+        model = PagoEfectivo
+        fields = ("formaPago","importe","descripcion","fecha","numRecibo","numeroTicket")
+
+class tarjetaForm(forms.ModelForm):
+    
+    class Meta:
+        model = PagoTarjeta
+        fields = ("formaPago","importe","descripcion","fecha","numRecibo","titularTarjeta","numeroTarjeta","tipoTarjeta","codSeguridad","fechaCaducidad")
+
+
+
+class transferenciaForm(forms.ModelForm):
+
+    class Meta:
+        model = PagoTransferencia
+        fields = ("formaPago","importe","descripcion","fecha","numRecibo","CBU","alias","banco")        
+
+

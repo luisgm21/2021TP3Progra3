@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Regristro Usuario Alumnos{% endblock title %}
+{% block titulo %}Regisro Usuario Alumnos{% endblock titulo %}
+{% block contenido %}
+{% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}  <div class="message" role="status">{{ message }}</div>{% endif %}
+            {% if message.tags == 'error' %}  <div class="errors" role="alert">{{ message }}</div>{% endif %}
+        {% endfor %}
+{% endif %}    
+<div class="container">
+    <div class="table-responsive-lg">
+      <table class="table-dark table-hover; table table-bordered"  >
+        <thead>
+          <tr >
+            <th scope="col">Nombre y Apellido</th>
+            <th scope="col">DNI</th>
+            <th scope="col">Matricula</th>
+            <!-- <th scope="col">Fecha de nacimiento</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Sexo</th>
+            <th scope="col">Domicilio</th>
+            <th scope="col">Titulo</th> -->
+            <th scope="col">opc</th>
+          </tr>
+        </thead>  
+        <tbody>
+          {% for alumno in alumnos %}
+            <tr>
+              <td scope="row"><a href="{% url 'cursos:cursoDetalle' curso.id %}">{{curso.nombrecurso}}</a></td>
+              <td scope="row">
+                <p>{{alumno.dni}}</p>
+              </td>
+              <td scope="row">{{alumno.matricula}}</td>
+              <!-- <td scope="row"><a href="{% url 'cursos:curso_edicion' curso.id %}" class="btn btn-dark border" > Modificar</a>  
+                <form action="{% url 'cursos:curso_delete' %}" method="POST">
+                  {% csrf_token %}
+                  <input type="hidden" name="id_curso" value="{{ curso.id }}">
+                  <input class="btn btn-dark border" type="submit" value="Eliminar" onclick="return confirm('¿Está seguro que desea eliminar el registro?');">
+                </form>
+              </td>--></tr> 
+          {% endfor%}
+        </tbody> 
+      </table>
+    </div>
+  </div>   
+  <!-- {{request.resolver_match.view_name}} -->
+{% endblock contenido %}

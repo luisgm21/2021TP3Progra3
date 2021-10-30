@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
-from apps.cursos.forms import cursoForm
+from apps.cursos.forms import cursoForm, efectivoForm, tarjetaForm, transferenciaForm
 from .models import curso,Inscriptos
 # Create your views here.
 
@@ -74,7 +74,7 @@ def curso_delete(request):
             messages.error(request, 'Debe indicar qué Programa se desea eliminar')
     return redirect(reverse('cursos:registroCursos'))
 
-
+#----------------------------------------------------------------------------#
 def tablaCursos(request):
     return render(request, 'cursos/tablaCursos.html')
 
@@ -92,4 +92,47 @@ def estadoCursos(request):
 def inscripcion(request):
     return render(request, 'cursos/inscripcion.html')   
 def pago(request):
-    return render(request, 'cursos/pago.html')   
+    return render(request, 'cursos/seleccionpago.html')   
+#---------------------------------------------------------------------------------------------#
+
+#----------------------------------------------------------------------------------------------
+@csrf_exempt
+def C_pagoEfectivo(request):
+    if (request.method == 'POST'):
+        efectivo_form = efectivoForm(request.POST)
+        if efectivo_form.is_valid():
+            nuevo_pagoEfectivo = efectivo_form.save(commit=True)
+            messages.success(request,
+                             'Se ha agregado correctamente el Programa {}'.format(nuevo_pagoEfectivo))
+            return redirect(reverse('cursos:registroCursos'))
+    else:
+        efectivo_form = efectivoForm()    
+    return render(request,'cursos/pagoEfectivo.html',{'form': efectivo_form})
+#---------------------------------------------------------------Tarjeta_-------------------------------------
+@csrf_exempt
+def C_pagoTarjeta(request):
+    if (request.method == 'POST'):
+        tarjeta_form = tarjetaForm(request.POST)
+        if tarjeta_form.is_valid():
+            nuevo_pagoTarjeta = tarjeta_form.save(commit=True)
+            messages.success(request,
+                             'Se ha agregado correctamente el Programa {}'.format(nuevo_pagoTarjeta))
+            return redirect(reverse('cursos:registroCursos'))
+    else:
+        tarjeta_form = tarjetaForm()    
+    return render(request,'cursos/pagoTarjeta.html',{'form': tarjeta_form})
+
+#-----------------------------------------------------------Transferencia-------------------------------
+
+@csrf_exempt
+def C_pagoTransferencia(request):
+    if (request.method == 'POST'):
+        trans_form = transferenciaForm(request.POST)
+        if trans_form.is_valid():
+            nuevo_pagoTransferencia = trans_form.save(commit=True)
+            messages.success(request,
+                             'Se ha agregado correctamente el Programa {}'.format(nuevo_pagoTransferencia))
+            return redirect(reverse('cursos:registroCursos'))
+    else:
+        trans_form = transferenciaForm()    
+    return render(request,'cursos/pagoTarjeta.html',{'form': trans_form})        

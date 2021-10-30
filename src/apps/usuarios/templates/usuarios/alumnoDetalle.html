@@ -1,0 +1,57 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Detalle Curso{% endblock title %}Home
+{% block titulo %}Detalle Curso{% endblock titulo %}
+{% block contenido %}
+dni matricula nombreyapellido  telefono sexo domicilio titulO
+<main>  
+    <div class=" container" >    
+        <fieldset >
+            <div class="row g-3 col-11 ">
+                <div class="col-sm-3">
+                    <label for="nombreyapellido" class="col-form-label "> Nombre y Apellido </label>
+                </div>
+                <div class="col-sm-8">                        
+                    <p class="col-form-label "> {{curso.nombreyapellido}} </p>
+                </div>                   
+                <div class="col-sm-3">
+                    <label for="dni" class="col-form-label">DNI: </label>
+                </div>  
+                <div class="col-sm-8 col-12">   
+                    <p class="col-form-label">{{alumno.dni}}</p>
+                </div>  
+                <div class="col-sm-3">
+                    <label for="matricula" class="form-label">Matricula</label>                       
+                </div>
+                <div class="col-sm-8 col-12">
+                    <p class="border">{{alumno.matricula}}</p>
+                </div>
+                <div  class="col-sm-3">
+                    <label for="telefono" class="form-label">Telefono:</label>                      
+                </div>
+                <div class="col-sm-8 col-12">
+                    <p class="border"> {{alumno.telefono}} </p>
+                </div>
+                <div class=" col-sm-3">
+                    <label for="sexo" class="form-label">Sexo:</label>                               
+                </div>
+                <div class="col-sm-8 col-12">
+                    <p class="border">{{alumno.sexo}}</p>
+                </div>
+                <div class="col-sm-3">
+                    <label for="domicilio" class="form-label">Domicilio</label>                      
+                </div>
+                <div class="col-sm-8 col-12">
+                    <p class="border"> {{alumno.domicilio}} </p>
+                </div>
+                <div class="  col-sm-3 ">
+                    <label for="fechaInicio" class="form-label">Titulo:</label>                      
+                </div>
+                <div class="col-sm-8 col-12">
+                    <p class="border">{{alumno.titulo}}</p>
+                </div>  
+            </div>  
+        </fieldset>
+    </div>  
+</main>        
+{% endblock %}
