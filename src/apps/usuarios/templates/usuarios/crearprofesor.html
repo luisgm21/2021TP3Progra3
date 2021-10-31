@@ -1,14 +1,14 @@
 {% extends 'base/base.html' %}
 {% load static %}
-{% block title %}Sing up Estudiante{% endblock title %}Home
-{% block titulo %}Sing up Estudiante{% endblock titulo %}
+{% block title %}Sing up Profesor{% endblock title %}
+{% block titulo %}Sing up Profesor{% endblock titulo %}
 {% block contenido %}
   
     <div class="container">
         
         <fieldset>
            <form action="" method="post">
-                <legend>Registro de Estudiante</legend>
+                <legend>Registro de Profesor</legend>
                     {% for field in form %}
                     <div class="mb-3 row">
                     {{ field.errors }}

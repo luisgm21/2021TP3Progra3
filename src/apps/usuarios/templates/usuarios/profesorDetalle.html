@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 {% load static %}
-{% block title %}Perfil Estudiante{% endblock title %}Home
-{% block titulo %}Perfil Estudiante{% endblock titulo %}
+{% block title %}Perfil Profesor{% endblock title %}Home
+{% block titulo %}Perfil Profesor{% endblock titulo %}
 {% block contenido %}
 
 <main>  
@@ -12,43 +12,43 @@
                     <label for="nombreyapellido" class="col-form-label "> Nombre y Apellido </label>
                 </div>
                 <div class="col-sm-8">                        
-                    <p class="col-form-label "> {{alumno.nombreyapellido}} </p>
+                    <p class="col-form-label "> {{profesor.nombreyapellido}} </p>
                 </div>                   
                 <div class="col-sm-3">
                     <label for="dni" class="col-form-label">DNI: </label>
                 </div>  
                 <div class="col-sm-8 col-12">   
-                    <p class="col-form-label">{{alumno.dni}}</p>
+                    <p class="col-form-label">{{profesor.dni}}</p>
                 </div>  
                 <div class="col-sm-3">
-                    <label for="matricula" class="form-label">Matricula</label>                       
+                    <label for="matricula" class="form-label">Fecha de Ingreso a Trabajar</label>                       
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border">{{alumno.matricula}}</p>
+                    <p class="border">{{profesor.fechaIngresoTrabajar}}</p>
                 </div>
                 <div  class="col-sm-3">
                     <label for="telefono" class="form-label">Telefono:</label>                      
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border"> {{alumno.telefono}} </p>
+                    <p class="border"> {{profesor.telefono}} </p>
                 </div>
                 <div class=" col-sm-3">
                     <label for="sexo" class="form-label">Sexo:</label>                               
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border">{{alumno.sexo}}</p>
+                    <p class="border">{{profesor.sexo}}</p>
                 </div>
                 <div class="col-sm-3">
                     <label for="domicilio" class="form-label">Domicilio</label>                      
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border"> {{alumno.domicilio}} </p>
+                    <p class="border"> {{profesor.domicilio}} </p>
                 </div>
                 <div class="  col-sm-3 ">
                     <label for="fechaInicio" class="form-label">Titulo:</label>                      
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border">{{alumno.titulo}}</p>
+                    <p class="border">{{profesor.titulo}}</p>
                 </div>  
             </div>  
         </fieldset>

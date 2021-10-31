@@ -16,7 +16,7 @@
           <tr >
             <th scope="col">Nombre y Apellido</th>
             <th scope="col">DNI</th>
-            <th scope="col">Matricula</th>
+            <th scope="col">Titulo</th>
             <!-- <th scope="col">Fecha de nacimiento</th>
             <th scope="col">Telefono</th>
             <th scope="col">Sexo</th>
@@ -26,17 +26,17 @@
           </tr>
         </thead>  
         <tbody>
-          {% for alumno in alumnos %}
+          {% for profesor in profesores %}
             <tr>
-              <td scope="row"><a href="{% url 'usuarios:alumnoDetalle' alumno.id %}">{{alumno.nombreyapellido}}</a></td>
+              <td scope="row"><a href="{% url 'usuarios:profesorDetalle' profesor.id %}">{{profesor.nombreyapellido}}</a></td>
               <td scope="row">
-                <p>{{alumno.dni}}</p>
+                <p>{{profesor.dni}}</p>
               </td>
-              <td scope="row">{{alumno.matricula}}</td>
-              <td scope="row"><a href="{% url 'usuarios:alumno_edicion' alumno.id %}" class="btn btn-dark border" > Modificar</a> 
-              <form action="{% url 'usuarios:alumno_delete' %}" method="POST">
+              <td scope="row">{{profesor.titulo}}</td>
+              <td scope="row"><a href="{% url 'usuarios:profesor_edicion' profesor.id %}" class="btn btn-dark border" > Modificar</a> 
+              <form action="{% url 'usuarios:profesor_delete' %}" method="POST">
                   {% csrf_token %}
-                  <input type="hidden" name="id_alumno" value="{{ alumno.id }}">
+                  <input type="hidden" name="id_profesor" value="{{ profesor.id }}">
                   <input class="btn btn-dark border" type="submit" value="Eliminar" onclick="return confirm('¿Está seguro que desea eliminar el registro?');">
                 </form>
               </td>
