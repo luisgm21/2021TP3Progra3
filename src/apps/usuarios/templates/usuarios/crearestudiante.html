@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block title %}Sing up{% endblock title %}Home
+{% block titulo %}Sing up{% endblock titulo %}
+{% block contenido %}
+  
+    <div class="container">
+        
+        <fieldset>
+           <form action="" method="post">
+                <legend>Registro de Estudiante</legend>
+                    {% for field in form %}
+                    <div class="mb-3 row">
+                    {{ field.errors }}
+                    <label for="{{ form.label.id_for_label }}" class="form-label">{{field.label}}</label>
+                    {{ field }}
+                    </div><br>
+                    {% endfor %}
+                
+                    {% csrf_token %}
+            
+                <input type="submit" class="btn btn-primary" value="Registrarte" >
+                <input type="button" class="btn btn-secondary" value="Cancelar">
+            </form>
+        </fieldset> 
+    </div>
+
+    <script src="{% static 'js/index.js' %}"></script>
+    <br>
+{% endblock contenido %}  

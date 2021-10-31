@@ -19,11 +19,11 @@ def creacion_estudiante(request):
         if estudiante_form.is_valid():
             nuevo_estudiante = estudiante_form.save(commit=True)
             messages.success(request,
-                             'Se ha agregado correctamente el Programa {}'.format(nuevo_estudiante))
-            return redirect(reverse('cursos:registroCursos'))
+                             'Se ha agregado correctamente el estudiante {}'.format(nuevo_estudiante))
+            return redirect(reverse('usuarios:registro_usuario_estudiante'))
     else:
         estudiante_form = estudianteForm()    
-    return render(request,'usuarios/inscripcion.html',{'form': estudiante_form})
+    return render(request,'usuarios/crearestudiante.html',{'form': estudiante_form})
 
 
 @csrf_exempt
@@ -65,3 +65,9 @@ def creacion_profesor(request):
     else:
         profesor_form = profesorForm()    
     return render(request,'usuarios/inscripcion.html',{'form': profesor_form})
+
+#----------------------------------------------------------------------------------------------------
+def listaEstudiantes(request):
+    return render(request,'usuarios/listaAlumnos.html',
+    {'alumnos': Estudiante.objects.all()})
+

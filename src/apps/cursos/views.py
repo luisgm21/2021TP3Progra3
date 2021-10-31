@@ -10,7 +10,7 @@ def listaCursos(request):
     return render(request, 'cursos/tablaCursos.html',
     {'cursos': curso.objects.all()})
 
-def listaEstudiantes(request):
+def listaInscriptos(request):
     return render(request,'cursos/tablaAlumnos.html',
     {'estudiantes': Inscriptos.objects.all() })
 # def creacion_curso(request):

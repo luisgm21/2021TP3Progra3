@@ -28,18 +28,12 @@
         <tbody>
           {% for alumno in alumnos %}
             <tr>
-              <td scope="row"><a href="{% url 'cursos:cursoDetalle' curso.id %}">{{curso.nombrecurso}}</a></td>
+              <td scope="row"><a href="">{{alumno.nombreyapellido}}</a></td>
               <td scope="row">
                 <p>{{alumno.dni}}</p>
               </td>
               <td scope="row">{{alumno.matricula}}</td>
-              <!-- <td scope="row"><a href="{% url 'cursos:curso_edicion' curso.id %}" class="btn btn-dark border" > Modificar</a>  
-                <form action="{% url 'cursos:curso_delete' %}" method="POST">
-                  {% csrf_token %}
-                  <input type="hidden" name="id_curso" value="{{ curso.id }}">
-                  <input class="btn btn-dark border" type="submit" value="Eliminar" onclick="return confirm('¿Está seguro que desea eliminar el registro?');">
-                </form>
-              </td>--></tr> 
+              </tr> 
           {% endfor%}
         </tbody> 
       </table>
