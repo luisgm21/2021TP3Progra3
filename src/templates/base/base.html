@@ -26,12 +26,46 @@ como ver el request en consola {% endcomment %}
                             <li class="nav-item">
                                 <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Home</a>
                             </li>
-                            <li>
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" >
+                                  Cursos
+                                </a>
+                                <ul class="dropdown-menu bg-dark" >
+                                  <li><a class="dropdown-item text-white " href="{% url 'cursos:creacion_curso' %}">Registrar Curso</a></li>
+                                  <li><hr class="dropdown-divider bg-white "></li>
+                                  <li><a class="dropdown-item text-white" href="{% url 'cursos:registroCursos' %}">Registro de Cursos</a></li>
+                                 
+                                </ul>
+                              </li>
+                            <!-- <li>
                                 <a class="nav-link {% if request.resolver_match.url_name == 'creacion_curso' %}active{% endif %}" href="{% url 'cursos:creacion_curso' %}">Registrar Curso</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link {% if request.resolver_match.url_name == 'registroCursos' %}active{% endif %}" href="{% url 'cursos:registroCursos' %}">Registro de Cursos</a>
-                            </li> 
+                            </li>  -->
+
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" >
+                                  Estudiantes
+                                </a>
+                                <ul class="dropdown-menu bg-dark" >
+                                  <li><a class="dropdown-item text-white " href="{% url 'usuarios:registro_usuario_estudiante' %}">Lista de Estudiantes</a></li>
+                                  <li><hr class="dropdown-divider bg-white "></li>
+                                  <li><a class="dropdown-item text-white" href="{% url 'usuarios:crear_estudiante' %}">Registrar Estudiantes</a></li>               
+                                </ul>
+                            </li>
+                              
+                            <li class="nav-item dropdown ">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" >
+                                  Profesores
+                                </a>
+                                <ul class="dropdown-menu bg-dark" >
+                                  <li><a class="dropdown-item text-white " href="{% url 'usuarios:registro_usuario_profesor' %}">Lista de Profesores</a></li>
+                                  <li><hr class="dropdown-divider bg-white "></li>
+                                  <li><a class="dropdown-item text-white" href="{% url 'usuarios:crear_profesor' %}">Registrar Profesor</a></li>               
+                                </ul>
+                            </li>
+
                             <li class="nav-item">
                                 <a class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %}"   href="{% url 'usuarios:login' %}">Login</a>
                             </li>

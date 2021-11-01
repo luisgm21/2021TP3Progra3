@@ -35,6 +35,12 @@
                         <label for="{{ form.costo.id_for_label }}" class="form-label">Costo:</label>
                         {{ form.costo }}
                     </div>
+                    {{ form.non_field_errors }}
+                    <div class="col-md-3">
+                        {{ form.honorarios.errors }}
+                        <label for="{{ form.honorarios.id_for_label }}" class="form-label">Honorarios:</label>
+                        {{ form.honorarios }}
+                    </div>
                     
                     {{ form.non_field_errors }}
                     <div class="col-md-3 ">
@@ -70,7 +76,7 @@
                     </div>
                 </div>
                 <div class="row mt-5">
-                    <button type="button" class="col-12 btn btn-secondary m-1" id="controldocente">Docente Expositor🔽</button>
+                    <button type="button" class="col-12 dropdown-toggle bg-dark text-white" id="controldocente">Docente Expositor</button>
                 </div>
                 <div class="row g-5 content">
                      {{ form.non_field_errors }}

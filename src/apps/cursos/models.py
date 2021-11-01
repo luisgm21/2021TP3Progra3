@@ -16,6 +16,7 @@ class curso(models.Model):
     modalidad = models.CharField(max_length=10,choices=MODALIDAD_OPCIONES)
     costo = models.IntegerField()
     horascatedra = models.IntegerField()
+    honorarios=models.DecimalField(max_digits=7,decimal_places=2,null=True,blank=True)
     cantidadminalumnos= models.IntegerField()
     cantidadmaxalumnos=models.IntegerField()
     fechaini=models.DateTimeField(default= date.today)

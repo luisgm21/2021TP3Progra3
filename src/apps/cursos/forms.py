@@ -8,7 +8,7 @@ class cursoForm(forms.ModelForm):
     
     class Meta:
         model = curso
-        fields = ("nombrecurso","objetivogeneral", "modalidad", "costo" , "horascatedra","cantidadminalumnos","cantidadmaxalumnos","fechaini","fechafin","docentecargo")
+        fields = ("nombrecurso","objetivogeneral", "modalidad", "costo" ,"honorarios" ,"horascatedra","cantidadminalumnos","cantidadmaxalumnos","fechaini","fechafin","docentecargo")
 
     def clean(self):
         datos_validados = super().clean()
