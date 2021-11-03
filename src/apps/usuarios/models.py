@@ -1,5 +1,6 @@
 from django.db import models
 from django.db.models.base import Model
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Persona(models.Model):
@@ -17,16 +18,13 @@ class Persona(models.Model):
     titulo=models.CharField(max_length=40,null=True)
     class Meta:
         abstract = True
-class Usuario(models.Model):
-    username = models.CharField(max_length=15, unique=True,null=False,blank=False)
-    email= models.EmailField(unique=True)
-    password= models.TextField(null=False, blank=False)
-
 class Estudiante(Persona):
     matricula= models.CharField(max_length=4,unique=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,blank=True,null=True,unique=True)
 
 class Profesor(Persona):
     fechaIngresoTrabajar= models.DateField(null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE,blank=True,null=True,unique=True)
     
     def __str__(self):
         return super().nombreyapellido

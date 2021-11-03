@@ -17,11 +17,13 @@
             <th scope="col">Docente</th>
             <th scope="col">Fecha Inicio</th>
             <th scope="col">Estado</th>
+            <th scope="col">Motivo</th>
             <th scope="col">opc</th>
           </tr>
         </thead>  
         <tbody>
           {% for curso in cursos%}
+            {% if curso.estadocurso != 'En Revision'%}
             <tr>
               <td scope="row"><a href="{% url 'cursos:cursoDetalle' curso.id %}">{{curso.nombrecurso}}</a></td>
               <td scope="row">
@@ -33,6 +35,7 @@
               </td>
               <td scope="row">{{curso.fechaini}}</td>
               <td scope="row">{{curso.estadocurso}}</td>
+              <td scope="row">{{curso.motivo}}</td>
               <td scope="row"><a href="{% url 'cursos:curso_edicion' curso.id %}" class="btn btn-dark border" > Modificar</a>  
                 <form action="{% url 'cursos:curso_delete' %}" method="POST">
                   {% csrf_token %}
@@ -40,6 +43,7 @@
                   <input class="btn btn-dark border" type="submit" value="Eliminar" onclick="return confirm('¿Está seguro que desea eliminar el registro?');">
                 </form>
               </td></tr>
+            {% endif %}  
           {% endfor%}
         </tbody> 
       </table>

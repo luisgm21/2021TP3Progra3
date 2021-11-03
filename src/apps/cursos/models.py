@@ -3,7 +3,7 @@ from django.db import models
 from django.db.models.base import Model
 from django.db.models.fields.mixins import FieldCacheMixin
 from apps.usuarios.models import Estudiante, Profesor
-from django.utils import timezone
+
 # Create your models here.
 class curso(models.Model):
     MODALIDAD_OPCIONES = (
@@ -11,27 +11,26 @@ class curso(models.Model):
         ('presencial', 'Presencial'),
         ('mixto','Mixto')
     )
+    ESTADO_OPCIONES = (
+        ('en_revision','En Revision'),
+        ('aprobado','Aprobado'),
+        ('desaprobado','Desaprobado')
+    )
     nombrecurso = models.CharField(max_length=100)
     objetivogeneral = models.TextField(max_length=5000)
     modalidad = models.CharField(max_length=10,choices=MODALIDAD_OPCIONES)
     costo = models.IntegerField()
     horascatedra = models.IntegerField()
-    honorarios=models.DecimalField(max_digits=7,decimal_places=2,null=True,blank=True)
-    cantidadminalumnos= models.IntegerField()
-    cantidadmaxalumnos=models.IntegerField()
-    fechaini=models.DateTimeField(default= date.today)
-    fechafin=models.DateTimeField()
-    docentecargo= models.ManyToManyField(Profesor)
-    estadocurso= models.CharField(max_length=20,default='En Curso')
+    honorarios = models.DecimalField(max_digits=7,decimal_places=2,null=True,blank=True)
+    cantidadminalumnos = models.IntegerField()
+    cantidadmaxalumnos = models.IntegerField()
+    fechaini = models.DateField(default= date.today)
+    fechafin = models.DateField()
+    docentecargo = models.ManyToManyField(Profesor)
+    estadocurso = models.CharField(max_length=20,default='En Revision', choices=ESTADO_OPCIONES)
+    motivo = models.TextField(max_length=1000,default='Sin Motivo')
     def __str__(self):
         return f"NombreCurso:{self.nombrecurso}"
-
-class propuesta(models.Model):
-    codcurso= models.OneToOneField(curso,on_delete=models.CASCADE)
-    descripcion= models.TextField(max_length=5000)
-    fecha= models.DateTimeField()
-    estado = models.CharField(max_length=30)
-    docente= models.OneToOneField(Profesor,on_delete=models.CASCADE)
 
 #----------------------------------------------------------------------------------------    
 class Pago(models.Model):

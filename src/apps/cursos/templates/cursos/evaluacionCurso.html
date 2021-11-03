@@ -1,6 +1,6 @@
 {% extends 'base/base.html' %}
 {% load static %}
-{% block title %}Detalle Curso{% endblock title %}Home
+{% block title %}Detalle Curso{% endblock title %}
 {% block titulo %}Detalle Curso{% endblock titulo %}
 {% block contenido %}
 <main>  
@@ -80,17 +80,17 @@
                     <p class="border">{{curso.cantidadmaxalumnos}}</p>
                 </div>   
             </div>  
-            <div class="col-10 " > 
-                {% if curso.estadocurso == 'Aprobado' %}
-                    <input type="submit" class="btn btn-primary" value="inscribirse" >
-                    <input type="button" class="btn btn-secondary" value="Cancelar">
-                {% else %}
-                  <h3>Motivo</h3>
-                  <p>{{curso.motivo}} </p>     
-                {% endif %}
-               
-            </div>
-        </fieldset>
-    </div>  
-</main>        
-{% endblock %}
+            <form action="{% url 'cursos:evaluar' %}" method="POST">
+                  {% csrf_token %}
+                  <input type="hidden" name="id_curso" value="{{ curso.id }}">
+                  <label for="motivo">Motivo</label>
+                  <textarea name="motivo" id="motivo" cols="30" rows="10"></textarea>
+                  <label for="evaluacioncurso">Evaluar</label>
+                  <select name="estadocurso" id="estadocurso" class="form-select bg-dark " style="color:white">
+                    <option value="#">-</option>
+                    <option value="Aprobado" >Aprobado</option> 
+                    <option value="Desaprobado" >Desaprobado</option>
+                  </select> 
+                  <input class="btn btn-dark border" type="submit" value="Evaluar">
+            </form>
+{% endblock contenido %}                

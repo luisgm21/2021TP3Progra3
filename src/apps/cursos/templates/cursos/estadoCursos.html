@@ -1,39 +1,54 @@
 {% extends 'base/base.html' %}
-{% block title %}Estado de Cursos{% endblock title %}
-{% block titulo %}Estado de cursos{% endblock titulo %}
+{% block title %}Regitro de Curso{% endblock title %}
+{% block titulo %}Registro de Cursos{% endblock titulo %}
 {% block contenido %}
-
-
-
-    <div class="container">
-        <div class="table-responsive-lg">
-            <table  class="table-dark table-hover; table table-bordered  table-sm  align-middle" >
-                <thead >
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col-3">Nombre Cursos</th>
-                        <th scope="col-3">Archivo de Resolucion</th> 
-                        <th scope="col-4">Estado de Solicitud</th>
-                        <th scope="col">Numero de Resolucion</th>
-                        <th scope="col">fecha</th>
-                    </tr>    
-                </thead>
-                <tbody>
-                    <tr >
-                        <th scope="row">1</th>
-                        <td>curso1</td>
-                        <td>Archivo de Resolucion</td> 
-                        <td><select name="estado" id="estado " class="form-select bg-dark " style="color:white">
-                            <option value="#">-</option>
-                            <option value="aprobado" >Aprobado</option> 
-                            <option value="desaprobado" >Desaprobado</option>
-                        </select></td>
-                        <td>56456</td>
-                        <td>22/08/2021</td>
-                    </tr>
-                </tbody>    
-            </table>
-        </div>
+{% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}  <div class="message" role="status">{{ message }}</div>{% endif %}
+            {% if message.tags == 'error' %}  <div class="errors" role="alert">{{ message }}</div>{% endif %}
+        {% endfor %}
+{% endif %}    
+<div class="container">
+    <div class="table-responsive-lg">
+      <table class="table-dark table-hover; table table-bordered"  >
+        <thead>
+          <tr >
+            <th scope="col">Nombre Curso</th>
+            <th scope="col">Docente</th>
+            <th scope="col">Fecha Inicio</th>
+            <th scope="col">Estado</th>
+            <th scope="col">opc</th>
+          </tr>
+        </thead>  
+        <tbody>
+          {% for curso in cursos%}
+            {% if curso.estadocurso == 'En Revision'%}
+            <tr>
+              <td scope="row"><a href="{% url 'cursos:curso_evaluar' curso.id %}">{{curso.nombrecurso}}</a></td>
+              <td scope="row">
+                <ul>
+                    {% for docente in curso.docentecargo.all %}
+                        <li>{{ docente.nombreyapellido }}</li>
+                    {% endfor %}
+                </ul>
+              </td>
+              <td scope="row">{{curso.fechaini}}</td>
+              <td scope="row">{{curso.estadocurso}}</td>
+              <td scope="row"><a href="{% url 'cursos:curso_evaluar' curso.id %}" class="btn btn-dark border" >Evaluar</a>  
+                <form action="{% url 'cursos:curso_delete' %}" method="POST">
+                  {% csrf_token %}
+                  <input type="hidden" name="id_curso" value="{{ curso.id }}">
+                  <input class="btn btn-dark border" type="submit" value="Eliminar" onclick="return confirm('¿Está seguro que desea eliminar el registro?');">
+                </form>
+              </td></tr>
+            {% endif %}  
+          {% endfor%}
+        </tbody> 
+      </table>
     </div>
-
+  </div>   
+  <!-- {{request.resolver_match.view_name}} -->
+  
 {% endblock contenido %}
+
+ 

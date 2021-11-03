@@ -128,3 +128,12 @@ try:
     from .configuraciones_locales import *
 except ImportError:
     raise Exception("El archivo de configuraciones locales es requerido para ejecutar este proyecto")
+
+# Seguridad
+LOGIN_URL = '/admin/login/'
+
+LOGIN_REDIRECT_URL = '/'
+# # Usuario Personalizado
+# AUTH_USER_MODEL = 'usuarios.Usuario'
+
+#Url en el cual redirigiremos despues de loguernos

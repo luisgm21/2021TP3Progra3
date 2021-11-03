@@ -8,10 +8,10 @@ class profesorForm(forms.ModelForm):
     
     class Meta:
         model = Profesor
-        fields = ('dni','nombreyapellido','fecha_nacimiento','telefono','sexo','domicilio','titulo','fechaIngresoTrabajar')
+        fields = ('dni','nombreyapellido','fecha_nacimiento','telefono','sexo','domicilio','titulo','fechaIngresoTrabajar','user')
 
 class estudianteForm(forms.ModelForm):
     
     class Meta:
         model = Estudiante
-        fields = ('dni','nombreyapellido','fecha_nacimiento','telefono','sexo','domicilio','titulo','matricula')
+        fields = ('dni','nombreyapellido','fecha_nacimiento','telefono','sexo','domicilio','titulo','matricula','user')

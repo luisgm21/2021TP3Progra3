@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.urls import path
 from django.urls.resolvers import URLPattern
-from .views import C_pagoEfectivo, C_pagoTarjeta, C_pagoTransferencia, listaCursos,datosCurso,estadisticas,estadoCursos,inscripcion,pago,creacion_curso,edicion_curso,curso_delete
+from .views import C_pagoEfectivo, C_pagoTarjeta, C_pagoTransferencia, evaluar_curso, listaCursos,datosCurso,estadisticas,estadoCursos,inscripcion,pago,creacion_curso,edicion_curso,curso_delete, ventana_ecurso
 
 app_name='cursos'
 
@@ -18,6 +18,8 @@ urlpatterns=[
     path('delete/', curso_delete, name='curso_delete'),
     path('pago/efectivo', C_pagoEfectivo, name='pagoefectivo'),
     path('pago/tarjeta', C_pagoTarjeta, name='pagotarjeta'),
-    path('pago/transferencia', C_pagoTransferencia, name='pagotransferencia')
+    path('pago/transferencia', C_pagoTransferencia, name='pagotransferencia'),
+    path('evaluar/',evaluar_curso,name='evaluar'),
+    path('evaluar/<int:pk>/',ventana_ecurso,name='curso_evaluar')
 
 ] 

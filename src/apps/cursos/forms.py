@@ -14,10 +14,19 @@ class cursoForm(forms.ModelForm):
         datos_validados = super().clean()
         fecha_inicio = datos_validados['fechaini']
         fecha_fin = datos_validados['fechafin']
+        cantmaxalu = datos_validados['cantidadmaxalumnos']
+        cantminalu = datos_validados['cantidadminalumnos']
+        
         if fecha_fin and fecha_inicio > fecha_fin:
             raise ValidationError(
-                {'fecha_inicio': 'La fecha de inicio no puede ser posterior a la fecha fin'}
+                {'fechaini': 'La fecha de inicio no puede ser posterior a la fecha fin'}
             )
+
+        if cantmaxalu < cantminalu:
+            raise ValidationError(
+                {'cantidadminalumnos': 'La cantidad minima de alumnos no puede ser mayor a la cantidad maxima'}
+            )
+   
 
         return datos_validados
 

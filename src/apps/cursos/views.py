@@ -63,6 +63,25 @@ def edicion_curso(request, pk):
         curso_form = cursoForm(instance=Curso)    
     return render(request,'cursos/modificarCurso.html',{'form': curso_form})
 
+def ventana_ecurso(request,pk):
+    Curso = get_object_or_404(curso, pk=pk)
+    return render(request,
+                  'cursos/evaluacionCurso.html',
+                  {'curso': Curso})
+
+def evaluar_curso(request):
+    if request.method == 'POST':
+        if 'id_curso' in request.POST:
+            Curso = get_object_or_404(curso, pk=request.POST['id_curso'])
+            nombre_curso = Curso.nombrecurso
+            Curso.motivo = request.POST['motivo']
+            Curso.estadocurso = request.POST['estadocurso']
+            Curso.save()
+            messages.success(request, 'Se ha eliminado exitosamente el curso {}'.format(nombre_curso))
+        else:
+            messages.error(request, 'Debe indicar qué Programa se desea eliminar')
+    return redirect(reverse('cursos:registroCursos'))
+
 def curso_delete(request):
     if request.method == 'POST':
         if 'id_curso' in request.POST:
@@ -75,8 +94,6 @@ def curso_delete(request):
     return redirect(reverse('cursos:registroCursos'))
 
 #----------------------------------------------------------------------------#
-def tablaCursos(request):
-    return render(request, 'cursos/tablaCursos.html')
 
 def datosCurso(request,pk):
     Curso = get_object_or_404(curso, pk=pk)
@@ -88,7 +105,7 @@ def estadisticas(request):
     return render(request, 'cursos/estadisticas.html') 
 
 def estadoCursos(request):
-    return render(request, 'cursos/estadoCursos.html')   
+    return render(request, 'cursos/estadoCursos.html',{'cursos': curso.objects.all()})   
 def inscripcion(request):
     return render(request, 'cursos/inscripcion.html')   
 def pago(request):
