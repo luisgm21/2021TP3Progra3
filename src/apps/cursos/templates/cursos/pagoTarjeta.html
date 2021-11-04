@@ -4,6 +4,7 @@
 {% block contenido %}
 
 <fieldset>
+    <form action="#" method="post">
     <legend>Datos Generales</legend> 
     {{ form.non_field_errors }}   
         <div class="row mb-1">
@@ -76,8 +77,9 @@
                     <label class="form-label " for="{{ form.codSeguridad.id_for_label }}">Codigo de Seguridad</label>
                     {{ form.codSeguridad }}                
                 </div>   
-            </div>
-           
+            </div> 
+            <input class="btn-success mt-2 mb-2" type="submit" value="Abonar Pago">   
+        </form>   
         </fieldset>br>
 
 
