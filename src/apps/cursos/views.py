@@ -43,7 +43,7 @@ def creacion_curso(request):
             nuevo_curso = curso_form.save(commit=True)
             messages.success(request,
                              'Se ha agregado correctamente el Programa {}'.format(nuevo_curso))
-            return redirect(reverse('cursos:registroCursos'))
+            return redirect(reverse('cursos:estadoCursos'))
     else:
         curso_form = cursoForm()    
     return render(request,'cursos/formcrearcurso.html',{'form': curso_form})

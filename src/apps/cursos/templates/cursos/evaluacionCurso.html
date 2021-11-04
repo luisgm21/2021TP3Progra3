@@ -6,91 +6,103 @@
 <main>  
     <div class=" container" >    
         <fieldset >
-            <div class="row g-3 col-11 ">
-                <div class="col-sm-3">
-                    <label for="nombreCurso" class="col-form-label "> Nombre del Curso: </label>
+            <div class="row g-3 col-12 ">
+                <div class="col-sm-6"style="text-align:center">
+                    <label for="nombreCurso" > Nombre del Curso: </label>
                 </div>
-                <div class="col-sm-8">                        
-                    <p class="col-form-label "> {{curso.nombrecurso}} </p>
-                </div>                   
-                <div class="col-sm-3">
+                <div class="col-sm-6 ">                        
+                    <p > {{curso.nombrecurso}} </p>
+                </div><hr class="dropdown-divider  ">                   
+                <div class="col-sm-6"style="text-align:center">
                     <label for="objetivo" class="col-form-label">Objetivo General </label>
                 </div>  
-                <div class="col-sm-8 col-12">   
+                <div class="col-sm-6">   
                     <p class="col-form-label">{{curso.objetivogeneral}}</p>
-                </div>  
-                <div class="col-sm-3">
+                </div>  <hr class="dropdown-divider  ">
+                <div class="col-sm-6"style="text-align:center">
                     <label for="costo" class="form-label">Costo:</label>                       
                 </div>
-                <div class="col-sm-8 col-12">
-                    <p class="border">{{curso.costo}}</p>
-                </div>
-                <div  class="col-sm-3">
+                <div class="col-sm-6">
+                    <p>{{curso.costo}}</p>
+                </div><hr class="dropdown-divider  ">
+                <div  class="col-sm-6"style="text-align:center">
                     <label for="modalidad" class="form-label "  >Modalidad del Curso:</label>                      
                 </div>
-                <div class="col-sm-8 col-12">
-                    <p class="border"> {{curso.modalidad}} </p>
-                </div>
-                <div class=" col-sm-3">
+                <div class="col-sm-6">
+                    <p > {{curso.modalidad}} </p>
+                </div><hr class="dropdown-divider  ">
+                <div class=" col-sm-6"style="text-align:center">
                     <label for="docentes" class="form-label">Docentes a Cargo:</label>                               
                 </div>
-                <div class="col-sm-8 col-12">
-                    <p class="border">
+                <div class="col-sm-6">
+                    <p >
                         <ul>
                             {% for docente in curso.docentecargo.all %}
                                 <li>{{ docente.nombreyapellido }}</li>
                             {% endfor %}
                         </ul>
                     </p>
-                </div>
-                <div class="col-sm-3">
+                </div><hr class="dropdown-divider  ">
+                <div class="col-sm-6"style="text-align:center">
                     <label for="honorarios" class="form-label">honorarios</label>                      
                 </div>
-                <div class="col-sm-8 col-12">
-                    <p class="border"> MMMMMM </p>
-                </div>
-                <div class="  col-sm-3 ">
+                <div class="col-sm-6">
+                    <p > MMMMMM </p>
+                </div><hr class="dropdown-divider ">
+                <div class="  col-sm-6 "style="text-align:center">
                     <label for="fechaInicio" class="form-label">Fecha Inicio:</label>                      
                 </div>
-                <div class="col-sm-8 col-12">
-                    <p class="border">{{curso.fechaini}}</p>
-                </div>
-                <div class="col-sm-3">
+                <div class="col-sm-6">
+                    <p >{{curso.fechaini}}</p>
+                </div><hr class="dropdown-divider  ">
+                <div class="col-sm-6"style="text-align:center">
                     <label for="fechaFin" class="form-label">Fecha Fin:</label>                       
                 </div>
-                <div class="col-sm-8 col-12">
-                    <p class="border">{{curso.fechafin}}</p>
-                </div>
-                <div class="col-sm-3 ">
+                <div class="col-sm-6">
+                    <p >{{curso.fechafin}}</p>
+                </div><hr class="dropdown-divider  ">
+                <div class="col-sm-6 "style="text-align:center">
                     <label for="horasCatedra" class="form-label">Horas Catedra:</label>                       
                 </div>
-                <div class="col-sm-8 col-12">
-                    <p class="border">{{curso.horascatedra}}</p>
-                </div>
-                <div class="col-sm-3">
+                <div class="col-sm-6">
+                    <p >{{curso.horascatedra}}</p>
+                </div><hr class="dropdown-divider  ">
+                <div class="col-sm-6"style="text-align:center">
                     <label for="cantMinimaAlum" class="form-label">Cantidad Minima Alumnos</label>                      
                 </div>
-                <div class="col-sm-8 col-12">
-                    <p class="border">{{curso.cantidadminalumnos}}</p>
-                </div>    
-                <div class="col-sm-3">
+                <div class="col-sm-6">
+                    <p >{{curso.cantidadminalumnos}}</p>
+                </div>  <hr class="dropdown-divider  ">  
+                <div class="col-sm-6"style="text-align:center">
                     <label for="cantMaximaAlum" class="form-label">Cantidad Maxima Alumnos</label><br>                       
                 </div>
-                <div class="col-sm-8 col-12">
-                    <p class="border">{{curso.cantidadmaxalumnos}}</p>
-                </div>   
+                <div class="col-sm-6">
+                    <p >{{curso.cantidadmaxalumnos}}</p>
+                </div> <hr class="dropdown-divider  ">  
             </div>  
             <form action="{% url 'cursos:evaluar' %}" method="POST">
                   {% csrf_token %}
-                  <input type="hidden" name="id_curso" value="{{ curso.id }}">
-                  <label for="motivo">Motivo</label>
-                  <textarea name="motivo" id="motivo" cols="30" rows="10"></textarea>
-                  <label for="evaluacioncurso">Evaluar</label>
-                  <select name="estadocurso" id="estadocurso" class="form-select bg-dark " style="color:white">
-                    <option value="#">-</option>
-                    <option value="Aprobado" >Aprobado</option> 
-                    <option value="Desaprobado" >Desaprobado</option>
-                  </select> 
-                  <input class="btn btn-dark border" type="submit" value="Evaluar">
+                <div class="row g-3 col-12 ">
+                    <input type="hidden" name="id_curso" value="{{ curso.id }}">
+                    <div class="col-sm-6"style="text-align:center">              
+                        <label for="motivo" class="form-label">Motivo</label>            
+                    </div>
+                    <div class="col-sm-6 ">
+                        <textarea name="motivo" id="motivo" cols="55" rows="6"></textarea>
+                    </div><hr class="dropdown-divider  ">
+                    <div class="row g-3 ">
+                        <div class=" col-sm-6" style="text-align:center">
+                            <label for="estadocurso" class="form-label">Evaluar</label>
+                        </div>
+                        <div class="col-sm-4">
+                            <select name="estadocurso" id="estadocurso" class="form-select bg-dark " style="color:white">
+                                <option value="#">-</option>
+                                <option value="Aprobado" >Aprobado</option> 
+                                <option value="Desaprobado" >Desaprobado</option>
+                            </select>
+                        </div><div class="col-sm-2"><input class="btn btn-dark border   " type="submit" value="Evaluar"></div> 
+                    </div>
+                   
+                </div>  
             </form>
 {% endblock contenido %}                

@@ -132,7 +132,7 @@ except ImportError:
 # Seguridad
 LOGIN_URL = '/admin/login/'
 
-LOGIN_REDIRECT_URL = '/'
+#LOGIN_REDIRECT_URL = ''
 # # Usuario Personalizado
 # AUTH_USER_MODEL = 'usuarios.Usuario'
 

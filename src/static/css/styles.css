@@ -7,8 +7,14 @@ table thead{
   font-size: 5mm;
   
 }
+textarea{
+    
+    resize: none;
+    
+}
 
-input, textarea, select{
+
+input,textarea,  select{
     border-radius: 2mm;
     outline: 2px solid #1C6EA4;
     outline-offset: 0px;
