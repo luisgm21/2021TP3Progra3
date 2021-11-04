@@ -2,9 +2,11 @@ from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import permission_required
 from apps.cursos.forms import cursoForm, efectivoForm, tarjetaForm, transferenciaForm
 from .models import curso,Inscriptos
 # Create your views here.
+
 
 def listaCursos(request):
     return render(request, 'cursos/tablaCursos.html',
@@ -35,7 +37,7 @@ def listaInscriptos(request):
 #         return redirect(reverse)   
 #     else:
 
-@csrf_exempt
+@permission_required('add_curso',raise_exception=True)
 def creacion_curso(request):
     if (request.method == 'POST'):
         curso_form = cursoForm(request.POST)
@@ -48,7 +50,7 @@ def creacion_curso(request):
         curso_form = cursoForm()    
     return render(request,'cursos/formcrearcurso.html',{'form': curso_form})
 
-@csrf_exempt
+@permission_required('change_curso',raise_exception=True)
 def edicion_curso(request, pk):
     Curso = get_object_or_404(curso, pk = pk)
 
