@@ -7,7 +7,7 @@ from apps.cursos.forms import cursoForm, efectivoForm, tarjetaForm, transferenci
 from .models import curso,Inscriptos
 # Create your views here.
 
-
+@permission_required('view_curso',raise_exception=True)
 def listaCursos(request):
     return render(request, 'cursos/tablaCursos.html',
     {'cursos': curso.objects.all()})
@@ -65,12 +65,20 @@ def edicion_curso(request, pk):
         curso_form = cursoForm(instance=Curso)    
     return render(request,'cursos/modificarCurso.html',{'form': curso_form})
 
+
+@permission_required('view_curso',raise_exception=True)
+@permission_required('change_curso',raise_exception=True)
+@permission_required('delete_curso',raise_exception=True)
 def ventana_ecurso(request,pk):
     Curso = get_object_or_404(curso, pk=pk)
     return render(request,
                   'cursos/evaluacionCurso.html',
                   {'curso': Curso})
 
+
+@permission_required('view_curso',raise_exception=True)
+@permission_required('change_curso',raise_exception=True)
+@permission_required('delete_curso',raise_exception=True)
 def evaluar_curso(request):
     if request.method == 'POST':
         if 'id_curso' in request.POST:
@@ -84,6 +92,9 @@ def evaluar_curso(request):
             messages.error(request, 'Debe indicar qué Programa se desea eliminar')
     return redirect(reverse('cursos:registroCursos'))
 
+
+
+@permission_required('delete_curso',raise_exception=True)
 def curso_delete(request):
     if request.method == 'POST':
         if 'id_curso' in request.POST:
@@ -96,7 +107,7 @@ def curso_delete(request):
     return redirect(reverse('cursos:registroCursos'))
 
 #----------------------------------------------------------------------------#
-
+@permission_required('view_curso',raise_exception=True)
 def datosCurso(request,pk):
     Curso = get_object_or_404(curso, pk=pk)
     return render(request,
@@ -106,8 +117,13 @@ def datosCurso(request,pk):
 def estadisticas(request):
     return render(request, 'cursos/estadisticas.html') 
 
+@permission_required('view_curso',raise_exception=True)
+@permission_required('change_curso',raise_exception=True)
+@permission_required('delete_curso',raise_exception=True)
 def estadoCursos(request):
-    return render(request, 'cursos/estadoCursos.html',{'cursos': curso.objects.all()})   
+    return render(request, 'cursos/estadoCursos.html',{'cursos': curso.objects.all()}) 
+
+  
 def inscripcion(request):
     return render(request, 'cursos/inscripcion.html')   
 def pago(request):
@@ -115,7 +131,7 @@ def pago(request):
 #---------------------------------------------------------------------------------------------#
 
 #----------------------------------------------------------------------------------------------
-@csrf_exempt
+@permission_required('add_pagoefectivo',raise_exception=True)
 def C_pagoEfectivo(request):
     if (request.method == 'POST'):
         efectivo_form = efectivoForm(request.POST)
@@ -128,7 +144,7 @@ def C_pagoEfectivo(request):
         efectivo_form = efectivoForm()    
     return render(request,'cursos/pagoEfectivo.html',{'form': efectivo_form})
 #---------------------------------------------------------------Tarjeta_-------------------------------------
-@csrf_exempt
+@permission_required('add_pagotarjeta',raise_exception=True)
 def C_pagoTarjeta(request):
     if (request.method == 'POST'):
         tarjeta_form = tarjetaForm(request.POST)
@@ -143,7 +159,7 @@ def C_pagoTarjeta(request):
 
 #-----------------------------------------------------------Transferencia-------------------------------
 
-@csrf_exempt
+@permission_required('add_pagotransferencia',raise_exception=True)
 def C_pagoTransferencia(request):
     if (request.method == 'POST'):
         trans_form = transferenciaForm(request.POST)
