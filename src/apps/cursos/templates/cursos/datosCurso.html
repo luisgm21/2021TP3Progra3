@@ -23,19 +23,19 @@
                     <label for="costo" class="form-label">Costo:</label>                       
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border">{{curso.costo}}</p>
+                    <p >{{curso.costo}}</p>
                 </div>
                 <div  class="col-sm-3">
                     <label for="modalidad" class="form-label "  >Modalidad del Curso:</label>                      
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border"> {{curso.modalidad}} </p>
+                    <p > {{curso.modalidad}} </p>
                 </div>
                 <div class=" col-sm-3">
                     <label for="docentes" class="form-label">Docentes a Cargo:</label>                               
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border">
+                    <p>
                         <ul>
                             {% for docente in curso.docentecargo.all %}
                                 <li>{{ docente.nombreyapellido }}</li>
@@ -47,37 +47,37 @@
                     <label for="honorarios" class="form-label">honorarios</label>                      
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border"> {{curso.honorarios}} </p>
+                    <p > {{curso.honorarios}} </p>
                 </div>
                 <div class="  col-sm-3 ">
                     <label for="fechaInicio" class="form-label">Fecha Inicio:</label>                      
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border">{{curso.fechaini}}</p>
+                    <p >{{curso.fechaini}}</p>
                 </div>
                 <div class="col-sm-3">
                     <label for="fechaFin" class="form-label">Fecha Fin:</label>                       
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border">{{curso.fechafin}}</p>
+                    <p >{{curso.fechafin}}</p>
                 </div>
                 <div class="col-sm-3 ">
                     <label for="horasCatedra" class="form-label">Horas Catedra:</label>                       
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border">{{curso.horascatedra}}</p>
+                    <p >{{curso.horascatedra}}</p>
                 </div>
                 <div class="col-sm-3">
                     <label for="cantMinimaAlum" class="form-label">Cantidad Minima Alumnos</label>                      
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border">{{curso.cantidadminalumnos}}</p>
+                    <p >{{curso.cantidadminalumnos}}</p>
                 </div>    
                 <div class="col-sm-3">
                     <label for="cantMaximaAlum" class="form-label">Cantidad Maxima Alumnos</label><br>                       
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border">{{curso.cantidadmaxalumnos}}</p>
+                    <p >{{curso.cantidadmaxalumnos}}</p>
                 </div>   
             </div>  
             <div class="col-10 " > 
@@ -89,6 +89,7 @@
                                 <a class="btn btn-secondary" href="{% url 'cursos:registroCursos' %}">Cancelar</a>
                             {% else %}
                                   <a class="btn btn-primary" href="{% url 'cursos:listaAlumnos' curso.id %}">LISTA</a>
+                                  <a class="btn btn-primary "href="{% url 'cursos:pago' curso.id %}">PAGAR</a>
                             {% endif %}                        
                         {% else %}
                             <a class="btn btn-primary" href="{% url 'cursos:listaAlumnos' curso.id %}">LISTA</a>

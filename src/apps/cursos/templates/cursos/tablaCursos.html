@@ -41,6 +41,7 @@
                   {% csrf_token %}
                   <input type="hidden" name="id_curso" value="{{ curso.id }}">
                   <input class="btn btn-dark border" type="submit" value="Eliminar" onclick="return confirm('¿Está seguro que desea eliminar el registro?');">
+                  
                 </form>
               </td></tr>
             {% endif %}  

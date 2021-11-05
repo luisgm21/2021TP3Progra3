@@ -4,9 +4,9 @@
 {% block contenido %}
 
 <ul>
-    <li><a href="{% url 'cursos:pagoefectivo' %}">Contado</a></li>
-    <li><a href="{% url 'cursos:pagotarjeta' %}">Tarjeta</a></li>
-    <li><a href="{% url 'cursos:pagotransferencia' %}">Transferencia</a></li>
+    <li><a href="{% url 'cursos:pagoefectivo' curso.id %}">Contado</a></li>
+    <li><a href="{% url 'cursos:pagotarjeta' curso.id %}">Tarjeta</a></li>
+    <li><a href="{% url 'cursos:pagotransferencia'  curso.id %}">Transferencia</a></li>
 </ul>
 
 {% endblock %}

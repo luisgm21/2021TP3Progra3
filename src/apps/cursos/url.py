@@ -19,10 +19,10 @@ urlpatterns=[
     path('lista/<int:pk>',listaInscriptos,name='listaAlumnos'),
     path('lista/inscripto/<int:pk>',evaluar_inscripto,name='alumno'),
     path('estadisticas/', estadisticas,name='estadisticas'),
-    path('pago/', pago,name='pago'),
-    path('pago/efectivo', C_pagoEfectivo, name='pagoefectivo'),
-    path('pago/tarjeta', C_pagoTarjeta, name='pagotarjeta'),
-    path('pago/transferencia', C_pagoTransferencia, name='pagotransferencia'),
+    path('pago/<int:pk>', pago,name='pago'),
+    path('pago/efectivo/<int:pk>', C_pagoEfectivo, name='pagoefectivo'),
+    path('pago/tarjeta/<int:pk>', C_pagoTarjeta, name='pagotarjeta'),
+    path('pago/transferencia/<int:pk>', C_pagoTransferencia, name='pagotransferencia'),
 ] 
 
 

@@ -126,11 +126,13 @@ def inscripcion(request):
 
 # ---------------------------------------------------------------------------------------------#
 
-def pago(request):
-    return render(request, 'cursos/seleccionpago.html')
+def pago(request,pk):
+    Curso = get_object_or_404(curso, pk=pk)
+    return render(request, 'cursos/seleccionpago.html',{'curso':Curso})
 
 @permission_required('cursos.add_pagoefectivo', raise_exception=True)
-def C_pagoEfectivo(request):
+def C_pagoEfectivo(request,pk):
+    Curso = get_object_or_404(curso, pk=pk)
     if (request.method == 'POST'):
         efectivo_form = efectivoForm(request.POST)
         if efectivo_form.is_valid():
@@ -139,7 +141,7 @@ def C_pagoEfectivo(request):
                              'Se ha agregado correctamente el Programa {}'.format(nuevo_pagoEfectivo))
             return redirect(reverse('cursos:registroCursos'))
     else:
-        efectivo_form = efectivoForm()
+        efectivo_form = efectivoForm(initial={'curso': Curso.id})
     return render(request, 'cursos/pagoEfectivo.html', {'form': efectivo_form})
 
 
@@ -161,7 +163,10 @@ def C_pagoTarjeta(request):
 # -----------------------------------------------------------Transferencia-------------------------------
 
 @permission_required('cursos.add_pagotransferencia', raise_exception=True)
-def C_pagoTransferencia(request):
+def C_pagoTransferencia(request,pk):
+    Curso = get_object_or_404(curso, pk=pk)
+    ideEstudiante = request.user.estudiante.id
+    Alumno = get_object_or_404(Estudiante, pk=ideEstudiante)
     if (request.method == 'POST'):
         trans_form = transferenciaForm(request.POST)
         if trans_form.is_valid():
@@ -170,8 +175,8 @@ def C_pagoTransferencia(request):
                              'Se ha agregado correctamente el Programa {}'.format(nuevo_pagoTransferencia))
             return redirect(reverse('cursos:registroCursos'))
     else:
-        trans_form = transferenciaForm()
-    return render(request, 'cursos/pagoTarjeta.html', {'form': trans_form})
+        trans_form = transferenciaForm(initial={'curso': Curso.id, 'alumno': Alumno.id})
+    return render(request, 'cursos/pagotransferencia.html', {'form': trans_form})
 
 
 # --------------------------------------------------------------------------------------------------------#

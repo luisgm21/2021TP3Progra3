@@ -2,51 +2,73 @@
 {% block title %}>Pago del curso{% endblock title %}
 {% block titulo %}Pago del curso{% endblock titulo %}
 {% block contenido %}
-
-<fieldset>
+<div class="container">
     <form action="#" method="post">
-    <legend>Datos Generales</legend> 
-    {{ form.non_field_errors }}   
-        <div class="row mb-1">
-            {{ form.formaPago.errors }}
-            <label class="form-label" for="{{ form.formaPago.id_for_label }}">Forma de Pago</label>
-            {{ form.formaPago }}                      
-        </div>
-        
-        <div class="row">
-            {{ form.non_field_errors }}
-            <div class="col-12 col-md-4">
-                {{ form.importe.errors }}
-                <label class="form-label" for="{{ form.importe.id_for_label }}">Importe:</label>
-                {{ form.importe }}    
-            </div>
-            {{ form.non_field_errors }}
-            <div class="col-12 col-md-4">
-                {{ form.numRecibo.errors }}
-                <label class="form-label" for="{{ form.numRecibo.id_for_label }}">Número de Recibo:</label><br>
-                {{ form.numRecibo }}                    
-            </div>
-            {{ form.non_field_errors }}
-            <div class="col-12 col-md-4">
-                {{ form.fecha.errors }}
-                <label class="form-label" for="{{ form.fecha.id_for_label }}">Fecha:</label><br>
-                {{ form.fecha }}                    
-            </div>
-        </div>
-        <div class="row">
-            {{ form.non_field_errors }}
-            <div class="col-12">
-                {{ form.descripcion.errors }}
-                <label class="form-label" for="{{ form.descripcion.id_for_label }}">Descripcion:</label><br>
-                {{ form.descripcion }}                    
-            </div>
-        </div>
         <fieldset>
-        <input class="btn-success mt-2 mb-2" type="submit" value="Abonar Pago">   
-        </fieldset>
-        <br>
+
+
+            <legend>Datos Generales</legend> 
+            {{ form.non_field_errors }}  
+                <div class="row mb-4">
+                    <div class="mb-4 col-lg-7">
+                        {{ form.formaPago.errors }}
+                        <label class="form-label" for="{{ form.formaPago.id_for_label }}">Forma de Pago</label>
+                        {{ form.formaPago }}                      
+                    </div>
+                    {{ form.non_field_errors }}
+                    <div class="col-lg-3">
+                        {{ form.importe.errors }}
+                        <label class="form-label" for="{{ form.importe.id_for_label }}">Importe:</label>
+                        {{ form.importe }}    
+                    </div>
+                </div> 
+                <div class=" row mb-4 justify-content-center  ">
+                    
+                    {{ form.non_field_errors }}
+                    <div class=" col-lg-3">
+                        {{ form.numRecibo.errors }}
+                        <label class="form-label" for="{{ form.numRecibo.id_for_label }}">Número de Recibo:</label><br>
+                        {{ form.numRecibo }}                    
+                    </div>
+                    {{ form.non_field_errors }}
+                    <div class=" col-lg-3">
+                        {{ form.fecha.errors }}
+                        <label class="form-label" for="{{ form.fecha.id_for_label }}">Fecha:</label><br>
+                        {{ form.fecha }}                    
+                    </div>
+                    
+                </div>
+                
+                    {{ form.non_field_errors }}
+                    <div class=" col-lg-7">
+                        {{ form.descripcion.errors }}
+                        <label class="form-label" for="{{ form.descripcion.id_for_label }}">Descripcion:</label>
+                        {{ form.descripcion }}                    
+                    </div>
+
+                    
+                    <div class="row g-4 ">
+                        <div class="col-lg-3">
+                            <label for="CBU">CBU</label>
+                            <p>2458364862518254455326</p>
+                        </div >
+                        <div class="col-lg-3">
+                            <label for="alias">Alias</label>
+                            <p>UNCA</p>
+                        </div>
+                        <div class="col-lg-3">
+                            <label for="banco">Banco</label>
+                            <p>BNA</p>
+                        </div>
+                        
+                    </div>
+        
+                <input class="btn-success mt-2 mb-2" type="submit" value="Abonar Pago">   
+                </fieldset>
+                <br>
+        
     </form>
-</fieldset><br>
+</div>
 
 
 {% endblock %}
