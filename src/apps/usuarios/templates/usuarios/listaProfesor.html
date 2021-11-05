@@ -22,7 +22,9 @@
             <th scope="col">Sexo</th>
             <th scope="col">Domicilio</th>
             <th scope="col">Titulo</th> -->
+            {% if perms.usuarios.add_profesor %}
             <th scope="col">opc</th>
+            {% endif %}
           </tr>
         </thead>  
         <tbody>
@@ -33,13 +35,15 @@
                 <p>{{profesor.dni}}</p>
               </td>
               <td scope="row">{{profesor.titulo}}</td>
-              <td scope="row"><a href="{% url 'usuarios:profesor_edicion' profesor.id %}" class="btn btn-dark border" > Modificar</a> 
-              <form action="{% url 'usuarios:profesor_delete' %}" method="POST">
-                  {% csrf_token %}
-                  <input type="hidden" name="id_profesor" value="{{ profesor.id }}">
-                  <input class="btn btn-dark border" type="submit" value="Eliminar" onclick="return confirm('¿Está seguro que desea eliminar el registro?');">
-                </form>
-              </td>
+              {% if perms.usuarios.add_profesor %}
+                <td scope="row"><a href="{% url 'usuarios:profesor_edicion' profesor.id %}" class="btn btn-dark border" > Modificar</a> 
+                <form action="{% url 'usuarios:profesor_delete' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="id_profesor" value="{{ profesor.id }}">
+                    <input class="btn btn-dark border" type="submit" value="Eliminar" onclick="return confirm('¿Está seguro que desea eliminar el registro?');">
+                  </form>
+                </td>
+              {% endif %}
               </tr> 
           {% endfor%}
         </tbody> 

@@ -1,11 +1,11 @@
 {% extends 'base/base.html' %}
-{% block title %}>Inscripcion{% endblock title %}
-{% block titulo %}Inscripcion{% endblock titulo %}
+{% block title %}>Evaluacion{% endblock title %}
+{% block titulo %}Evaluacion{% endblock titulo %}
 {% block contenido %}
 <div class="container-md " >
       <fieldset>
            <form action="" method="post">
-                <legend>Inscripcion</legend>
+                <legend>Evaluacion</legend>
                     {% for field in form %}
                     <div class="mb-3 row">
                     {{ field.errors }}
@@ -16,7 +16,7 @@
                 
                     {% csrf_token %}
             
-                <input type="submit" class="btn btn-primary" value="Inscribirse" >
+                <input type="submit" class="btn btn-primary" value="Evaluacion" >
                 <input type="button" class="btn btn-secondary" value="Cancelar">
             </form>
 {% endblock contenido %}

@@ -47,7 +47,7 @@
                     <label for="honorarios" class="form-label">honorarios</label>                      
                 </div>
                 <div class="col-sm-8 col-12">
-                    <p class="border"> MMMMMM </p>
+                    <p class="border"> {{curso.honorarios}} </p>
                 </div>
                 <div class="  col-sm-3 ">
                     <label for="fechaInicio" class="form-label">Fecha Inicio:</label>                      
@@ -81,9 +81,18 @@
                 </div>   
             </div>  
             <div class="col-10 " > 
+                
                 {% if curso.estadocurso == 'Aprobado' %}
-                    <input type="submit" class="btn btn-primary" value="inscribirse" >
-                    <input type="button" class="btn btn-secondary" value="Cancelar">
+                        {% if perms.cursos.add_inscriptos %}
+                            {% if bandera == 0 %}
+                                <a class="btn btn-primary" href="{%url 'cursos:inscripcion' curso.id %}">Inscribirse</a>
+                                <a class="btn btn-secondary" href="{% url 'cursos:registroCursos' %}">Cancelar</a>
+                            {% else %}
+                                  <a class="btn btn-primary" href="{% url 'cursos:listaAlumnos' curso.id %}">LISTA</a>
+                            {% endif %}                        
+                        {% else %}
+                            <a class="btn btn-primary" href="{% url 'cursos:listaAlumnos' curso.id %}">LISTA</a>
+                        {% endif %}
                 {% else %}
                   <h3>Motivo</h3>
                   <p>{{curso.motivo}} </p>     

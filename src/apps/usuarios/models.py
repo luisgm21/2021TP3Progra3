@@ -18,10 +18,14 @@ class Persona(models.Model):
     titulo=models.CharField(max_length=40,null=True)
     class Meta:
         abstract = True
+
+    def __str__(self):
+        return self.nombreyapellido
+        
 class Estudiante(Persona):
     matricula= models.CharField(max_length=4,unique=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE,blank=True,null=True,unique=True)
-
+    
 class Profesor(Persona):
     fechaIngresoTrabajar= models.DateField(null=True)
     user = models.OneToOneField(User, on_delete=models.CASCADE,blank=True,null=True,unique=True)

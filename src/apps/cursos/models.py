@@ -39,11 +39,13 @@ class Pago(models.Model):
     #     ('Tarjeta', 'Tarjeta'),
     #     ('Transferencia','Transferencia')
     # )
-    formaPago= models.CharField( max_length=15)
-    importe=models.DecimalField(max_digits=7,decimal_places=2)
-    descripcion=models.TextField(max_length=250)
-    fecha=models.DateTimeField(default= date.today)
-    numRecibo=models.IntegerField(null=True,blank=True)
+    formaPago = models.CharField( max_length=15)
+    importe = models.DecimalField(max_digits=7,decimal_places=2)
+    descripcion = models.TextField(max_length=250)
+    fecha = models.DateTimeField(default= date.today)
+    numRecibo = models.IntegerField(null=True,blank=True)
+    curso = models.OneToOneField(curso, on_delete=models.CASCADE,null=True,blank=True)
+    inscripto = models.OneToOneField(Estudiante, on_delete=models.CASCADE,null=True,blank=True)
     class Meta:
         abstract = True
     
@@ -56,26 +58,26 @@ class PagoTarjeta(Pago):
         ('Debito', 'Debito'),
         ('Credito', 'Credito')    
     )
-    titularTarjeta=models.CharField(max_length=50)
-    numeroTarjeta=models.CharField(max_length=16)
-    tipoTarjeta=models.CharField(choices=PAGO_TARJETA_OPCIONES,max_length=10)
-    codSeguridad=models.CharField(max_length=3)
-    fechaCaducidad=models.DateField(default=date.today)
-    formaPago= models.CharField(default='PagoTarjeta',max_length=100)
+    titularTarjeta = models.CharField(max_length=50)
+    numeroTarjeta = models.CharField(max_length=16)
+    tipoTarjeta = models.CharField(choices=PAGO_TARJETA_OPCIONES,max_length=10)
+    codSeguridad = models.CharField(max_length=3)
+    fechaCaducidad = models.DateField(default=date.today)
+    formaPago = models.CharField(default='PagoTarjeta',max_length=100)
 
 class PagoTransferencia(Pago):
-    CBU=models.CharField(max_length=22)
-    alias=models.CharField(max_length=25)
-    banco=models.CharField(max_length=50)
-    formaPago= models.CharField(default='PagoTransferencia',max_length=100)
+    CBU = models.CharField(max_length=22)
+    alias = models.CharField(max_length=25)
+    banco = models.CharField(max_length=50)
+    formaPago = models.CharField(default='PagoTransferencia',max_length=100)
 
 #-----------------------------------------------------------------------------
 
 class Inscriptos(models.Model):
-    curso=models.ForeignKey(curso, on_delete=models.CASCADE)
-    incriptos= models.ForeignKey(Estudiante, on_delete=models.CASCADE)
-    nota1=models.IntegerField(null=True)
-    nota2=models.IntegerField(null=True)
-    nota3=models.IntegerField(null=True)
-    asistencia= models.CharField(max_length=4)
+    curso = models.OneToOneField(curso, on_delete=models.CASCADE)
+    inscripto = models.OneToOneField(Estudiante, on_delete=models.CASCADE)
+    nota1 = models.IntegerField(null=True,blank=True,default = 0)
+    nota2 = models.IntegerField(null=True,blank=True,default = 0)
+    nota3 = models.IntegerField(null=True,blank=True,default = 0)
+    asistencia = models.CharField(max_length=4, default='100%')
 

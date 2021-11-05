@@ -3,6 +3,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
+from django.contrib.auth.decorators import permission_required
+
 
 from apps.usuarios.models import Estudiante, Profesor
 from .forms import profesorForm,estudianteForm
@@ -12,7 +14,7 @@ def login(request):
     return render(request, 'usuarios/login.html')
 
 
-@csrf_exempt
+@permission_required('usuarios.add_estudiante',raise_exception=True)
 def creacion_estudiante(request):
     if (request.method == 'POST'):
         estudiante_form = estudianteForm(request.POST)
@@ -26,7 +28,7 @@ def creacion_estudiante(request):
     return render(request,'usuarios/crearestudiante.html',{'form': estudiante_form})
 
 
-@csrf_exempt
+@permission_required('usuarios.change_estudiante',raise_exception=True)
 def edicion_alumno(request, pk):
     estudiante = get_object_or_404(Estudiante, pk = pk)
 
@@ -42,6 +44,7 @@ def edicion_alumno(request, pk):
     return render(request,'usuarios/modificarestudiante.html',{'form': estudiante_form})
 
 
+@permission_required('usuarios.delete_estudiante',raise_exception=True)
 def estudiante_delete(request):
     if request.method == 'POST':
         if 'id_alumno' in request.POST:
@@ -53,10 +56,13 @@ def estudiante_delete(request):
             messages.error(request, 'Debe indicar qué estudiante se desea eliminar')
     return redirect(reverse('usuarios:registro_usuario_estudiante'))
 
+@permission_required('usuarios.view_estudiante',raise_exception=True)
 def listaEstudiantes(request):
     return render(request,'usuarios/listaAlumnos.html',
     {'alumnos': Estudiante.objects.all()})
 
+
+@permission_required('usuarios.view_estudiante',raise_exception=True)
 def datosAlumno(request,pk):
     estudiante = get_object_or_404(Estudiante, pk=pk)
     return render(request,
@@ -64,7 +70,7 @@ def datosAlumno(request,pk):
                   {'alumno': estudiante})
 
 #--------------------------------------------------------------------------------------------------------------------------
-@csrf_exempt
+@permission_required('usuarios.add_profesor',raise_exception=True)
 def creacion_profesor(request):
     if (request.method == 'POST'):
         profesor_form = profesorForm(request.POST)
@@ -77,7 +83,7 @@ def creacion_profesor(request):
         profesor_form = profesorForm()    
     return render(request,'usuarios/crearprofesor.html',{'form': profesor_form})
 
-@csrf_exempt
+@permission_required('usuarios.change_profesor',raise_exception=True)
 def edicion_profesor(request, pk):
     profesor = get_object_or_404(Profesor, pk = pk)
 
@@ -92,7 +98,7 @@ def edicion_profesor(request, pk):
         profesor_form = profesorForm(instance=profesor)    
     return render(request,'usuarios/modificarprofesor.html',{'form': profesor_form})
 
-
+@permission_required('usuarios.delete_profesor',raise_exception=True)
 def profesor_delete(request):
     if request.method == 'POST':
         if 'id_profesor' in request.POST:
@@ -104,10 +110,12 @@ def profesor_delete(request):
             messages.error(request, 'Debe indicar qué profesor se desea eliminar')
     return redirect(reverse('usuarios:registro_usuario_profesor'))
 
+@permission_required('usuarios.view_profesor',raise_exception=True)
 def listaProfesores(request):
     return render(request,'usuarios/listaProfesor.html',
     {'profesores': Profesor.objects.all()})
 
+@permission_required('usuarios.view_profesor',raise_exception=True)
 def datosProfesor(request,pk):
     profesor = get_object_or_404(Profesor, pk=pk)
     return render(request,

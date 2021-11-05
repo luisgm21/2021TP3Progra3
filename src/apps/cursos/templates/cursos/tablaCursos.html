@@ -22,7 +22,7 @@
           </tr>
         </thead>  
         <tbody>
-          {% for curso in cursos%}
+          {% for curso in cursos %}
             {% if curso.estadocurso != 'En Revision'%}
             <tr>
               <td scope="row"><a href="{% url 'cursos:cursoDetalle' curso.id %}">{{curso.nombrecurso}}</a></td>
@@ -44,13 +44,14 @@
                 </form>
               </td></tr>
             {% endif %}  
-          {% endfor%}
+          {% endfor %}
         </tbody> 
       </table>
     </div>
   </div>   
-  <!-- {{request.resolver_match.view_name}} -->
   
-{% endblock contenido %}
+  {% comment %} Ejemplo <p>Hola  {{request.user.estudiante.nombreyapellido}}</p> {% endcomment %}
+  {% comment %} {{request.user.estudiante.nombreyapellido}} {% endcomment %}
+{% endblock %}
 
  

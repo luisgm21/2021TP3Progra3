@@ -1,8 +1,9 @@
 from django import forms
 
 from django.core.exceptions import ValidationError
+from django.db.models import fields
 
-from apps.cursos.models import PagoEfectivo, PagoTarjeta, PagoTransferencia, curso 
+from apps.cursos.models import Inscriptos, PagoEfectivo, PagoTarjeta, PagoTransferencia, curso 
 
 class cursoForm(forms.ModelForm):
     
@@ -50,4 +51,7 @@ class transferenciaForm(forms.ModelForm):
         model = PagoTransferencia
         fields = ("formaPago","importe","descripcion","fecha","numRecibo","CBU","alias","banco")        
 
-
+class inscripcionForm(forms.ModelForm):
+    class Meta:
+        model = Inscriptos
+        fields = ("curso","inscripto","nota1","nota2","nota3","asistencia")

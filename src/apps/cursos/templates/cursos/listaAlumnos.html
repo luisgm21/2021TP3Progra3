@@ -1,10 +1,17 @@
 {% extends 'base/base.html' %}
 {% load static %}
-{% block title %}Detalle Curso{% endblock title %}Home
-{% block titulo %}Detalle Curso{% endblock titulo %}
-{% block contenido %}
+{% block title %}Listas de alumnos{% endblock title %}
+{% block titulo %}Lista de alumnos del Curso: {{curso.nombrecurso}}{% endblock titulo %}
+{% if messages %}
+        {% for message in messages %}
+            {% if message.tags == 'success' %}  <div class="message" role="status">{{ message }}</div>{% endif %}
+            {% if message.tags == 'error' %}  <div class="errors" role="alert">{{ message }}</div>{% endif %}
+        {% endfor %}
+{% endif %}  
 {% block contenido  %}
 <div class="container">
+        {% if perms.cursos.change_inscriptos %}
+        {% endif %}
         <div class="table-responsive-lg">
             <table  class="table-dark table-hover; table table-bordered  table-sm  align-middle" >
                 <thead >
@@ -15,17 +22,28 @@
                         <th scope="col">Nota 2</th>
                         <th scope="col">Nota 3</th>
                         <th scope="col">Asistencia(%)</th>
+                        {% if perms.cursos.change_inscriptos %}
+                            <th scope="col">Accion</th>
+                        {% endif %}
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>01380</td>
-                        <td>Marcelo</td> 
-                        <td>2</td>
-                        <td>5</td>
-                        <td>7</td>
-                        <td>80</td>
-                    </tr>
+                    {% for alumno  in alumnos %}
+                     {% if alumno.curso.id == curso.id %}
+                        <tr>
+                            <td scope="row" >{{alumno.inscripto.matricula}}</td>
+                            <td scope="row">{{alumno.inscripto.nombreyapellido}}</td> 
+                            <td scope="row">{{alumno.nota1}}</td>
+                            <td scope="row">{{alumno.nota2}}</td>
+                            <td scope="row">{{alumno.nota3}}</td>
+                            <td scope="row">{{alumno.asistencia}}</td>
+                            {% if perms.cursos.change_inscriptos %}
+                            <td scope="row"><a href="{% url 'cursos:alumno' alumno.id  %}" class="btn btn-dark border" >Evaluar</a>
+                            {% endif %} 
+                        </tr>
+                     {% endif %}
+                                          
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
