@@ -44,8 +44,8 @@ class Pago(models.Model):
     descripcion = models.TextField(max_length=250)
     fecha = models.DateTimeField(default= date.today)
     numRecibo = models.IntegerField(null=True,blank=True)
-    curso = models.OneToOneField(curso, on_delete=models.CASCADE,null=True,blank=True)
-    inscripto = models.OneToOneField(Estudiante, on_delete=models.CASCADE,null=True,blank=True)
+    curso = models.ForeignKey(curso, on_delete=models.CASCADE,null=True,blank=True)
+    inscripto = models.ForeignKey(Estudiante, on_delete=models.CASCADE,null=True,blank=True)
     class Meta:
         abstract = True
     
@@ -74,8 +74,8 @@ class PagoTransferencia(Pago):
 #-----------------------------------------------------------------------------
 
 class Inscriptos(models.Model):
-    curso = models.OneToOneField(curso, on_delete=models.CASCADE)
-    inscripto = models.OneToOneField(Estudiante, on_delete=models.CASCADE)
+    curso = models.ForeignKey(curso, on_delete=models.CASCADE)
+    inscripto = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
     nota1 = models.IntegerField(null=True,blank=True,default = 0)
     nota2 = models.IntegerField(null=True,blank=True,default = 0)
     nota3 = models.IntegerField(null=True,blank=True,default = 0)

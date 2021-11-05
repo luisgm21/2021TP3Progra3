@@ -1,4 +1,5 @@
 #Ignorar carpeta de vscode
 .vscode
+.idea
 configuraciones_locales.py
 __pycache__

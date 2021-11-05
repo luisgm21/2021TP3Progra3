@@ -97,8 +97,8 @@ def datosCurso(request, pk):
     listaIns = Inscriptos.objects.all()
     if(request.user.first_name == 'Alumno'):
         if(request.user.estudiante.id):
-            for inscripto in listaIns:
-                if(request.user.estudiante.id == inscripto.id):
+            for estudiante in listaIns:
+                if(request.user.estudiante.id == estudiante.inscripto.id and Curso.id == estudiante.curso.id):
                     bandera = 1
                     break
 
