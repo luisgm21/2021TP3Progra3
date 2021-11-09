@@ -84,7 +84,8 @@
                             <label class="form-label " for="{{ form.codSeguridad.id_for_label }}">Codigo de Seguridad</label>
                             {{ form.codSeguridad }}                
                         </div>   
-                    </div> 
+                    </div>
+                    {% csrf_token %} 
                     <input class="btn-primary mt-4 col-3" type="submit" value="Abonar Pago">   
                 </form>   
             </fieldset>
