@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from django.urls import path
 from django.urls.resolvers import URLPattern
-from .views import C_pagoEfectivo, C_pagoTarjeta, C_pagoTransferencia, comprobantePago, comprobantePagoB, comprobantePagoT, evaluar_curso, evaluar_inscripto, inscripcion_curso, listaCursos,datosCurso,estadisticas,estadoCursos,inscripcion, listaInscriptos,pago,creacion_curso,edicion_curso,curso_delete, ventana_ecurso
+from .views import C_pagoEfectivo, C_pagoTarjeta, C_pagoTransferencia, comprobantePago, comprobantePagoB, comprobantePagoT, estadisticas_1, estadisticas_2, evaluar_curso, evaluar_inscripto, inscripcion_curso, listaCursos,datosCurso,estadisticas,estadoCursos,inscripcion, listaInscriptos,pago,creacion_curso,edicion_curso,curso_delete, ventana_ecurso
 
 app_name='cursos'
 
@@ -25,7 +25,9 @@ urlpatterns=[
     path('pago/transferencia/<int:pk>', C_pagoTransferencia, name='pagotransferencia'),
     path('pago/comprobante/<int:pk>', comprobantePago, name='comprobante_pago'),
     path('pago/comprobanteT/<int:pk>', comprobantePagoT, name='comprobante_pagoT'),
-    path('pago/comprobanteB/<int:pk>', comprobantePagoB, name='comprobante_pagoB')
+    path('pago/comprobanteB/<int:pk>', comprobantePagoB, name='comprobante_pagoB'),
+    path('Estadisticas/A',estadisticas_1,name='Estadistica1'),
+    path('Estadisticas/B',estadisticas_2,name='Estadistica2')
 ] 
 
 

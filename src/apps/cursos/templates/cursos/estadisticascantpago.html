@@ -1,0 +1,27 @@
+{% extends 'base/base.html' %}
+{% block title %}Estadisticas Inscriptos Curso{% endblock title %}
+{% block titulo %}Estadisticas Inscriptos Curso{% endblock titulo %}
+{% block contenido %}
+  <fieldset>
+    <table class="table-dark table-hover; table table-bordered"  >
+        <thead>
+            <tr >
+                <th scope="col">Nombre Curso</th>
+                <th scope="col">Cantidad Abonados</th>
+                <th scope="col">Cantidad Deudores</th>   
+            </tr>
+        </thead>
+        <tbody>
+           
+                {% for curso in cursos %}
+                    <tr>
+                        <td scope="row">{{curso.nombrecurso}}</td>
+                        <td scope="row">{{curso.cantP}}</td>
+                        <td scope="row">{{curso.cantD}}</td>
+                    </tr>
+                {% endfor %}
+               
+        </tbody>
+        </table>
+  </fieldset>
+{% endblock contenido %}

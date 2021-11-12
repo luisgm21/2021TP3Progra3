@@ -4,7 +4,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import permission_required
-from apps.cursos.forms import cursoForm, efectivoForm, inscripcionForm, tarjetaForm, transferenciaForm
+from apps.cursos.forms import cursoForm, efectivoForm, estadisticaForm, inscripcionForm, tarjetaForm, transferenciaForm
 from apps.usuarios.forms import estudianteForm
 from apps.usuarios.models import Estudiante
 from .models import PagoEfectivo, PagoTarjeta, PagoTransferencia, curso, Inscriptos,Pago
@@ -94,9 +94,15 @@ def curso_delete(request):
 @permission_required('cursos.view_curso', raise_exception=True)
 def datosCurso(request, pk):
     bandera = 0;
+    pago = False
+   
     Curso = get_object_or_404(curso, pk=pk)
     listaIns = Inscriptos.objects.all()
     if(request.user.first_name.lower() == 'alumno'):
+        inscripto = Inscriptos.objects.filter(pk=request.user.estudiante.id, curso= Curso.id)
+        if(not inscripto):
+            pago=True
+            
         if(request.user.estudiante.id):
             for estudiante in listaIns:
                 if(request.user.estudiante.id == estudiante.inscripto.id and Curso.id == estudiante.curso.id):
@@ -105,13 +111,46 @@ def datosCurso(request, pk):
 
     return render(request,
                   'cursos/datosCurso.html',
-                  {'curso': Curso,'bandera': bandera})
+                  {'curso': Curso,'bandera': bandera,'pago':pago})
 
-
+#----------------------------------------------------------------------------------------------------------------------------
 def estadisticas(request):
-    return render(request, 'cursos/estadisticas.html')
+    return render(request, 'cursos/estadisticas.html', {'cursos':curso.objects.all()})
+    
+
+def estadisticas_1(request):
+    #if request.method == 'POST':
+            Cursos = curso.objects.all()
+            #Curso = get_object_or_404(curso,pk=request.POST['id_curso'])
+            
+            #cantinscriptos = []
+            for data in Cursos:
+                #cantinscriptos.append(len(Inscriptos.objects.filter(curso = data.id)))
+                data.cant = len(Inscriptos.objects.filter(curso = data.id))
+                 
+            #print(cantinscriptos)
+            return render(request,'cursos/estadisticascantinscriptos.html',{'cursos':Cursos})
+            # nombre_curso = Curso.nombrecurso
+            # Curso.delete()
+            # messages.success(request, 'Se ha eliminado exitosamente el curso {}'.format(nombre_curso))
+        # else:
+            # messages.error(request, 'Debe indicar qué Programa se desea eliminar')
+
+def estadisticas_2(request):
+    Cursos = curso.objects.all()
+    
+    for data in Cursos:
+        data.cant = len(Inscriptos.objects.filter(curso = data.id))
+        data.cantP= len(PagoEfectivo.objects.filter(curso = data.id)) + len(PagoTarjeta.objects.filter(curso = data.id)) + len(PagoTransferencia.objects.filter(curso = data.id)) 
+        data.cantD= data.cant - data.cantP
+    
+    return render(request,'cursos/estadisticascantpago.html',{'cursos':Cursos})    
 
 
+
+def estadisticas_3(request):
+    pass
+#--------------------------------------------------------------------------------------------------------------------------------
 @permission_required('cursos.view_curso', raise_exception=True)
 @permission_required('cursos.change_curso', raise_exception=True)
 @permission_required('cursos.delete_curso', raise_exception=True)
@@ -126,7 +165,9 @@ def inscripcion(request):
 
 
 # ---------------------------------------------------------------------------------------------#
-
+@permission_required('cursos.add_pagoefectivo', raise_exception=True)
+@permission_required('cursos.add_pagotarjeta', raise_exception=True)
+@permission_required('cursos.add_pagotarjeta', raise_exception=True)
 def pago(request,pk):
     Curso = get_object_or_404(curso, pk=pk)
     return render(request, 'cursos/seleccionpago.html',{'curso':Curso})
@@ -206,7 +247,7 @@ def inscripcion_curso(request, pk):
 def listaInscriptos(request,pk):
     Curso = get_object_or_404(curso, pk=pk)
     return render(request, 'cursos/listaAlumnos.html',
-                  {'alumnos': Inscriptos.objects.all() ,'curso': Curso})
+                  {'alumnos': Inscriptos.objects.filter(curso = Curso) ,'curso': Curso})
 
 @permission_required('cursos.change_inscriptos',raise_exception=True)
 def evaluar_inscripto(request, pk):

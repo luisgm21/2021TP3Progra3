@@ -29,7 +29,7 @@
                 </thead>
                 <tbody>
                     {% for alumno  in alumnos %}
-                     {% if alumno.curso.id == curso.id %}
+                     
                         <tr>
                             <td scope="row" >{{alumno.inscripto.matricula}}</td>
                             <td scope="row">{{alumno.inscripto.nombreyapellido}}</td> 
@@ -41,7 +41,7 @@
                             <td scope="row"><a href="{% url 'cursos:alumno' alumno.id  %}" class="btn btn-dark border" >Evaluar</a>
                             {% endif %} 
                         </tr>
-                     {% endif %}
+                     
                                           
                     {% endfor %}
                 </tbody>

@@ -8,6 +8,24 @@
 <div class="container">
     <h1>Estadisticas del sitio</h1>
     <img  class='img-fluid' src="{% static 'image/images.jpg' %}" alt="Estadisticas" height="200" width="400">
+    {% comment %} <fieldset>
+        <form action="{% url 'cursos:Estadistica1' %}" method="POST">
+                        {% csrf_token %}
+                        
+                        <select name="id_curso" required="" id="id_curso">
+                            <option value="" selected="">---------</option>
+                            {% for curso in cursos %}
+                            <option value="{{curso.id}}">{{curso.nombrecurso}}</option>
+                            {% endfor %}
+                        </select>
+                        <input class="btn btn-dark border" type="submit" value="Estadisticas">
+        </form>
+    </fieldset> {% endcomment %}
+    <fieldset>
+        <a class="btn btn-dark border" href="{% url 'cursos:Estadistica1' %}">Estadistica Cantidad de Inscriptos por Curso</a>
+        <a class="btn btn-dark border" href="{% url 'cursos:Estadistica2' %}">Estadistica Cantidad de Pagos</a>
+    </fieldset>
 </div>
+
 
 {% endblock contenido %}

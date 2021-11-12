@@ -4,7 +4,7 @@ from django.core.exceptions import ValidationError
 from django.db.models import fields
 from django.forms.widgets import DateInput
 
-from apps.cursos.models import Inscriptos, PagoEfectivo, PagoTarjeta, PagoTransferencia, curso 
+from apps.cursos.models import Estadistica, Inscriptos, PagoEfectivo, PagoTarjeta, PagoTransferencia, curso 
 
 class cursoForm(forms.ModelForm):
     
@@ -56,3 +56,8 @@ class inscripcionForm(forms.ModelForm):
     class Meta:
         model = Inscriptos
         fields = ("curso","inscripto","nota1","nota2","nota3","asistencia")
+
+class estadisticaForm(forms.ModelForm):
+    class Meta:
+        model = Estadistica
+        fields = ('curso',)
