@@ -111,10 +111,22 @@ div{
     overflow: hidden;
 } */
 
-  .content {
+.content {
     margin: 0;
     padding: 0%;
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.2s ease-out;
   }
+
+div.message {
+    background-color: #ccf5ff;
+    border: 1px solid #cccccc;
+    padding: 10px;
+}
+
+div.error {
+    background-color: #ffb3b3;
+    border: 1px solid #cccccc;
+    padding: 10px;
+}

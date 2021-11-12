@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.decorators import login_required, permission_required
 from apps.cursos.forms import cursoForm, efectivoForm, estadisticaForm, inscripcionForm, tarjetaForm, transferenciaForm
 from apps.usuarios.forms import estudianteForm
 from apps.usuarios.models import Estudiante
@@ -25,7 +25,7 @@ def creacion_curso(request):
         if curso_form.is_valid():
             nuevo_curso = curso_form.save(commit=True)
             messages.success(request,
-                             'Se ha agregado correctamente el Programa {}'.format(nuevo_curso))
+                             'Se ha agregado correctamente el Curso {}'.format(nuevo_curso))
             return redirect(reverse('cursos:estadoCursos'))
     else:
         curso_form = cursoForm()
@@ -71,9 +71,9 @@ def evaluar_curso(request):
             Curso.motivo = request.POST['motivo']
             Curso.estadocurso = request.POST['estadocurso']
             Curso.save()
-            messages.success(request, 'Se ha eliminado exitosamente el curso {}'.format(nombre_curso))
+            messages.success(request, 'Se ha evaluado exitosamente el curso {}'.format(nombre_curso))
         else:
-            messages.error(request, 'Debe indicar qué Programa se desea eliminar')
+            messages.error(request, 'Debe indicar qué curso desea evaluar')
     return redirect(reverse('cursos:registroCursos'))
 
 
@@ -86,7 +86,7 @@ def curso_delete(request):
             Curso.delete()
             messages.success(request, 'Se ha eliminado exitosamente el curso {}'.format(nombre_curso))
         else:
-            messages.error(request, 'Debe indicar qué Programa se desea eliminar')
+            messages.error(request, 'Debe indicar qué curso se desea eliminar')
     return redirect(reverse('cursos:registroCursos'))
 
 
@@ -99,8 +99,10 @@ def datosCurso(request, pk):
     Curso = get_object_or_404(curso, pk=pk)
     listaIns = Inscriptos.objects.all()
     if(request.user.first_name.lower() == 'alumno'):
-        inscripto = Inscriptos.objects.filter(pk=request.user.estudiante.id, curso= Curso.id)
-        if(not inscripto):
+        pagoefectivo = PagoEfectivo.objects.filter(inscripto=request.user.estudiante.id, curso= Curso.id)
+        pagotarjeta = PagoTarjeta.objects.filter(inscripto=request.user.estudiante.id, curso= Curso.id)
+        pagotransferencia =PagoTransferencia.objects.filter(inscripto=request.user.estudiante.id, curso= Curso.id)
+        if(pagoefectivo or pagotarjeta or pagotransferencia):
             pago=True
             
         if(request.user.estudiante.id):
@@ -114,10 +116,11 @@ def datosCurso(request, pk):
                   {'curso': Curso,'bandera': bandera,'pago':pago})
 
 #----------------------------------------------------------------------------------------------------------------------------
+@login_required
 def estadisticas(request):
     return render(request, 'cursos/estadisticas.html', {'cursos':curso.objects.all()})
     
-
+@login_required
 def estadisticas_1(request):
     #if request.method == 'POST':
             Cursos = curso.objects.all()
@@ -135,7 +138,7 @@ def estadisticas_1(request):
             # messages.success(request, 'Se ha eliminado exitosamente el curso {}'.format(nombre_curso))
         # else:
             # messages.error(request, 'Debe indicar qué Programa se desea eliminar')
-
+@login_required
 def estadisticas_2(request):
     Cursos = curso.objects.all()
     
@@ -147,7 +150,7 @@ def estadisticas_2(request):
     return render(request,'cursos/estadisticascantpago.html',{'cursos':Cursos})    
 
 
-
+@login_required
 def estadisticas_3(request):
     if request.method == 'POST':
         fechaini = request.POST.get('id_anioinicio',None)
@@ -191,7 +194,7 @@ def C_pagoEfectivo(request,pk):
         if efectivo_form.is_valid():
             nuevo_pagoEfectivo = efectivo_form.save(commit=True)
             messages.success(request,
-                             'Se ha agregado correctamente el Programa {}'.format(nuevo_pagoEfectivo))
+                             'Se ha agregado correctamente el pagoEfectivo {}'.format(nuevo_pagoEfectivo))
             return redirect(reverse('cursos:comprobante_pago', args={nuevo_pagoEfectivo.id}))
     else:
         efectivo_form = efectivoForm(initial={'curso': Curso.id,'importe':Curso.costo,'inscripto':inscripto.id})
@@ -209,7 +212,7 @@ def C_pagoTarjeta(request,pk):
         if tarjeta_form.is_valid():
             nuevo_pagoTarjeta = tarjeta_form.save(commit=True)
             messages.success(request,
-                             'Se ha agregado correctamente el Programa {}'.format(nuevo_pagoTarjeta))
+                             'Se ha agregado correctamente el pagoTarjeta {}'.format(nuevo_pagoTarjeta))
             return redirect(reverse('cursos:comprobante_pagoT', args={nuevo_pagoTarjeta.id}))
     else:
         tarjeta_form = tarjetaForm(initial={'curso': Curso.id,'importe':Curso.costo,'inscripto':inscripto.id})
@@ -228,7 +231,7 @@ def C_pagoTransferencia(request,pk):
         if trans_form.is_valid():
             nuevo_pagoTransferencia = trans_form.save(commit=True)
             messages.success(request,
-                             'Se ha agregado correctamente el Programa {}'.format(nuevo_pagoTransferencia))
+                             'Se ha agregado correctamente el pagoTransferencia {}'.format(nuevo_pagoTransferencia))
             return redirect(reverse('cursos:comprobante_pagoB', args={nuevo_pagoTransferencia.id}))
     else:
         trans_form = transferenciaForm(initial={'curso': Curso.id,'importe':Curso.costo,'inscripto':inscripto.id})
@@ -268,7 +271,7 @@ def evaluar_inscripto(request, pk):
             inscripto_form.save(commit=True)
             messages.success(request,
                              'Se ha evaluado correctamente el Inscripto con el {}'.format(inscripto))
-            return HttpResponseRedirect(reverse('cursos:listaAlumnos', args=(inscripto.curso.id,)))
+            return redirect(reverse('cursos:listaAlumnos', args={inscripto.curso.id}))
     else:
         inscripto_form = inscripcionForm(instance=inscripto)
     return render(request, 'cursos/evaluarins.html', {'form': inscripto_form})

@@ -1,14 +1,14 @@
 {% extends 'base/base.html' %}
 {% load static %}
 {% block title %}Listas de alumnos{% endblock title %}
-{% block titulo %}Lista de alumnos del Curso: {{curso.nombrecurso}}{% endblock titulo %}
+{% block titulo %}Lista de alumnos del Curso: {{curso.nombrecurso}}{% endblock titulo %} 
+{% block contenido  %}
 {% if messages %}
         {% for message in messages %}
             {% if message.tags == 'success' %}  <div class="message" role="status">{{ message }}</div>{% endif %}
             {% if message.tags == 'error' %}  <div class="errors" role="alert">{{ message }}</div>{% endif %}
         {% endfor %}
-{% endif %}  
-{% block contenido  %}
+{% endif %} 
 <div class="container">
         {% if perms.cursos.change_inscriptos %}
         {% endif %}

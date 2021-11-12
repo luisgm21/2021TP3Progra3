@@ -89,7 +89,7 @@
                                 <a class="btn btn-secondary" href="{% url 'cursos:registroCursos' %}">Cancelar</a>
                             {% else %}
                                   <a class="btn btn-primary" href="{% url 'cursos:listaAlumnos' curso.id %}">LISTA</a>
-                                  {% if pago  %}
+                                  {% if not pago  %}
                                     <a class="btn btn-primary "href="{% url 'cursos:pago' curso.id %}">PAGAR</a>
                                   {% endif %}
                                   

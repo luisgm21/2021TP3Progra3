@@ -81,6 +81,9 @@ class Inscriptos(models.Model):
     nota3 = models.IntegerField(null=True,blank=True,default = 0)
     asistencia = models.CharField(max_length=4, default='100%')
 
+    def __str__(self):
+        return f"El inscripto con el nombre {self.inscripto.nombreyapellido}" 
+
 #Lo agregamos para una posible funcionalidad pero no la usamos
 class Estadistica(models.Model):
     curso = models.ForeignKey(curso,on_delete=models.CASCADE)
