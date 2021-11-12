@@ -96,7 +96,7 @@ def datosCurso(request, pk):
     bandera = 0;
     Curso = get_object_or_404(curso, pk=pk)
     listaIns = Inscriptos.objects.all()
-    if(request.user.first_name == 'alumno'):
+    if(request.user.first_name.lower() == 'alumno'):
         if(request.user.estudiante.id):
             for estudiante in listaIns:
                 if(request.user.estudiante.id == estudiante.inscripto.id and Curso.id == estudiante.curso.id):
@@ -192,15 +192,15 @@ def inscripcion_curso(request, pk):
     ideEstudiante = request.user.estudiante.id
     Alumno = get_object_or_404(Estudiante, pk=ideEstudiante)
     if (request.method == 'POST'):
-        efectivo_form = inscripcionForm(request.POST)
-        if efectivo_form.is_valid():
-            nuevo_pagoEfectivo = efectivo_form.save(commit=True)
+        inscripcion_form = inscripcionForm(request.POST)
+        if inscripcion_form.is_valid():
+            nuevo_pagoEfectivo = inscripcion_form.save(commit=True)
             messages.success(request,
                              'Se ha agregado correctamente el Programa {}'.format(nuevo_pagoEfectivo))
             return redirect(reverse('cursos:registroCursos'))
     else:
-        efectivo_form = inscripcionForm(initial={'curso': Curso.id, 'inscripto': Alumno.id})
-    return render(request, 'cursos/inscripcion.html', {'form': efectivo_form})
+        inscripcion_form = inscripcionForm(initial={'curso': Curso.id, 'inscripto': Alumno.id})
+    return render(request, 'cursos/inscripcion.html', {'form': inscripcion_form})
 
 @permission_required('cursos.view_inscriptos',raise_exception=True)
 def listaInscriptos(request,pk):
@@ -213,15 +213,15 @@ def evaluar_inscripto(request, pk):
     inscripto= get_object_or_404(Inscriptos, pk=pk)
 
     if (request.method == 'POST'):
-        curso_form = inscripcionForm(request.POST, request.FILES, instance=inscripto)
-        if curso_form.is_valid():
-            curso_form.save(commit=True)
+        inscripto_form = inscripcionForm(request.POST, request.FILES, instance=inscripto)
+        if inscripto_form.is_valid():
+            inscripto_form.save(commit=True)
             messages.success(request,
                              'Se ha evaluado correctamente el Inscripto con el {}'.format(inscripto))
             return HttpResponseRedirect(reverse('cursos:listaAlumnos', args=(inscripto.curso.id,)))
     else:
-        curso_form = inscripcionForm(instance=inscripto)
-    return render(request, 'cursos/evaluarins.html', {'form': curso_form})
+        inscripto_form = inscripcionForm(instance=inscripto)
+    return render(request, 'cursos/evaluarins.html', {'form': inscripto_form})
 
 def comprobantePago(request, pk):
     comprobante = get_object_or_404(PagoEfectivo, pk=pk)
