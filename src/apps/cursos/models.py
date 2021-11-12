@@ -24,7 +24,7 @@ class curso(models.Model):
     honorarios = models.DecimalField(max_digits=7,decimal_places=2,null=True,blank=True)
     cantidadminalumnos = models.IntegerField()
     cantidadmaxalumnos = models.IntegerField()
-    fechaini = models.DateField(default= date.today)
+    fechaini = models.DateField()
     fechafin = models.DateField()
     docentecargo = models.ManyToManyField(Profesor)
     estadocurso = models.CharField(max_length=20,default='En Revision', choices=ESTADO_OPCIONES)

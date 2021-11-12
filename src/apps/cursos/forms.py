@@ -11,6 +11,10 @@ class cursoForm(forms.ModelForm):
     class Meta:
         model = curso
         fields = ("nombrecurso","objetivogeneral", "modalidad", "costo" ,"honorarios" ,"horascatedra","cantidadminalumnos","cantidadmaxalumnos","fechaini","fechafin","docentecargo")
+    widgets = {
+            'fechaini': DateInput(format='%Y-%m-%d', attrs={'type': 'date'}),
+            'fechafin': DateInput(format='%Y-%m-%d', attrs={'type': 'date'})
+        }
 
     def clean(self):
         datos_validados = super().clean()

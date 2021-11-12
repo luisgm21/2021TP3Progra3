@@ -1,0 +1,49 @@
+{% extends 'base/base.html' %}
+{% block title %}Estadisticas Inscriptos Curso{% endblock title %}
+{% block titulo %}Estadisticas Inscriptos Curso{% endblock titulo %}
+{% block contenido %}
+
+
+<div class="container">
+    <fieldset>
+    <p style="font-size: 8mm;font-weight: 700; background-color: rgba(173, 216, 230, 0.65);">Cantidad de cursos entre {{fechaini}} y {{fechafin}}</p> 
+        <ul>
+            {% for curso in intervalo %}
+                <li style="font-size: 6mm;font-weight: 400" >{{curso.nombrecurso}}</li>
+            {% endfor %}
+        </ul>
+    </fieldset>
+</div>
+    
+{% comment %} 
+
+<table class="table-dark table-hover; table table-bordered"  >
+    <thead>
+      <tr>
+        <th></th>
+        <th> </th>
+        <th ></th>
+        <th ></th>
+        <th ></th>
+      
+         
+      </tr>
+    </thead>  
+    <tbody>   
+        <tr>
+          <td ></td>
+          
+          <td ></td>
+          <td ></td>
+          <td ></td>
+        
+            
+            
+         
+        </tr>
+
+       
+    </tbody> 
+</table> {% endcomment %}
+
+{% endblock %}

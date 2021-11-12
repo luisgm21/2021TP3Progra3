@@ -149,7 +149,16 @@ def estadisticas_2(request):
 
 
 def estadisticas_3(request):
-    pass
+    if request.method == 'POST':
+        fechaini = request.POST.get('id_anioinicio',None)
+        fechafin = request.POST.get('id_aniofin',None)
+        intervalo= curso.objects.filter(fechaini__range=(fechaini, fechafin))
+    return render (request,'cursos/listaCursosAnio.html',{'intervalo':intervalo,'fechaini':fechaini,'fechafin':fechafin})
+
+  
+        
+    
+    
 #--------------------------------------------------------------------------------------------------------------------------------
 @permission_required('cursos.view_curso', raise_exception=True)
 @permission_required('cursos.change_curso', raise_exception=True)

@@ -24,6 +24,18 @@
     <fieldset>
         <a class="btn btn-dark border" href="{% url 'cursos:Estadistica1' %}">Estadistica Cantidad de Inscriptos por Curso</a>
         <a class="btn btn-dark border" href="{% url 'cursos:Estadistica2' %}">Estadistica Cantidad de Pagos</a>
+        
+        <form action="{% url 'cursos:Estadistica3' %}" method="post">
+            
+            <label for="anioinicio">Año inicio:</label>
+            <input type="date" name="id_anioinicio">
+            <label for="aniofin">Año fin:</label>
+            <input type="date" name="id_aniofin">
+            {% csrf_token %}
+            <input class="btn btn-dark border" type="submit" value="Estadisticas">
+        </form>
+        
+
     </fieldset>
 </div>
 
