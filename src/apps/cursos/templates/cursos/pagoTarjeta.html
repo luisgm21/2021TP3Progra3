@@ -4,7 +4,7 @@
 {% block contenido %}
 <div class="container">
    
-        
+        <form action="#" method="post">
             <fieldset>
                 <legend>Datos Generales</legend> 
                 {{ form.non_field_errors }}  
@@ -13,6 +13,18 @@
                             {{ form.formaPago.errors }}
                             <label class="form-label" for="{{ form.formaPago.id_for_label }}">Forma de Pago</label>
                             {{ form.formaPago }}                      
+                        </div>
+                        {{ form.non_field_errors }}  
+                        <div class="mb-4 col-lg-7">
+                            {{ form.curso.errors }}
+                            <label class="form-label" for="{{ form.curso.id_for_label }}">Curso:</label>
+                            {{ form.curso }}                      
+                        </div>
+                        {{ form.non_field_errors }}  
+                        <div class="mb-4 col-lg-7">
+                            {{ form.inscripto.errors }}
+                            <label class="form-label" for="{{ form.inscripto.id_for_label }}">Inscripto:</label>
+                            {{ form.inscripto }}                      
                         </div>
                         {{ form.non_field_errors }}
                         <div class="col-lg-3">
@@ -48,7 +60,7 @@
             <br>
 
             <fieldset>
-                <form action="#" method="post">
+                
                     <legend>Tarjetas</legend>
                     <div class="row g-4">
                         {{ form.non_field_errors }}
@@ -87,8 +99,9 @@
                     </div>
                     {% csrf_token %} 
                     <input class="btn-primary mt-4 col-3" type="submit" value="Abonar Pago">   
-                </form>   
+               
             </fieldset>
+         </form>   
 </div>
 
 {% endblock %}

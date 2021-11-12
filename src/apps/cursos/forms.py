@@ -2,6 +2,7 @@ from django import forms
 
 from django.core.exceptions import ValidationError
 from django.db.models import fields
+from django.forms.widgets import DateInput
 
 from apps.cursos.models import Inscriptos, PagoEfectivo, PagoTarjeta, PagoTransferencia, curso 
 
@@ -35,21 +36,21 @@ class efectivoForm(forms.ModelForm):
     
     class Meta:
         model = PagoEfectivo
-        fields = ("formaPago","importe","descripcion","fecha","numRecibo","numeroTicket")
+        fields = ("formaPago","importe","descripcion","fecha","numRecibo","numeroTicket","curso","inscripto")
 
 class tarjetaForm(forms.ModelForm):
     
     class Meta:
         model = PagoTarjeta
-        fields = ("formaPago","importe","descripcion","fecha","numRecibo","titularTarjeta","numeroTarjeta","tipoTarjeta","codSeguridad","fechaCaducidad")
+        fields = ("formaPago","importe","descripcion","fecha","numRecibo","titularTarjeta","numeroTarjeta","tipoTarjeta","codSeguridad","fechaCaducidad","curso","inscripto")
 
-
+   
 
 class transferenciaForm(forms.ModelForm):
 
     class Meta:
         model = PagoTransferencia
-        fields = ("formaPago","importe","descripcion","fecha","numRecibo","CBU","alias","banco")        
+        fields = ("formaPago","importe","descripcion","fecha","numRecibo","CBU","alias","banco","curso","inscripto")        
 
 class inscripcionForm(forms.ModelForm):
     class Meta:

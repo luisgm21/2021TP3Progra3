@@ -15,6 +15,18 @@
                         <label class="form-label" for="{{ form.formaPago.id_for_label }}">Forma de Pago</label>
                         {{ form.formaPago }}                      
                     </div>
+                    {{ form.non_field_errors }}  
+                    <div class="mb-4 col-lg-7">
+                        {{ form.curso.errors }}
+                        <label class="form-label" for="{{ form.curso.id_for_label }}">Curso:</label>
+                        {{ form.curso }}                      
+                    </div>
+                    {{ form.non_field_errors }}  
+                    <div class="mb-4 col-lg-7">
+                        {{ form.inscripto.errors }}
+                        <label class="form-label" for="{{ form.inscripto.id_for_label }}">Inscripto:</label>
+                        {{ form.inscripto }}                      
+                    </div>
                     {{ form.non_field_errors }}
                     <div class="col-lg-3">
                         {{ form.importe.errors }}
@@ -48,17 +60,23 @@
 
                     
                     <div class="row g-4 ">
+                        {{ form.non_field_errors }}
                         <div class="col-lg-3">
+                            {{ form.CBU.errors }}
                             <label for="CBU">CBU</label>
-                            <p>2458364862518254455326</p>
+                            {{ form.CBU }}  
                         </div >
+                        {{ form.non_field_errors }}
                         <div class="col-lg-3">
+                            {{ form.alias.errors }}
                             <label for="alias">Alias</label>
-                            <p>UNCA</p>
+                            {{ form.alias }}
                         </div>
+                         {{ form.non_field_errors }}
                         <div class="col-lg-3">
+                        {{ form.banco.errors }}
                             <label for="banco">Banco</label>
-                            <p>BNA</p>
+                             {{ form.banco}}
                         </div>
                         
                     </div>

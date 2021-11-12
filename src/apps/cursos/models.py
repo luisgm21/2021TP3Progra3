@@ -62,7 +62,7 @@ class PagoTarjeta(Pago):
     numeroTarjeta = models.CharField(max_length=16)
     tipoTarjeta = models.CharField(choices=PAGO_TARJETA_OPCIONES,max_length=10)
     codSeguridad = models.CharField(max_length=3)
-    fechaCaducidad = models.DateField(default=date.today)
+    fechaCaducidad = models.DateField()
     formaPago = models.CharField(default='PagoTarjeta',max_length=100)
 
 class PagoTransferencia(Pago):

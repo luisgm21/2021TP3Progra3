@@ -7,7 +7,8 @@ from django.contrib.auth.decorators import permission_required
 from apps.cursos.forms import cursoForm, efectivoForm, inscripcionForm, tarjetaForm, transferenciaForm
 from apps.usuarios.forms import estudianteForm
 from apps.usuarios.models import Estudiante
-from .models import curso, Inscriptos
+from .models import PagoEfectivo, PagoTarjeta, PagoTransferencia, curso, Inscriptos,Pago
+from apps.usuarios.models import Persona
 
 
 # Create your views here.
@@ -95,7 +96,7 @@ def datosCurso(request, pk):
     bandera = 0;
     Curso = get_object_or_404(curso, pk=pk)
     listaIns = Inscriptos.objects.all()
-    if(request.user.first_name == 'Alumno'):
+    if(request.user.first_name == 'alumno'):
         if(request.user.estudiante.id):
             for estudiante in listaIns:
                 if(request.user.estudiante.id == estudiante.inscripto.id and Curso.id == estudiante.curso.id):
@@ -133,31 +134,36 @@ def pago(request,pk):
 @permission_required('cursos.add_pagoefectivo', raise_exception=True)
 def C_pagoEfectivo(request,pk):
     Curso = get_object_or_404(curso, pk=pk)
+    idinscripto = request.user.estudiante.id
+    inscripto = get_object_or_404(Estudiante, pk=idinscripto)
     if (request.method == 'POST'):
         efectivo_form = efectivoForm(request.POST)
         if efectivo_form.is_valid():
             nuevo_pagoEfectivo = efectivo_form.save(commit=True)
             messages.success(request,
                              'Se ha agregado correctamente el Programa {}'.format(nuevo_pagoEfectivo))
-            return redirect(reverse('cursos:registroCursos'))
+            return redirect(reverse('cursos:comprobante_pago', args={nuevo_pagoEfectivo.id}))
     else:
-        efectivo_form = efectivoForm(initial={'curso': Curso.id})
-    return render(request, 'cursos/pagoEfectivo.html', {'form': efectivo_form})
+        efectivo_form = efectivoForm(initial={'curso': Curso.id,'importe':Curso.costo,'inscripto':inscripto.id})
+    return render(request, 'cursos/pagoEfectivo.html', {'form': efectivo_form,'curso':Curso})
 
 
 # ---------------------------------------------------------------Tarjeta_-------------------------------------
 @permission_required('cursos.add_pagotarjeta', raise_exception=True)
-def C_pagoTarjeta(request):
+def C_pagoTarjeta(request,pk):
+    Curso = get_object_or_404(curso, pk=pk)
+    idinscripto = request.user.estudiante.id
+    inscripto = get_object_or_404(Estudiante, pk=idinscripto)
     if (request.method == 'POST'):
         tarjeta_form = tarjetaForm(request.POST)
         if tarjeta_form.is_valid():
             nuevo_pagoTarjeta = tarjeta_form.save(commit=True)
             messages.success(request,
                              'Se ha agregado correctamente el Programa {}'.format(nuevo_pagoTarjeta))
-            return redirect(reverse('cursos:registroCursos'))
+            return redirect(reverse('cursos:comprobante_pagoT', args={nuevo_pagoTarjeta.id}))
     else:
-        tarjeta_form = tarjetaForm()
-    return render(request, 'cursos/pagoTarjeta.html', {'form': tarjeta_form})
+        tarjeta_form = tarjetaForm(initial={'curso': Curso.id,'importe':Curso.costo,'inscripto':inscripto.id})
+    return render(request, 'cursos/pagoTarjeta.html', {'form': tarjeta_form,'curso':Curso})
 
 
 # -----------------------------------------------------------Transferencia-------------------------------
@@ -165,18 +171,18 @@ def C_pagoTarjeta(request):
 @permission_required('cursos.add_pagotransferencia', raise_exception=True)
 def C_pagoTransferencia(request,pk):
     Curso = get_object_or_404(curso, pk=pk)
-    ideEstudiante = request.user.estudiante.id
-    Alumno = get_object_or_404(Estudiante, pk=ideEstudiante)
+    idinscripto = request.user.estudiante.id
+    inscripto = get_object_or_404(Estudiante, pk=idinscripto)
     if (request.method == 'POST'):
         trans_form = transferenciaForm(request.POST)
         if trans_form.is_valid():
             nuevo_pagoTransferencia = trans_form.save(commit=True)
             messages.success(request,
                              'Se ha agregado correctamente el Programa {}'.format(nuevo_pagoTransferencia))
-            return redirect(reverse('cursos:registroCursos'))
+            return redirect(reverse('cursos:comprobante_pagoB', args={nuevo_pagoTransferencia.id}))
     else:
-        trans_form = transferenciaForm(initial={'curso': Curso.id, 'alumno': Alumno.id})
-    return render(request, 'cursos/pagotransferencia.html', {'form': trans_form})
+        trans_form = transferenciaForm(initial={'curso': Curso.id,'importe':Curso.costo,'inscripto':inscripto.id})
+    return render(request, 'cursos/pagotransferencia.html', {'form': trans_form,'curso':Curso})
 
 
 # --------------------------------------------------------------------------------------------------------#
@@ -216,3 +222,21 @@ def evaluar_inscripto(request, pk):
     else:
         curso_form = inscripcionForm(instance=inscripto)
     return render(request, 'cursos/evaluarins.html', {'form': curso_form})
+
+def comprobantePago(request, pk):
+    comprobante = get_object_or_404(PagoEfectivo, pk=pk)
+    return render(request,
+                  'cursos/comprobantePago.html',
+                  {'comprobante': comprobante})
+
+def comprobantePagoT(request, pk):
+    comprobante = get_object_or_404(PagoTarjeta, pk=pk)
+    return render(request,
+                  'cursos/comprobantePagoT.html',
+                  {'comprobante': comprobante})
+
+def comprobantePagoB(request, pk):
+    comprobante = get_object_or_404(PagoTransferencia,pk=pk)
+    return render(request,
+                  'cursos/comprobantePagoB.html',
+                  {'comprobante': comprobante})                  

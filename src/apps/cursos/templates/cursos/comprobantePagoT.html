@@ -1,0 +1,24 @@
+{% extends 'base/base.html' %}
+{% block title %}Comprobante de pago{% endblock title %}
+{% block titulo %}Comprobante de pago{% endblock titulo %}
+{% block contenido %}
+
+
+<div class="container">
+
+    <fieldset style="text-align:center">
+        <p>Nombre Completo: {{comprobante.inscripto.nombreyapellido}}</p>
+        <p>DNI:{{comprobante.inscripto.dni}}</p>
+        <p>Numero de recibo:{{comprobante.numRecibo}}</p>
+        <p>Curso:{{comprobante.curso.nombrecurso}} </p>
+        <p>Importe:{{comprobante.curso.costo}}</p>      
+        <p>fecha:{{comprobante.fecha}}</p>
+        <p>Descripcion:{{comprobante.descripcion}}</p>
+
+    </fieldset>
+</div>
+
+
+
+
+{% endblock  %}
